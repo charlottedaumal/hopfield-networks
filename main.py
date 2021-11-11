@@ -41,6 +41,6 @@ p_t = p0
 for t in range(0, T):
     p_t1 = np.sign(np.dot(W, p_t))
     if np.allclose(p_t1, p_t):
-        print(f"Convergence reached after {t} iterations")
+        print(f"Convergence reached after {t} iteration(s)")
         break
     p_t = p_t1
