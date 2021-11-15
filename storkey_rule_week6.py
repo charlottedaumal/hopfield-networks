@@ -3,6 +3,7 @@ import random as rd
 
 
 def storkey_weights(patterns):
+    """Creates the weight matrix by using the storkey learning rule on given patterns"""
     dimension = patterns.shape[1]
     nb_patterns = patterns.shape[0]
     w = np.zeros(dimension**2).reshape(dimension, dimension)
