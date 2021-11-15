@@ -3,6 +3,7 @@ import random as rd
 
 
 def generate_patterns(num_patterns, pattern_size):
+    """Generates random binary patterns that will be memorized"""
     dimensions = (num_patterns, pattern_size)
     patterns = np.zeros(dimensions).reshape(dimensions)
     for i in range(0, num_patterns):
@@ -11,6 +12,7 @@ def generate_patterns(num_patterns, pattern_size):
 
 
 def perturb_pattern(pattern, num_perturb):
+    """Randomly perturbs a given number of times a pattern (changes the sign of its elements)"""
     counter = 0
     while counter < num_perturb:
         index = rd.choices(np.linspace(0, len(pattern) - 1, len(pattern), dtype=int))
@@ -20,12 +22,14 @@ def perturb_pattern(pattern, num_perturb):
 
 
 def pattern_match(memorized_patterns, pattern):
+    """Verifies if a given pattern is equal to one of the memorized ones"""
     for index in range(0, memorized_patterns.shape[0]):
         if np.allclose(memorized_patterns[index], pattern):
             return index
 
 
 def hebbian_weights(patterns):
+    """Creates the weight matrix by using the hebbian learning rule on given patterns"""
     w = np.zeros(patterns.shape[1]**2).reshape(patterns.shape[1], patterns.shape[1])
     for i in range(0, patterns.shape[1]):
         for j in range(0, patterns.shape[1]):
@@ -38,12 +42,14 @@ def hebbian_weights(patterns):
 
 
 def update(state, weights):
+    """Applies the update rule to a state pattern"""
     vector = np.dot(weights, state)
     vector = np.where(vector >= 0, 1, -1)
     return vector
 
 
 def update_async(state, weights):
+    """Applies the asynchronous update rule to a state pattern"""
     index = rd.choices(np.linspace(0, weights.shape[0] - 1, weights.shape[0], dtype=int))
     state_updated = np.dot(weights[index], state)
     state_updated = np.where(state_updated >= 0, 1, -1)
@@ -51,6 +57,8 @@ def update_async(state, weights):
 
 
 def dynamics(state, weights, max_iter):
+    """Runs the dynamical system from an initial state until convergence
+    or until a maximum number of steps is reached"""
     state_history = [state]
     previous_state = state
     new_state = np.zeros_like(state)
@@ -64,6 +72,8 @@ def dynamics(state, weights, max_iter):
 
 
 def dynamics_async(state, weights, max_iter, convergence_num_iter):
+    """Runs the dynamical system from an initial state until a maximum number
+    of steps is reached or a convergence for a given number of steps is reached"""
     state_history = [state]
     previous_state = state
     nb_iter = 0
