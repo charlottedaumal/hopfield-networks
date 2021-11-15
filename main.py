@@ -44,3 +44,7 @@ for t in range(0, T):
         print(f"Convergence reached after {t} iteration(s)")
         break
     p_t = p_t1
+<<<<<<< HEAD
+
+=======
+>>>>>>> eab36dad8e6d4ce5d35da4773eeba7005d3e53ac
