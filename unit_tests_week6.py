@@ -1,4 +1,5 @@
 from storkey_rule_week6 import *
+from function_week6 import *
 import numpy as np
 
 index_perturbed = 4
