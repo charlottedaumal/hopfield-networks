@@ -1,8 +1,7 @@
 # BIO-210-team-26
 
 Authors:
-ClemenceKiehl
-charlottedaumal
+ClemenceKiehl & charlottedaumal
 
 Files : 
 
