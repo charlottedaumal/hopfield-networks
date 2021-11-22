@@ -4,7 +4,7 @@ import random as rd
 
 def generate_patterns(num_patterns, pattern_size):
     """Generates random binary patterns that will be memorized"""
-    return np.random.choice([-1,1], size=(pattern_number, pattern_size))
+    return np.random.choice([-1,1], size=(num_patterns, pattern_size))
 
 
 def perturb_pattern(pattern, num_perturb):
