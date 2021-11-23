@@ -15,5 +15,5 @@ Here, we will implement the iterative process which allows to retrieve one of th
 Files : 
 
 1) main.py -> file containing the first version of the code and the unit tests
-2) functions.py -> file containing all the functions which are refactoring the code
+2) functions.py -> file containing all the functions of the project
 
