@@ -28,14 +28,10 @@ def pattern_match(memorized_patterns, pattern):
 
 def hebbian_weights(patterns):
     """Creates the weight matrix by using the hebbian learning rule on given patterns"""
-    w = np.zeros(patterns.shape[1]**2).reshape(patterns.shape[1], patterns.shape[1])
-    for i in range(0, patterns.shape[1]):
-        for j in range(0, patterns.shape[1]):
-            if i != j:
-                patterns_sum = 0
-                for z in range(0, patterns.shape[0]):
-                    patterns_sum += patterns[z][i] * patterns[z][j]
-                w[i][j] = (1 / patterns.shape[0]) * patterns_sum
+    w = np.zeros([patterns.shape[1], patterns.shape[1]])
+    for row in range(patterns.shape[0]):
+        w += np.outer(patterns[row],patterns[row]) * 1/patterns.shape[0]
+    np.fill_diagonal(w, 0)
     return w
 
 
@@ -88,22 +84,22 @@ def dynamics_async(state, weights, max_iter, convergence_num_iter):
 
 def storkey_weights(patterns):
     """Creates the weight matrix by using the storkey learning rule on given patterns"""
-    dimension = patterns.shape[1]
-    nb_patterns = patterns.shape[0]
-    w = np.zeros(dimension**2).reshape(dimension, dimension)
-    for mu in range(0, nb_patterns):
-        new_w = np.zeros(dimension**2).reshape(dimension, dimension)
-        for i in range(0, dimension):
-            for j in range(0, dimension):
-                h = np.zeros(dimension**2).reshape(dimension, dimension)
-                for k in range(0, dimension):
-                    if (k != i) and (k != j):
-                        product = w[i][k] * patterns[mu][k]
-                        h[i][j] += product
-                product_patterns = patterns[mu][i] * patterns[mu][j]
-                sub_products_pattern_h = patterns[mu][i] * h[j][i] - patterns[mu][j] * h[i][j]
-                new_w[i][j] = w[i][j] + 1/dimension * (product_patterns - sub_products_pattern_h)
-        w = new_w
+     w = np.zeros([patterns.shape[1], patterns.shape[1]])
+
+    for mu in range(patterns.shape[0]):
+        w_calculation_h = np.copy(w)
+        np.fill_diagonal(w_calculation_h, 0)
+        pattern_calculation_h = np.dot(np.copy(patterns[mu]).reshape(patterns.shape[1],1), np.ones((1, patterns.shape[1])))
+        np.fill_diagonal(pattern_calculation_h, 0)
+        
+        h = np.dot(w_calculation_h, pattern_calculation_h)
+        w += np.outer(np.copy(patterns[mu]), np.copy(patterns[mu])) / patterns.shape[1]   
+
+        product_1 = np.copy(patterns[mu]) * np.copy(h)
+        product_2 = product_1.T
+
+        w -= np.add(product_2, product_1) / patterns.shape[1]
+        
     return w
 
 
