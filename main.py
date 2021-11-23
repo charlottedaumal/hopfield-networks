@@ -77,6 +77,7 @@ if pattern_match(random_patterns, perturbed_pattern) == index_perturbed:
 
 # Unit tests of week7
 
+
 # Energy plotting tests
 
 """creates random patterns, perturbs one of them and stores them in a Hopfield network"""
