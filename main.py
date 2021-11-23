@@ -1,7 +1,7 @@
 # Import of packages/useful files
 import numpy as np
 import random as rd
-from function_week6 import *
+from functions import *
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -75,8 +75,9 @@ if pattern_match(random_patterns, perturbed_pattern) == index_perturbed:
     
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 
-#Unit tests of week7
+# Unit tests of week7
 
+# Energy plotting tests
 
 """creates random patterns, perturbs one of them and stores them in a Hopfield network"""
 index_perturbed = 4
@@ -115,5 +116,34 @@ plt.xlabel("time[s]")
 plt.title("energy-time plot")
 plt.show()
 
+# Visualization tests
 
+"""Initializing the checkerboard, the randome patterns and the perturbed pattern"""
+checkerboard = create_checkerboard(50)
+random_patterns = generate_patterns(50, 2500)
+random_patterns[-1] = checkerboard.flatten()
+perturbed_pattern = perturb_pattern(random_patterns[-1], 1000)
+
+""" Uncomment the part of the test you want to run"""
+
+"""Calculating the weight matrix according to Hebbian rule or Storkey rule"""
+weights_heb = hebbian_weights(random_patterns)
+# weights_sto = storkey_weights(random_patterns)
+updating_state_dynamics = dynamics(perturbed_pattern, weights_heb, 20)
+# updating_state_dynamics_async = dynamics_async(perturbed_pattern, weights_sto, 20000, 3000)
+
+reshaped_updating_state_dynamics = []
+for i in range(len(updating_state_dynamics)):
+    reshaped_updating_state_dynamics.append(updating_state_dynamics[i].reshape(50, 50))
+
+# reduced_updating_state_dynamics_async = updating_state_dynamics_async[::1000].copy()
+# reshaped_updating_state_dynamics_async = []
+# for i in range(len(updating_state_dynamics_async)):
+    # reshaped_updating_state_dynamics_async.append(updating_state_dynamics_async[i].reshape(50, 50))
+
+"""Saving the video in the current directory"""
+save_video(reshaped_updating_state_dynamics, "./video_synchronous_experiment.mp4")
+# save_video(updating_state_dynamics_async, "./video_asynchronous_experiment.mp4")
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
