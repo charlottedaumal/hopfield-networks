@@ -14,6 +14,6 @@ Here, we will implement the iterative process which allows to retrieve one of th
 
 Files : 
 
-1) main.py -> file containing the first version of the code and the unit tests of week6
-2) function_week6 -> file containing all the functions which are refactoring the code of week 5
+1) main.py -> file containing the first version of the code and the unit tests
+2) function_week -> file containing all the functions which are refactoring the code
 
