@@ -1,5 +1,7 @@
 import numpy as np
 import random as rd
+import matplotlib.pyplot as plt
+import matplotlib.animation as anim
 
 
 def generate_patterns(num_patterns, pattern_size):
@@ -113,3 +115,42 @@ def energy(state, weights):
             e += (-1/2 * weights[i][j] * state[i] * state[j])
     return e
 
+
+def create_checkerboard(n):
+    """Function that prints the checkerboard pattern according to a given dimension"""
+
+    # definition of the checkerboard
+    dimension = (n, n)
+    checkerboard = np.zeros(dimension, dtype=int)
+
+    # arranges rows and columns
+    list_numbers = []
+    for k in range(5):
+        for m in range(5):
+            list_numbers.append(m + k * 10)
+
+    for i in range(5):
+        for j in range(n):
+            if (i in list_numbers) and (j in list_numbers):
+                checkerboard[i][j] = 1
+            else:
+                checkerboard[i][j] = -1
+
+    for i in range(5, 50):
+        checkerboard[i] = -checkerboard[i - 5]
+
+    return checkerboard
+
+
+def save_video(state_list, out_path):
+    frames = []
+    fig = plt.figure()
+    writer = anim.writers['ffmpeg']
+    writervideo = writer(fps=15, metadata=dict(artist='Me'), bitrate=1800)
+
+    for state in state_list:
+        frames.append([plt.imshow(state, cmap='Greys')])
+
+    video = anim.ArtistAnimation(fig, frames)
+    video.save(out_path, writer=writervideo)
+    
