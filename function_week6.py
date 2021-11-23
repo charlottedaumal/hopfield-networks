@@ -103,3 +103,13 @@ def storkey_weights(patterns):
                 new_w[i][j] = w[i][j] + 1/dimension * (product_patterns - sub_products_pattern_h)
         w = new_w
     return w
+
+
+def energy(state, weights):
+    """returns the energy value associated to a given pattern"""
+    e = 0
+    for i in range(0, weights.shape[0]):
+        for j in range(0, weights.shape[1]):
+            e += (-1/2 * weights[i][j] * state[i] * state[j])
+    return e
+
