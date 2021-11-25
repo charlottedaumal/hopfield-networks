@@ -11,12 +11,11 @@ def generate_patterns(num_patterns, pattern_size):
 
 def perturb_pattern(pattern, num_perturb):
     """Randomly perturbs a given number of times a pattern (changes the sign of its elements)"""
-    counter = 0
-    while counter < num_perturb:
+    pattern_perturbed = pattern.copy()
+    for i in range(num_perturb):
         index = rd.choices(np.linspace(0, len(pattern) - 1, len(pattern), dtype=int))
-        pattern[index] = -pattern[index]
-        counter += 1
-    return pattern
+        pattern_perturbed[index] = -pattern_perturbed[index]
+    return pattern_perturbed
 
 
 def pattern_match(memorized_patterns, pattern):
@@ -54,13 +53,13 @@ def dynamics(state, weights, max_iter):
     """Runs the dynamical system from an initial state until convergence
     or until a maximum number of steps is reached"""
     state_history = [state]
-    previous_state = state
+    previous_state = state.copy()
     new_state = np.zeros_like(state)
     nb_iter = 0
     while (nb_iter < max_iter) and (previous_state != new_state).any():
         new_state = update(previous_state, weights)
         state_history.append(new_state)
-        previous_state = new_state
+        previous_state = new_state.copy()
         nb_iter += 1
     return state_history
 
@@ -69,13 +68,13 @@ def dynamics_async(state, weights, max_iter, convergence_num_iter):
     """Runs the dynamical system from an initial state until a maximum number
     of steps is reached or a convergence for a given number of steps is reached"""
     state_history = [state]
-    previous_state = state
+    previous_state = state.copy()
     nb_iter = 0
     nb_iter_convergence = 0
     while (nb_iter < max_iter) and (nb_iter_convergence < convergence_num_iter):
         new_state = update(previous_state, weights)
         state_history.append(new_state)
-        previous_state = new_state
+        previous_state = new_state.copy()
         nb_iter += 1
         if np.allclose(previous_state, new_state):
             nb_iter_convergence += 1
@@ -87,15 +86,15 @@ def storkey_weights(patterns):
      w = np.zeros([patterns.shape[1], patterns.shape[1]])
 
     for mu in range(patterns.shape[0]):
-        w_calculation_h = np.copy(w)
+        w_calculation_h = w.copy()
         np.fill_diagonal(w_calculation_h, 0)
-        pattern_calculation_h = np.dot(np.copy(patterns[mu]).reshape(patterns.shape[1],1), np.ones((1, patterns.shape[1])))
+        pattern_calculation_h = np.dot(patterns[mu].copy().reshape(patterns.shape[1],1), np.ones((1, patterns.shape[1])))
         np.fill_diagonal(pattern_calculation_h, 0)
         
         h = np.dot(w_calculation_h, pattern_calculation_h)
-        w += np.outer(np.copy(patterns[mu]), np.copy(patterns[mu])) / patterns.shape[1]   
+        w += np.outer(patterns[mu].copy(), patterns[mu].copy()) / patterns.shape[1]   
 
-        product_1 = np.copy(patterns[mu]) * np.copy(h)
+        product_1 = patterns[mu].copy() * h.copy()
         product_2 = product_1.T
 
         w -= np.add(product_2, product_1) / patterns.shape[1]
