@@ -5,12 +5,39 @@ import matplotlib.animation as anim
 
 
 def generate_patterns(num_patterns, pattern_size):
+    """Generates random binary patterns that will be memorized
+    
+    Parameters:
+    --------------
+    num_patterns:int
+    -> number of patterns we want to generate.
+    pattern_size : int
+    -> size of the patterns we want to generate
+    
+    Output:
+    --------------
+    returns a pattern (2-dimensional numpy array)
+    """
     """Generates random binary patterns that will be memorized"""
+    
     return np.random.choice([-1,1], size=(num_patterns, pattern_size))
 
 
 def perturb_pattern(pattern, num_perturb):
-    """Randomly perturbs a given number of times a pattern (changes the sign of its elements)"""
+    """Randomly perturbs a given number of times a pattern (changes the sign of its elements)
+    
+    Parameters:
+    --------------
+    pattern : array
+    -> pattern we want to be perturbed
+    num_pertub : int
+    -> number of elements from "pattern" we want to be perturbed
+    
+    Output:
+    --------------
+    returns the perturbed pattern (2-dimensional numpy array)
+    """
+    
     pattern_perturbed = pattern.copy()
     for i in range(num_perturb):
         index = rd.choices(np.linspace(0, len(pattern) - 1, len(pattern), dtype=int))
@@ -19,14 +46,38 @@ def perturb_pattern(pattern, num_perturb):
 
 
 def pattern_match(memorized_patterns, pattern):
-    """Verifies if a given pattern is equal to one of the memorized ones"""
+    """Verifies if a given pattern is equal to one of the memorized ones
+    
+    Parameters:
+    --------------
+    memorized_pattern: array
+    -> initially memorized pattern that was generated previously
+    pattern: array
+    -> another pattern to which we will compare the initially memorized pattern
+    
+    Output:
+    --------------
+    returns 'None' if no memorized pattern matchs
+    otherwise, it returns the index of the row corresponding to the matching pattern (an integer).
+    """
+    
     for index in range(0, memorized_patterns.shape[0]):
         if np.allclose(memorized_patterns[index], pattern):
             return index
 
 
 def hebbian_weights(patterns):
-    """Creates the weight matrix by using the hebbian learning rule on given patterns"""
+    """Creates the weight matrix by using the hebbian learning rule on given patterns
+    
+    Parameters:
+    --------------
+    patterns: array
+    -> pattern to which the hebbian learning rule will be applied
+    
+    Output:
+    --------------
+    retuns the weight matrix (a multi-dimensional numpy array)
+    """
     w = np.zeros([patterns.shape[1], patterns.shape[1]])
     for row in range(patterns.shape[0]):
         w += np.outer(patterns[row],patterns[row]) * 1/patterns.shape[0]
@@ -35,14 +86,41 @@ def hebbian_weights(patterns):
 
 
 def update(state, weights):
-    """Applies the update rule to a state pattern"""
+    """Applies the update rule to a state pattern
+    
+    Parameters:
+    --------------
+    state : array
+    -> the network state to which we will apply the update rule
+    weights : array
+    -> weight matrix returned by the function hebbian_weights(patterns)
+    
+    Output:
+    --------------
+    returns the new state updated from the previous one (list of numpy arrays)
+    """
+    
     vector = np.dot(weights, state)
     vector = np.where(vector >= 0, 1, -1)
     return vector
 
 
 def update_async(state, weights):
-    """Applies the asynchronous update rule to a state pattern"""
+    """Applies the asynchronous update rule to a state pattern
+    
+    Parameters:
+    --------------
+    state : array
+    -> the network state to which we will apply the asynchronous update rule
+    weights : array
+    -> weights matrix returned by the function hebbian_weights(patterns)
+    
+    Output:
+    --------------
+    returns the new state updated from the previous one (list of numpy arrays)
+    
+ """
+    
     index = rd.choices(np.linspace(0, weights.shape[0] - 1, weights.shape[0], dtype=int))
     state_updated = np.dot(weights[index], state)
     state_updated = np.where(state_updated >= 0, 1, -1)
@@ -51,7 +129,22 @@ def update_async(state, weights):
 
 def dynamics(state, weights, max_iter):
     """Runs the dynamical system from an initial state until convergence
-    or until a maximum number of steps is reached"""
+    or until a maximum number of steps is reached
+    
+    Parameters:
+    --------------
+    state : array
+    -> initial network state
+    weights : array
+    -> weights matrix returned by the function hebbian_weights(patterns)
+    max_iter : int
+    -> maximum number of steps reached
+    
+    Output:
+    --------------
+    returns the list of the state history 
+    """
+    
     state_history = [state]
     previous_state = state.copy()
     new_state = np.zeros_like(state)
@@ -66,7 +159,24 @@ def dynamics(state, weights, max_iter):
 
 def dynamics_async(state, weights, max_iter, convergence_num_iter):
     """Runs the dynamical system from an initial state until a maximum number
-    of steps is reached or a convergence for a given number of steps is reached"""
+    of steps is reached or a convergence for a given number of steps is reached
+    
+    Parameters:
+    --------------
+    state : array
+    -> initial network state
+    weights : array
+    -> matrix returned by the function hebbian_weights(patterns)
+    max_iter : int
+    -> maximum number of steps reached
+    convergence_num_iter : int
+    -> maximum number of iterations in which the algorithm can reach convergence
+    
+    Output:
+    --------------
+    returns the list of the state history
+    """
+    
     state_history = [state]
     previous_state = state.copy()
     nb_iter = 0
@@ -82,7 +192,19 @@ def dynamics_async(state, weights, max_iter, convergence_num_iter):
 
 
 def storkey_weights(patterns):
-    """Creates the weight matrix by using the storkey learning rule on given patterns"""
+   """Creates the weight matrix by using the storkey learning rule on given patterns
+    
+    Parameters:
+    --------------
+    patterns : array
+    -> pattern to which the storkey learning rule will be applied
+    
+    
+    Output:
+    --------------
+    retuns the weight matrix (a multi-dimensional numpy array)
+    """
+
      w = np.zeros([patterns.shape[1], patterns.shape[1]])
 
     for mu in range(patterns.shape[0]):
@@ -103,7 +225,20 @@ def storkey_weights(patterns):
 
 
 def energy(state, weights):
-    """returns the energy value associated to a given pattern"""
+    """returns the energy value associated to a given pattern
+    
+    Parameters:
+    --------------
+    state : array
+    -> network state composed of patterns to which we will associate energie values
+    weights : array
+    -> weights matrix returned by the function Hebbian_weights(patterns)
+    
+    Output:
+    --------------
+    returns the enery value associated to each patterns of the state
+    """
+    
     e = 0
     for i in range(0, weights.shape[0]):
         for j in range(0, weights.shape[1]):
@@ -112,7 +247,17 @@ def energy(state, weights):
 
 
 def create_checkerboard(n):
-    """Function that prints the checkerboard pattern according to a given dimension"""
+   """Function that prints the checkerboard pattern according to a given dimension
+    
+    Parameters:
+    --------------
+    n : int
+    -> size of the checkerboard 
+    
+    Output :
+    --------------
+    returns the checkerboard (multi-dimensional numpy array)
+    """
 
     # definition of the checkerboard
     dimension = (n, n)
@@ -138,6 +283,19 @@ def create_checkerboard(n):
 
 
 def save_video(state_list, out_path):
+    """ generates a video of the evolution of the system
+    
+    Parameters:
+    --------------
+    state_list : list of arrays
+    -> list of network state
+    out_path : 
+    
+    Output:
+    --------------
+    saves the video
+    """
+    
     frames = []
     fig = plt.figure()
     writer = anim.writers['ffmpeg']
