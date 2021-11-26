@@ -236,7 +236,7 @@ def energy(state, weights):
     
     Output:
     --------------
-    returns the enery value associated to each patterns of the state
+    returns the energy value associated to each patterns of the state
     """
     
     e = 0
