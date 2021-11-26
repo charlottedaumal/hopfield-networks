@@ -7,7 +7,6 @@ from functions import *
 
 # Code of week5
 
-
 """Determination of global parameters"""
 N = 50
 M = 3
@@ -57,7 +56,6 @@ for t in range(0, T):
 
 # Unit tests of week6
 
-
 index_perturbed = 4
 random_patterns = generate_patterns(80, 1000)
 perturbed_pattern = perturb_pattern(random_patterns[index_perturbed], 80)
@@ -76,7 +74,6 @@ if pattern_match(random_patterns, perturbed_pattern) == index_perturbed:
 # ---------------------------------------------------------------------------------------------------------------------------------
 
 # Unit tests of week7
-
 
 # Energy plotting tests
 
