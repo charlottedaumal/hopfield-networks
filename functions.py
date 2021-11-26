@@ -119,10 +119,8 @@ def update_async(state, weights):
     
  """
     
-    index = rd.choices(np.linspace(0, weights.shape[0] - 1, weights.shape[0], dtype=int))
-    state_updated = np.dot(weights[index], state)
-    state_updated = np.where(state_updated >= 0, 1, -1)
-    return state_updated
+   index = rd.choices(np.linspace(0, weights.shape[0] - 1, weights.shape[0], dtype=int))
+   return np.where(np.dot(weights[index], state) >= 0, 1, -1)
 
 
 def dynamics(state, weights, max_iter):
