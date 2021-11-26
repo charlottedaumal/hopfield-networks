@@ -48,6 +48,8 @@ p_t = p0
 for t in range(0, T):
     p_t1 = np.sign(np.dot(W, p_t))
     if np.allclose(p_t1, p_t):
+        print()
+        print("Results of unit tests of week 5 : ")
         print(f"Convergence reached after {t} iteration(s)")
         break
     p_t = p_t1
@@ -67,8 +69,9 @@ perturbed_pattern = perturb_pattern(random_patterns[index_perturbed], 80)
 #updating_state = dynamics_async(perturbed_pattern, weights, 20000, 3000)
 
 """Verifies if the network retrieve the original pattern"""
-print()
 if pattern_match(random_patterns, perturbed_pattern) == index_perturbed:
+    print()
+    print("Results of unit tests of week 6 :")
     print("Pattern recognised")
     
 # ---------------------------------------------------------------------------------------------------------------------------------
