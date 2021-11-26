@@ -30,7 +30,7 @@ def perturb_pattern(pattern, num_perturb):
     --------------
     pattern : array
     -> pattern we want to be perturbed
-    num_pertub : int
+    num_perturb : int
     -> number of elements from "pattern" we want to be perturbed
     
     Output:
@@ -205,7 +205,7 @@ def storkey_weights(patterns):
     retuns the weight matrix (a multi-dimensional numpy array)
     """
 
-     w = np.zeros([patterns.shape[1], patterns.shape[1]])
+    w = np.zeros([patterns.shape[1], patterns.shape[1]])
 
     for mu in range(patterns.shape[0]):
         w_calculation_h = w.copy()
