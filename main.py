@@ -82,22 +82,22 @@ if pattern_match(random_patterns, perturbed_pattern) == index_perturbed:
 
 """creates random patterns, perturbs one of them and stores them in a Hopfield network"""
 index_perturbed = 4
-random_patterns = f.generate_patterns(50, 100)
-perturbed_pattern = f.perturb_pattern(random_patterns[index_perturbed], 10)
+random_patterns = generate_patterns(50, 100)
+perturbed_pattern = perturb_pattern(random_patterns[index_perturbed], 10)
 random_patterns[index_perturbed] = perturbed_pattern
 hopfield_network = random_patterns
 
 
 """using the hebbian rule / with synchronous update rule or asynchronous update rule"""
-weights_h = f.hebbian_weights(hopfield_network)
-state_history_h = f.dynamics(perturbed_pattern, weights_h, 20)
-state_history_h_a = f.dynamics_async(perturbed_pattern, weights_h, 3000, 1000)
+weights_h = hebbian_weights(hopfield_network)
+state_history_h = dynamics(perturbed_pattern, weights_h, 20)
+state_history_h_a = dynamics_async(perturbed_pattern, weights_h, 3000, 1000)
 
 
 """using the storkey rule / with synchronous update rule or asynchronous update rule"""
-weights_s = f_s.storkey_weights(hopfield_network)
-state_history_s = f.dynamics(perturbed_pattern, weights_s, 20)
-state_history_s_a = f.dynamics_async(perturbed_pattern, weights_s, 3000, 1000)
+weights_s = storkey_weights(hopfield_network)
+state_history_s = dynamics(perturbed_pattern, weights_s, 20)
+state_history_s_a = dynamics_async(perturbed_pattern, weights_s, 3000, 1000)
 
 
 """evaluating and comparing the energy of each of the states"""
@@ -106,7 +106,7 @@ state_history_s_a = f.dynamics_async(perturbed_pattern, weights_s, 3000, 1000)
 energy_list = []
 print(len(state_history_s))
 for i in range(0, len(state_history_s)):
-    F = f7.energy(state_history_s[i], weights_s)
+    F = energy(state_history_s[i], weights_s)
     energy_list.append(F)
     print(F)
 
