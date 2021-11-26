@@ -76,7 +76,7 @@ def hebbian_weights(patterns):
     
     Output:
     --------------
-    retuns the weight matrix (a multi-dimensional numpy array)
+    returns the weight matrix (a multi-dimensional numpy array)
     """
     w = np.zeros([patterns.shape[1], patterns.shape[1]])
     for row in range(patterns.shape[0]):
@@ -202,7 +202,7 @@ def storkey_weights(patterns):
     
     Output:
     --------------
-    retuns the weight matrix (a multi-dimensional numpy array)
+    returns the weight matrix (a multi-dimensional numpy array)
     """
 
     w = np.zeros([patterns.shape[1], patterns.shape[1]])
