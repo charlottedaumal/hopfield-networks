@@ -3,7 +3,7 @@ import numpy as np
 import random as rd
 from functions import *
 
------------------------------------------------------------------------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------------------
 
 # Code of week5
 
@@ -53,7 +53,7 @@ for t in range(0, T):
         break
     p_t = p_t1
     
------------------------------------------------------------------------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------------------
 
 # Unit tests of week6
 
@@ -73,7 +73,7 @@ print()
 if pattern_match(random_patterns, perturbed_pattern) == index_perturbed:
     print("Pattern recognised")
     
------------------------------------------------------------------------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------------------
 
 # Unit tests of week7
 
@@ -104,11 +104,9 @@ state_history_s_a = dynamics_async(perturbed_pattern, weights_s, 3000, 1000)
 """trying with state_history_s"""
 
 energy_list = []
-print(len(state_history_s))
 for i in range(0, len(state_history_s)):
     F = energy(state_history_s[i], weights_s)
     energy_list.append(F)
-    print(F)
 
 plt.figure(figsize=(5,7))
 plt.plot(np.arange(0,len(energy_list), step=1), energy_list, 'b')
@@ -146,5 +144,5 @@ for i in range(len(updating_state_dynamics)):
 save_video(reshaped_updating_state_dynamics, "./video_synchronous_experiment.mp4")
 # save_video(updating_state_dynamics_async, "./video_asynchronous_experiment.mp4")
 
------------------------------------------------------------------------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------------------
 
