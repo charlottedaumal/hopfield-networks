@@ -230,7 +230,7 @@ def energy(state, weights):
     Parameters:
     --------------
     state : array
-    -> network state composed of patterns to which we will associate energie values
+    -> network state composed of patterns to which we will associate energy values
     weights : array
     -> weights matrix returned by the function Hebbian_weights(patterns)
     
