@@ -100,9 +100,7 @@ def update(state, weights):
     returns the new state updated from the previous one (list of numpy arrays)
     """
     
-    vector = np.dot(weights, state)
-    vector = np.where(vector >= 0, 1, -1)
-    return vector
+    return np.where(np.dot(weights, state) >= 0, 1, -1)
 
 
 def update_async(state, weights):
