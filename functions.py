@@ -299,11 +299,11 @@ def save_video(state_list, out_path):
     frames = []
     fig = plt.figure()
     writer = anim.writers['ffmpeg']
-    writervideo = writer(fps=15, metadata=dict(artist='Me'), bitrate=1800)
+    writer_video = writer(fps=15, metadata=dict(artist='Me'), bitrate=1800)
 
     for state in state_list:
         frames.append([plt.imshow(state, cmap='Greys')])
 
     video = anim.ArtistAnimation(fig, frames)
-    video.save(out_path, writer=writervideo)
+    video.save(out_path, writer=writer_video)
     
