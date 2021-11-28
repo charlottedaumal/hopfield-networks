@@ -1,6 +1,4 @@
 # Import of packages/useful files
-import numpy as np
-import random as rd
 from functions import *
 
 # ---------------------------------------------------------------------------------------------------------------------------------
