@@ -9,7 +9,7 @@ def generate_patterns(num_patterns, pattern_size):
     
     Parameters:
     --------------
-    num_patterns:int
+    num_patterns : int
     -> number of patterns we want to generate.
     pattern_size : int
     -> size of the patterns we want to generate
@@ -18,7 +18,6 @@ def generate_patterns(num_patterns, pattern_size):
     --------------
     returns a pattern (2-dimensional numpy array)
     """
-    """Generates random binary patterns that will be memorized"""
     
     return np.random.choice([-1,1], size=(num_patterns, pattern_size))
 
