@@ -374,3 +374,10 @@ def save_video(state_list, out_path):
     video = anim.ArtistAnimation(fig, frames)
     video.save(out_path, writer=writer_video)
     
+    
+    if __name__ == "__main__":
+    import doctest
+
+    print("Starting doctests")
+    doctest.testmod()
+    
