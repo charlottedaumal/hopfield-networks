@@ -17,6 +17,8 @@ def generate_patterns(num_patterns, pattern_size):
     Output:
     --------------
     returns a pattern (2-dimensional numpy array)
+    
+    CU : num_patterns >= 0 and pattern_size >= 0
     """
     
     return np.random.choice([-1,1], size=(num_patterns, pattern_size))
@@ -35,6 +37,8 @@ def perturb_pattern(pattern, num_perturb):
     Output:
     --------------
     returns the perturbed pattern (2-dimensional numpy array)
+    
+    CU: num_perturb >= 0
     """
     
     pattern_perturbed = pattern.copy()
@@ -56,8 +60,13 @@ def pattern_match(memorized_patterns, pattern):
     
     Output:
     --------------
-    returns 'None' if no memorized pattern matchs
+    returns 'None' if no memorized pattern matches
     otherwise, it returns the index of the row corresponding to the matching pattern (an integer).
+    
+    Examples:
+    --------------
+    >>> pattern_match(np.array([[0,5,3,4], [0,0,0,0]]), np.array([[1,1,2,1], [1,2,3,4]]))
+    None
     """
     
     for index in range(0, memorized_patterns.shape[0]):
@@ -76,7 +85,22 @@ def hebbian_weights(patterns):
     Output:
     --------------
     returns the weight matrix (a multi-dimensional numpy array)
+    
+    Examples:
+    --------------
+    >>> hebbian_weights(np.array([[1,1,4,1], [1,4,5,4]]))
+    array[[ 0.,   2.5,  4.5,  2.5],
+         [ 2.5,  0.,  12.,   8.5],
+         [ 4.5, 12.,   0.,  12. ],
+         [ 2.5,  8.5, 12.,   0. ]]
+
+    >>> hebbian_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))
+    array[[0., 0.33333333, -0.33333333, -0.33333333]
+         [0.33333333, 0., -1., 0.33333333]
+         [-0.33333333, -1, 0., -0.33333333]
+         [-0.33333333, 0.33333333, -0.33333333, 0.]]
     """
+    
     w = np.zeros([patterns.shape[1], patterns.shape[1]])
     for row in range(patterns.shape[0]):
         w += np.outer(patterns[row],patterns[row]) * 1/patterns.shape[0]
@@ -97,6 +121,12 @@ def update(state, weights):
     Output:
     --------------
     returns the new state updated from the previous one (list of numpy arrays)
+ 
+    Examples:
+    --------------
+    >>>update(np.array([[2,5,6,7],[4,5,6,9]]), np.array([[1,1],[1,1]]))
+    array [[1, 1, 1, 1],
+          [1, 1, 1, 1]]
     """
     
     return np.where(np.dot(weights, state) >= 0, 1, -1)
@@ -116,6 +146,10 @@ def update_async(state, weights):
     --------------
     returns the new state updated from the previous one (list of numpy arrays)
     
+    Examples:
+    --------------
+    >>> update_async(np.array([[8,9], [0,0]]), np.array([[1,1],[2,2]]))
+    array [[1, 1]]
  """
     
    index = rd.choices(np.linspace(0, weights.shape[0] - 1, weights.shape[0], dtype=int))
@@ -137,7 +171,17 @@ def dynamics(state, weights, max_iter):
     
     Output:
     --------------
-    returns the list of the state history 
+    returns the list of the state history
+    
+    CU : max_iter >= 0
+
+    Examples:
+    --------------
+    >>> dynamics(np.array([[1, 4, 6, 7], [5,8,9,0]]), np.array([[1,1], [1,1]]), 10)
+    array[[1, 4, 6, 7],
+         [5, 8, 9, 0],
+         [1, 1, 1, 1],
+         [1, 1, 1, 1]]
     """
     
     state_history = [state]
@@ -170,6 +214,26 @@ def dynamics_async(state, weights, max_iter, convergence_num_iter):
     Output:
     --------------
     returns the list of the state history
+    
+    CU: max_iter >= 0 and convergence_num_iter >= 0
+
+    Examples:
+    --------------
+    >>> dynamics_async(np.array([[1,0,9,7], [3,7,8,9]]), np.array([[1,5], [4,9]]), 10, 6)
+    array[[1, 0, 9, 7],
+         [3, 7, 8, 9]], 
+       array[[1, 1, 1, 1],
+            [1, 1, 1, 1]], 
+       array[[1, 1, 1, 1],
+            [1, 1, 1, 1]], 
+       array[[1, 1, 1, 1],
+            [1, 1, 1, 1]], 
+       array[[1, 1, 1, 1],
+            [1, 1, 1, 1]], 
+       array[[1, 1, 1, 1],
+            [1, 1, 1, 1]], 
+       array[[1, 1, 1, 1],
+            [1, 1, 1, 1]]
     """
     
     state_history = [state]
@@ -198,6 +262,14 @@ def storkey_weights(patterns):
     Output:
     --------------
     returns the weight matrix (a multi-dimensional numpy array)
+    
+    Examples:
+    --------------
+    >>> storkey_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))
+    array[[ 1.125, 0., -0.1875, -0.5625],
+         [0.5, 0.625, -0.6875, 0.1875],
+         [-0.1875, -0.8125, 0.75, 0.],
+         [0.0625, 0.1875, -0.5, 1.]]
     """
 
     w = np.zeros([patterns.shape[1], patterns.shape[1]])
