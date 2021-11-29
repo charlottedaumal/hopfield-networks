@@ -308,7 +308,7 @@ def energy(state, weights):
 
 
 def create_checkerboard(n):
-   """Function that prints the checkerboard pattern according to a given dimension
+    """Function that prints the checkerboard pattern according to a given dimension
     
     Parameters:
     --------------
