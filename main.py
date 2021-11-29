@@ -101,13 +101,14 @@ state_history_s_a = dynamics_async(perturbed_pattern, weights_s, 3000, 1000)
 """evaluating and comparing the energy of each of the states"""
 """trying with state_history_s"""
 
-energy_list = []
-for i in range(0, len(state_history_s)):
-    F = energy(state_history_s[i], weights_s)
-    energy_list.append(F)
 
-plt.figure(figsize=(5,7))
-plt.plot(np.arange(0,len(energy_list), step=1), energy_list, 'b')
+energy_list_s_a = energy(state_history_s_a[1], weights_s)
+energy_list_s = energy(state_history_s[1], weights_s)
+energy_list_h = energy(state_history_h[1], weights_h)
+energy_list_h_a = energy(state_history_h_a[1], weights_h)
+
+plt.figure(figsize=(5, 7))
+plt.plot(np.arange(0, len(energy_list_s), step=1), energy_list_s, 'b')
 plt.ylabel("energy")
 plt.xlabel("time[s]")
 plt.title("energy-time plot")
