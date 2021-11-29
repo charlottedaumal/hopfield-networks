@@ -186,13 +186,12 @@ def dynamics(state, weights, max_iter):
     
     state_history = [state]
     previous_state = state.copy()
-    new_state = np.zeros_like(state)
-    nb_iter = 0
-    while (nb_iter < max_iter) and (previous_state != new_state).any():
+    for i in range(max_iter):
         new_state = update(previous_state, weights)
         state_history.append(new_state)
+        if np.allclose(previous_state, new_state):
+            break
         previous_state = new_state.copy()
-        nb_iter += 1
     return state_history
 
 
