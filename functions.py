@@ -89,16 +89,16 @@ def hebbian_weights(patterns):
     Examples:
     --------------
     >>> hebbian_weights(np.array([[1,1,4,1], [1,4,5,4]]))
-    array[[ 0.,   2.5,  4.5,  2.5],
+    array([[ 0.,   2.5,  4.5,  2.5],
          [ 2.5,  0.,  12.,   8.5],
          [ 4.5, 12.,   0.,  12. ],
-         [ 2.5,  8.5, 12.,   0. ]]
+         [ 2.5,  8.5, 12.,   0. ]])
 
     >>> hebbian_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))
-    array[[0., 0.33333333, -0.33333333, -0.33333333]
+    array([[0., 0.33333333, -0.33333333, -0.33333333]
          [0.33333333, 0., -1., 0.33333333]
          [-0.33333333, -1, 0., -0.33333333]
-         [-0.33333333, 0.33333333, -0.33333333, 0.]]
+         [-0.33333333, 0.33333333, -0.33333333, 0.]])
     """
     
     w = np.zeros([patterns.shape[1], patterns.shape[1]])
@@ -125,8 +125,8 @@ def update(state, weights):
     Examples:
     --------------
     >>>update(np.array([[2,5,6,7],[4,5,6,9]]), np.array([[1,1],[1,1]]))
-    array [[1, 1, 1, 1],
-          [1, 1, 1, 1]]
+    array([[1, 1, 1, 1],
+          [1, 1, 1, 1]])
     """
     
     return np.where(np.dot(weights, state) >= 0, 1, -1)
@@ -149,7 +149,7 @@ def update_async(state, weights):
     Examples:
     --------------
     >>> update_async(np.array([[8,9], [0,0]]), np.array([[1,1],[2,2]]))
-    array [[1, 1]]
+    array([[1, 1]])
  """
     
    index = rd.choices(np.linspace(0, weights.shape[0] - 1, weights.shape[0], dtype=int))
@@ -178,10 +178,10 @@ def dynamics(state, weights, max_iter):
     Examples:
     --------------
     >>> dynamics(np.array([[1, 4, 6, 7], [5,8,9,0]]), np.array([[1,1], [1,1]]), 10)
-    array[[1, 4, 6, 7],
+    array([[1, 4, 6, 7],
          [5, 8, 9, 0],
          [1, 1, 1, 1],
-         [1, 1, 1, 1]]
+         [1, 1, 1, 1]])
     """
     
     state_history = [state]
@@ -220,20 +220,20 @@ def dynamics_async(state, weights, max_iter, convergence_num_iter):
     Examples:
     --------------
     >>> dynamics_async(np.array([[1,0,9,7], [3,7,8,9]]), np.array([[1,5], [4,9]]), 10, 6)
-    array[[1, 0, 9, 7],
-         [3, 7, 8, 9]], 
-       array[[1, 1, 1, 1],
-            [1, 1, 1, 1]], 
-       array[[1, 1, 1, 1],
-            [1, 1, 1, 1]], 
-       array[[1, 1, 1, 1],
-            [1, 1, 1, 1]], 
-       array[[1, 1, 1, 1],
-            [1, 1, 1, 1]], 
-       array[[1, 1, 1, 1],
-            [1, 1, 1, 1]], 
-       array[[1, 1, 1, 1],
-            [1, 1, 1, 1]]
+    array([[1, 0, 9, 7],
+          [3, 7, 8, 9], 
+          [1, 1, 1, 1],
+          [1, 1, 1, 1], 
+          [1, 1, 1, 1],
+          [1, 1, 1, 1]], 
+          [1, 1, 1, 1],
+          [1, 1, 1, 1], 
+          [1, 1, 1, 1],
+          [1, 1, 1, 1], 
+          [1, 1, 1, 1],
+          [1, 1, 1, 1], 
+          [1, 1, 1, 1],
+          [1, 1, 1, 1]])
     """
     
     state_history = [state]
