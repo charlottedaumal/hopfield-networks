@@ -150,10 +150,10 @@ def update_async(state, weights):
     --------------
     >>> update_async(np.array([[8,9], [0,0]]), np.array([[1,1],[2,2]]))
     array([[1, 1]])
- """
+    """
     
-   index = rd.choices(np.linspace(0, weights.shape[0] - 1, weights.shape[0], dtype=int))
-   return np.where(np.dot(weights[index], state) >= 0, 1, -1)
+    index = rd.choices(np.linspace(0, weights.shape[0] - 1, weights.shape[0], dtype=int))
+    return np.where(np.dot(weights[index], state) >= 0, 1, -1)
 
 
 def dynamics(state, weights, max_iter):
@@ -249,7 +249,7 @@ def dynamics_async(state, weights, max_iter, convergence_num_iter):
 
 
 def storkey_weights(patterns):
-   """Creates the weight matrix by using the storkey learning rule on given patterns
+    """Creates the weight matrix by using the storkey learning rule on given patterns
     
     Parameters:
     --------------
@@ -271,21 +271,16 @@ def storkey_weights(patterns):
     """
 
     w = np.zeros([patterns.shape[1], patterns.shape[1]])
-
     for mu in range(patterns.shape[0]):
         w_calculation_h = w.copy()
         np.fill_diagonal(w_calculation_h, 0)
         pattern_calculation_h = np.dot(patterns[mu].copy().reshape(patterns.shape[1],1), np.ones((1, patterns.shape[1])))
         np.fill_diagonal(pattern_calculation_h, 0)
-        
         h = np.dot(w_calculation_h, pattern_calculation_h)
         w += np.outer(patterns[mu].copy(), patterns[mu].copy()) / patterns.shape[1]   
-
         product_1 = patterns[mu].copy() * h.copy()
         product_2 = product_1.T
-
         w -= np.add(product_2, product_1) / patterns.shape[1]
-        
     return w
 
 
