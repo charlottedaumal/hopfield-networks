@@ -16,4 +16,5 @@ Files :
 
 1) main.py -> file containing the first version of the code and the unit tests
 2) functions.py -> file containing all the functions of the project
+3) test_HopfieldNetwork.py -> file containing pytests to test some functions of the file functions.py
 
