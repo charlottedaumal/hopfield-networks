@@ -17,6 +17,7 @@ def test_perturb_pattern():
     assert((perturb_pattern(np.array([[1, 1, 2, 3]]), 7)).all() in list)
 
     ''' testing if perturbed pattern is different '''
+    assert((perturb_pattern(np.array([[1, 1, 2, 3]]), 7) != np.array([[1, 1, 2, 3]])).any())
 
     
 def test_update():
