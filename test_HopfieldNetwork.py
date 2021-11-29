@@ -18,6 +18,7 @@ def test_perturb_pattern():
 
     ''' testing if perturbed pattern is different '''
 
+    
 def test_update():
     assert(update(np.array([[2, 5, 6, 7], [4, 5, 6, 9]]), np.array([[1, 1], [1, 1]])).all() == (np.array([[1, 1, 1, 1], [1, 1, 1, 1]])).all())
 
