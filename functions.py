@@ -306,13 +306,7 @@ def energy(state, weights):
     returns the energy value associated to each patterns of the state
     """
     
-    e = 0
-    energy_list = []
-    for i in range(0, weights.shape[0]):
-        for j in range(0, weights.shape[1]):
-            e += (-1 / 2 * weights[i][j] * state[i] * state[j])
-            energy_list.append(e)
-    return energy_list
+    return -1/2 * np.dot(state, np.dot(weights, state.T))
 
 
 def create_checkerboard(n):
