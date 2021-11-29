@@ -238,15 +238,14 @@ def dynamics_async(state, weights, max_iter, convergence_num_iter):
     
     state_history = [state]
     previous_state = state.copy()
-    nb_iter = 0
-    nb_iter_convergence = 0
+    nb_iter = nb_iter_convergence = 0
     while (nb_iter < max_iter) and (nb_iter_convergence < convergence_num_iter):
         new_state = update(previous_state, weights)
         state_history.append(new_state)
-        previous_state = new_state.copy()
-        nb_iter += 1
         if np.allclose(previous_state, new_state):
             nb_iter_convergence += 1
+        previous_state = new_state.copy()
+        nb_iter += 1
     return state_history
 
 
