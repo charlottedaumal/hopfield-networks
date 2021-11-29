@@ -2,7 +2,7 @@ import numpy as np
 from functions import *
 
 def test_generate_patterns():
-    '''testing the values of the  generated patterns '''
+    '''testing the values of the  generated patterns'''
     assert((generate_patterns(5, 10)).all() == [-1, 1])
 
     '''testing the size of the generated patterns'''
@@ -30,6 +30,7 @@ def test_hebbian_weights():
     '''testing the size of the matrix'''
     weight_matrix = hebbian_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))
     assert (weight_matrix.shape[0] == weight_matrix.shape[1])
+
 
 def test_storkey_weights():
     '''testing the symmetry of the matrix'''
