@@ -307,10 +307,12 @@ def energy(state, weights):
     """
     
     e = 0
+    energy_list = []
     for i in range(0, weights.shape[0]):
         for j in range(0, weights.shape[1]):
-            e += (-1/2 * weights[i][j] * state[i] * state[j])
-    return e
+            e += (-1 / 2 * weights[i][j] * state[i] * state[j])
+            energy_list.append(e)
+    return energy_list
 
 
 def create_checkerboard(n):
