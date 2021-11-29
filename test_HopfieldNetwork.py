@@ -1,4 +1,5 @@
 import numpy as np
+from functions import *
 
 
 def test_generate_patterns():
