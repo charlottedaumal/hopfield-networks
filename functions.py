@@ -290,7 +290,7 @@ def storkey_weights(patterns):
 
 
 def energy(state, weights):
-    """returns the energy value associated to a given pattern
+    """returns the energy value associated to the network state
     
     Parameters:
     --------------
@@ -301,7 +301,7 @@ def energy(state, weights):
     
     Output:
     --------------
-    returns the energy value associated to each patterns of the state
+    returns the energy value associated to the network state
     """
     
     return -1/2 * np.dot(state, np.dot(weights, state.T))
