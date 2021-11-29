@@ -25,12 +25,12 @@ def test_pattern_match():
   assert(update_async(np.array([[8,9], [0,0]]), np.array([[1,1],[2,2]])) - np.array([[1, 1]])).all()
   
 
-
-
 def test_symmetry_hebbian_weights():
     assert (np.allclose(hebbian_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]])), np.transpose(hebbian_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]])))))
   
 
 def test_symmetry_storkey_weights():
     assert (np.allclose(hebbian_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]])), np.transpose(hebbian_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]])))))
+         
+         
 
