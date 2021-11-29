@@ -1,8 +1,14 @@
-
 import numpy as np
 
 
+def test_generate_patterns():
+    '''testing the values of the  generated patterns '''
+    assert((generate_pattern(5, 10)).all() == [-1, 1])
 
+def test_perturb_pattern():
+    '''testing the values of the generated patterns'''
+    assert((perturb_pattern(3,7)).all() == [-1, 1])
+    
 
 def test_update():
     assert(update(np.array([[2, 5, 6, 7], [4, 5, 6, 9]]), np.array([[1, 1], [1, 1]])) - np.array([[1, 1, 1, 1],
