@@ -221,7 +221,7 @@ def dynamics_async(state, weights, max_iter, convergence_num_iter):
     >>> dynamics_async(np.array([[1,0,9,7], [3,7,8,9]]), np.array([[1,5], [4,9]]), 10, 6)
     [np.array([[1, 0, 9, 7]]),
     np.array([[3, 7, 8, 9]]),
-    np.array([[1, 1, 1, 1]),
+    np.array([[1, 1, 1, 1]]),
     np.array([[1, 1, 1, 1]]),
     np.array([[1, 1, 1, 1]]),
     np.array([[1, 1, 1, 1]]),
