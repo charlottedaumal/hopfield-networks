@@ -1,3 +1,6 @@
+
+
+
 from functions import *
 
 
@@ -39,16 +42,19 @@ def test_update():
 
 
 def test_update_async():
+    p = np.array([[8, 9], [0, 0]])
+    w = np.array([[1, 1], [2, 2]])
+    q = np.array([[2, 5, 6, 7], [4, 5, 6, 9]])
+    w_ = np.array([[1, 1], [1, 1]])
 
-    assert (update_async(np.array([[8, 9], [0, 0]]), np.array([[1, 1], [2, 2]])).all() == (np.array([[1, 1]])).all())
+    assert(np.allclose(update_async(p, w), np.array([[1, 1]])))
 
     """testing the values of the updated pattern"""
     list = [-1, 1]
-    assert((update_async(np.array([[2, 5, 6, 7], [4, 5, 6, 9]]), np.array([[1, 1], [1, 1]]))).all() in list)
+    assert((update_async(q, w_)).all() in list)
 
     """testing if updated pattern is different"""
-    assert((update_async(np.array([[1, 1, 1, 1], [4, 5, 6, 9]]), np.array([[1, 1], [1, 1]])) != np.array(
-        [[1, 1, 1, 1], [4, 5, 6, 9]])).any())
+    assert((update_async(q, w_) != q).any())
 
 
 def test_hebbian_weights():
@@ -76,20 +82,23 @@ def test_storkey_weights():
 
 
 def test_dynamics():
-    a = dynamics(np.array([[1, 4, 6, 7], [5, 8, 9, 0]]), np.array([[1, 1], [1, 1]]), 10)
+    s = np.array([[1, 4, 6, 7], [5, 8, 9, 0]])
+    w = np.array([[1, 1], [1, 1]])
+
+    a = dynamics(s, w, 10)
     b = [np.array([[1, 4, 6, 7]]), np.array([[5, 8, 9, 0]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]])]
-    assert(a == b)
+    assert(np.allclose(a, b))
 
 
 def test_dynamics_async():
-    a = dynamics_async(np.array([[1, 0, 9, 7], [3, 7, 8, 9]]), np.array([[1, 5], [4, 9]]), 10, 6)
+    s = np.array([[1, 0, 9, 7], [3, 7, 8, 9]])
+    w = np.array([[1, 5], [4, 9]])
+    a = dynamics_async(s, w, 10, 6)
     b = [np.array([[1, 0, 9, 7]]), np.array([[3, 7, 8, 9]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]])]
-    assert(a == b)
+    assert(np.allclose(a, b))
 
 
 def test_energy():
     a = np.array([[2, 5, 6, 7], [4, 5, 6, 9]])
     w = np.array([[1, 1], [1, 1]])
-    assert(energy(a, w) == [(np.array([[-18.,  -50.,  -72., -128.]]), np.array([[-18.,  -50.,  -72., -128.]]), np.array([[-18.,  -50.,  -72., -128.]]), np.array([[-18.,  -50.,  -72., -128.]]).all())])
-
-    assert(energy())
+    assert(np.allclose(energy(a, w), [(np.array([[-18.,  -50.,  -72., -128.]]), np.array([[-18.,  -50.,  -72., -128.]]), np.array([[-18.,  -50.,  -72., -128.]]), np.array([[-18.,  -50.,  -72., -128.]]).all())]))
