@@ -297,6 +297,11 @@ def energy(state, weights):
     Output:
     --------------
     returns the energy value associated to the network state
+    
+    Example:
+    --------------
+    >>> energy(np.array([[2, 5, 6, 7], [4, 5, 6, 9]]), np.array([[1, 1], [1, 1]]))
+    [(np.array([[-18.,  -50.,  -72., -128.]]), np.array([[-18.,  -50.,  -72., -128.]]), np.array([[-18.,  -50.,  -72., -128.]]), np.array([[-18.,  -50.,  -72., -128.]])]
     """
     
     return -1/2 * np.dot(state, np.dot(weights, state.T))
