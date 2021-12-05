@@ -22,16 +22,20 @@ def test_perturb_pattern():
 
 
 def test_update():
+    p = np.array([[2, 5, 6, 7], [4, 5, 6, 9]])
+    q = np.array([[1, 1, 1, 1], [4, 5, 6, 9]])
+    w = np.array([[1, 1], [1, 1]])
+    u = np.array([[1, 1, 1, 1], [1, 1, 1, 1]])
+    list = [-1, 1]
 
-    assert (update(np.array([[2, 5, 6, 7], [4, 5, 6, 9]]), np.array([[1, 1], [1, 1]])).all() == (
-        np.array([[1, 1, 1, 1], [1, 1, 1, 1]])).all())
+    assert(np.allclose(update(p, w), u))
 
     '''testing the values of the updated pattern'''
-    list = [-1, 1]
-    assert((update(np.array([[2, 5, 6, 7], [4, 5, 6, 9]]), np.array([[1, 1], [1, 1]]))).all() in list)
+
+    assert((update(p, w)).all() in list)
 
     """testing if updated pattern is different"""
-    assert((update(np.array([[1, 1, 1, 1], [4, 5, 6, 9]]), np.array([[1, 1], [1, 1]])) != np.array([[1, 1, 1, 1], [4, 5, 6, 9]])).any())
+    assert((update(q, w) != q).any())
 
 
 def test_update_async():
@@ -68,7 +72,7 @@ def test_storkey_weights():
     assert(np.allclose(weight_matrix, np.transpose(weight_matrix)))
 
     '''testing the size of the matrix'''
-     assert(weight_matrix.shape[0] == weight_matrix.shape[1])
+    assert(weight_matrix.shape[0] == weight_matrix.shape[1])
 
 
 def test_dynamics():
