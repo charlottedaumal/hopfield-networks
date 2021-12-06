@@ -5,10 +5,9 @@ import os
 def test_generate_patterns():
     list_generate_patterns = [-1, 1]
 
-    '''testing the values of the  generated patterns '''
-    assert ((generate_patterns(5, 10)).all() in list_generate_patterns)
+    assert ((generate_patterns(5, 10)).all() in list_generate_patterns)  # testing the values of the  generated patterns
 
-    '''testing the size of the generated patterns'''
+    # testing the size of the generated patterns
     assert ((generate_patterns(5, 10)).shape[0] == 5)
     assert ((generate_patterns(5, 10)).shape[1] == 10)
 
