@@ -1,6 +1,3 @@
-
-
-
 from functions import *
 
 
@@ -86,19 +83,21 @@ def test_dynamics():
     w = np.array([[1, 1], [1, 1]])
 
     a = dynamics(s, w, 10)
-    b = [np.array([[1, 4, 6, 7]]), np.array([[5, 8, 9, 0]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]])]
-    assert(np.allclose(a, b))
+    b = [np.array([[1, 4, 6, 7], [5, 8, 9, 0]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]])]
+    assert(np.allclose(np.array([a]), np.array([b])))
 
 
 def test_dynamics_async():
     s = np.array([[1, 0, 9, 7], [3, 7, 8, 9]])
     w = np.array([[1, 5], [4, 9]])
     a = dynamics_async(s, w, 10, 6)
-    b = [np.array([[1, 0, 9, 7]]), np.array([[3, 7, 8, 9]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]]), np.array([[1, 1, 1, 1]])]
-    assert(np.allclose(a, b))
+    b = [np.array([[1, 0, 9, 7], [3, 7, 8, 9]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]])]
+    assert(np.allclose(np.array([a]), np.array([b])))
 
 
 def test_energy():
-    a = np.array([[2, 5, 6, 7], [4, 5, 6, 9]])
+    s = np.array([[2, 5, 6, 7], [4, 5, 6, 9]])
     w = np.array([[1, 1], [1, 1]])
-    assert(np.allclose(energy(a, w), [(np.array([[-18.,  -50.,  -72., -128.]]), np.array([[-18.,  -50.,  -72., -128.]]), np.array([[-18.,  -50.,  -72., -128.]]), np.array([[-18.,  -50.,  -72., -128.]]).all())]))
+    a = energy(s, w)
+    b = [np.array([[-18.,  -50.,  -72., -128.]]), np.array([[-18.,  -50.,  -72., -128.]]), np.array([[-18.,  -50.,  -72., -128.]]), np.array([[-18.,  -50.,  -72., -128.]])]
+    assert(np.allclose(np.array([a]), np.array([b])))
