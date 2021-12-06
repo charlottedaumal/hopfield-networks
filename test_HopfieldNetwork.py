@@ -1,4 +1,5 @@
 from functions import *
+import os
 
 
 def test_generate_patterns():
