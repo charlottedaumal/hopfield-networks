@@ -1,7 +1,7 @@
 import functions
 import doctest
 import os
-
+import numpy as np
 
 def test_HopfieldNetwork():
     """integrating the doctests in the pytest framework"""
@@ -21,7 +21,7 @@ def test_generate_patterns():
 def test_perturb_pattern():
     list_perturb_pattern = [-1, 1]
 
-    assert ((functions.perturb_pattern(np.array([[1, 1, 2, 3]]), 7)).all() in list_perturbed_pattern)  # testing the values of the perturbed pattern
+    assert ((functions.perturb_pattern(np.array([[1, 1, 2, 3]]), 7)).all() in list_perturb_pattern)  # testing the values of the perturbed pattern
 
     assert ((functions.perturb_pattern(np.array([[1, 1, 2, 3]]), 7) != np.array([[1, 1, 2, 3]])).any())  # testing if the perturbed pattern is different from the original one
 
