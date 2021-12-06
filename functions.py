@@ -225,6 +225,7 @@ def dynamics_async(state, weights, max_iter, convergence_num_iter):
            [1, 1, 1, 1]]), array([[1, 1, 1, 1],
            [1, 1, 1, 1]]), array([[1, 1, 1, 1],
            [1, 1, 1, 1]]), array([[1, 1, 1, 1],
+           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
            [1, 1, 1, 1]])]
     """
     
