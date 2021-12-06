@@ -1,7 +1,8 @@
 import functions
 import doctest
-import os
+from pathlib import Path
 import numpy as np
+
 
 def test_HopfieldNetwork():
     """integrating the doctests in the pytest framework"""
@@ -21,9 +22,11 @@ def test_generate_patterns():
 def test_perturb_pattern():
     list_perturb_pattern = [-1, 1]
 
-    assert ((functions.perturb_pattern(np.array([[1, 1, 2, 3]]), 7)).all() in list_perturb_pattern)  # testing the values of the perturbed pattern
+    # testing the values of the perturbed pattern
+    assert ((functions.perturb_pattern(np.array([[1, 1, 2, 3]]), 7)).all() in list_perturb_pattern)
 
-    assert ((functions.perturb_pattern(np.array([[1, 1, 2, 3]]), 7) != np.array([[1, 1, 2, 3]])).any())  # testing if the perturbed pattern is different from the original one
+    # testing if the perturbed pattern is different from the original one
+    assert ((functions.perturb_pattern(np.array([[1, 1, 2, 3]]), 7) != np.array([[1, 1, 2, 3]])).any())
 
 
 def test_update():
@@ -50,13 +53,12 @@ def test_update_async():
 
 
 def test_hebbian_weights():
+    weight_matrix = functions.hebbian_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))
     assert (np.allclose(weight_matrix, np.transpose(weight_matrix)))  # testing the symmetry of the matrix
 
-    # testing the size of the matrix
-    weight_matrix = functions.hebbian_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))
-    assert (weight_matrix.shape[0] == weight_matrix.shape[1])
+    assert (weight_matrix.shape[0] == weight_matrix.shape[1])  # testing the size of the matrix
 
-    assert ((np.diagonal(functions.hebbian_weights(np.array(([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))))).all() == 0)  # testing if the diagonal elements are equal to 0
+    assert ((np.diagonal(functions.hebbian_weights(np.array(([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))))).all()==0)  # testing if the diagonal elements are equal to 0
 
 
 def test_storkey_weights():
@@ -73,7 +75,8 @@ def test_dynamics():
     a = functions.dynamics(s, w, 10)
     b = [np.array([[1, 4, 6, 7], [5, 8, 9, 0]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]])]
 
-    assert(np.allclose(np.array([a]), np.array([b])))  # testing the return value of the function dynamics for a specific input
+    # testing the return value of the function dynamics for a specific input
+    assert(np.allclose(np.array([a]), np.array([b])))
 
 
 def test_dynamics_async():
@@ -82,7 +85,8 @@ def test_dynamics_async():
     a = functions.dynamics_async(s, w, 10, 6)
     b = [np.array([[1, 0, 9, 7], [3, 7, 8, 9]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]])]
 
-    assert(np.allclose(np.array([a]), np.array([b])))  # testing the return value of the functions dynamics_async for a specific input 
+    # testing the return value of the functions dynamics_async for a specific input 
+    assert(np.allclose(np.array([a]), np.array([b])))
 
     
 def test_energy():
@@ -90,7 +94,8 @@ def test_energy():
     w = np.array([[1, 1], [1, 1]])
     e = functions.energy(s, w)
 
-    assert(np.allclose(np.array([e]), np.array([[-24.5]])))  # testing the return value of the functions energy for a specific input
+    # testing the return value of the functions energy for a specific input
+    assert(np.allclose(np.array([e]), np.array([[-24.5]])))
 
 
 def test_create_checkerboard():
@@ -106,12 +111,19 @@ def test_pattern_match():
 
     # testing the return value of the pattern_match function for a specific input
     assert(functions.pattern_match(a, b) == 0) 
-    assert(functions.pattern_match(a, c) == None)
+    assert(functions.pattern_match(a, c) is None)
     
        
 def test_save_video():
-    
     # testing if the video file exists and is saved where it should be
-    assert(os.path.exists("./video_synchronous_experiment.mp4"))
-    assert(os.path.exists("./video_asynchronous_experiment.mp4"))
+    random_patterns = functions.generate_patterns(5, 2500)
+    checkerboard = functions.create_checkerboard(50)
+    random_patterns[-1] = checkerboard.flatten()
+    perturbed_pattern = functions.perturb_pattern(random_patterns[-1], 200)
+    weights = functions.hebbian_weights(random_patterns)
 
+    state_history_test = functions.dynamics(perturbed_pattern, weights, 20)
+    state_list_test = [np.reshape(test_state, (50, 50)) for test_state in state_history_test]
+    path_test = Path("./video_saved_test.mp4")
+    functions.save_video(state_list_test, path_test)
+    assert(path_test.is_file())
