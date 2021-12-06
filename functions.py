@@ -21,7 +21,7 @@ def generate_patterns(num_patterns, pattern_size):
     CU : num_patterns >= 0 and pattern_size >= 0
     """
     
-    return np.random.choice([-1,1], size=(num_patterns, pattern_size)) #generates 2-dimensional numpy array in which each row is a random binary pattern
+    return np.random.choice([-1,1], size=(num_patterns, pattern_size))  # generates 2-dimensional numpy array in which each row is a random binary pattern
 
 
 def perturb_pattern(pattern, num_perturb):
@@ -43,8 +43,8 @@ def perturb_pattern(pattern, num_perturb):
     
     pattern_perturbed = pattern.copy()
     for i in range(num_perturb):
-        index = rd.choices(np.linspace(0, len(pattern) - 1, len(pattern), dtype=int)) #chooses randomly an index to perturb a random element of one given pattern
-        pattern_perturbed[index] = -pattern_perturbed[index] #inverse the sign of a single element of a given pattern
+        index = rd.choices(np.linspace(0, len(pattern) - 1, len(pattern), dtype=int))  # chooses randomly an index to perturb a random element of one given pattern
+        pattern_perturbed[index] = -pattern_perturbed[index]  # inverse the sign of a single element of a given pattern
     return pattern_perturbed
 
 
@@ -70,7 +70,7 @@ def pattern_match(memorized_patterns, pattern):
     """
     
     for index in range(0, memorized_patterns.shape[0]):
-        if np.allclose(memorized_patterns[index], pattern): #verifies if the pattern passed in parameters match to one of the memorized patterns
+        if np.allclose(memorized_patterns[index], pattern):  # verifies if the pattern passed in parameters match to one of the memorized patterns
             return index
 
 
@@ -101,10 +101,10 @@ def hebbian_weights(patterns):
            [-0.33333333,  0.33333333, -0.33333333,  0.        ]])
     """
     
-    w = np.zeros([patterns.shape[1], patterns.shape[1]]) #initialisation of the weights matrix
+    w = np.zeros([patterns.shape[1], patterns.shape[1]])  # initialisation of the weights matrix
     for row in range(patterns.shape[0]):
-        w += np.outer(patterns[row],patterns[row]) * 1/patterns.shape[0] #computation of the average contribution of each pattern to the synaptic weight
-    np.fill_diagonal(w, 0) #fill the diagonal of the matrix with zeros
+        w += np.outer(patterns[row],patterns[row]) * 1/patterns.shape[0]  # computation of the average contribution of each pattern to the synaptic weight
+    np.fill_diagonal(w, 0)  # fill the diagonal of the matrix with zeros
     return w
 
 
@@ -129,7 +129,7 @@ def update(state, weights):
            [1, 1, 1, 1]])
     """
     
-    return np.where(np.dot(weights, state) >= 0, 1, -1) #applying the update rule to a state pattern 
+    return np.where(np.dot(weights, state) >= 0, 1, -1)  # applying the update rule to a state pattern 
 
 
 def update_async(state, weights):
@@ -152,8 +152,8 @@ def update_async(state, weights):
     array([[1, 1]])
     """
     
-    index = rd.choices(np.linspace(0, weights.shape[0] - 1, weights.shape[0], dtype=int)) #chooses randomly an index
-    return np.where(np.dot(weights[index], state) >= 0, 1, -1) #applying the asynchronous update rule (updates the i-th component of the state pattern)
+    index = rd.choices(np.linspace(0, weights.shape[0] - 1, weights.shape[0], dtype=int))  # chooses randomly an index
+    return np.where(np.dot(weights[index], state) >= 0, 1, -1)  # applying the asynchronous update rule (updates the i-th component of the state pattern)
 
 
 def dynamics(state, weights, max_iter):
@@ -187,12 +187,12 @@ def dynamics(state, weights, max_iter):
     state_history = [state]
     previous_state = state.copy()
     for i in range(max_iter):
-        new_state = update(previous_state, weights) #updating the state
-        state_history.append(new_state) #adding the updated state to the state history list
-        if np.allclose(previous_state, new_state): #verifies if the state before the update is equal to the updated state
-            break  #goes out of the for-loop because convergence is reached
-        previous_state = new_state.copy() #iterative perspective of the dynamical evolution of the pattern 
-    return state_history #return the list with the whole state history
+        new_state = update(previous_state, weights)  # updating the state
+        state_history.append(new_state)  # adding the updated state to the state history list
+        if np.allclose(previous_state, new_state):  # verifies if the state before the update is equal to the updated state
+            break  # goes out of the for-loop because convergence is reached
+        previous_state = new_state.copy()  # iterative perspective of the dynamical evolution of the pattern 
+    return state_history  # return the list with the whole state history
 
 
 def dynamics_async(state, weights, max_iter, convergence_num_iter):
@@ -233,14 +233,14 @@ def dynamics_async(state, weights, max_iter, convergence_num_iter):
     state_history = [state]
     previous_state = state.copy()
     nb_iter = nb_iter_convergence = 0
-    while (nb_iter < max_iter) and (nb_iter_convergence < convergence_num_iter): #two conditions to run the dynamical system : a maximum number of iterations and a minimum number of convergence iterations
-        new_state = update(previous_state, weights) #updating the state
+    while (nb_iter < max_iter) and (nb_iter_convergence < convergence_num_iter):  # two conditions to run the dynamical system : a maximum number of iterations and a minimum number of convergence iterations
+        new_state = update(previous_state, weights)  # updating the state
         state_history.append(new_state)  # adding the updated state to the state history list
-        if np.allclose(previous_state, new_state): #verifies if the state before the update is equal to the updated state
+        if np.allclose(previous_state, new_state):  # verifies if the state before the update is equal to the updated state
             nb_iter_convergence += 1
-        previous_state = new_state.copy() #iterative perspective of the dynamical evolution of the pattern 
+        previous_state = new_state.copy()  # iterative perspective of the dynamical evolution of the pattern 
         nb_iter += 1
-    return state_history #return the list with the whole state history
+    return state_history  # return the list with the whole state history
 
 
 def storkey_weights(patterns):
@@ -316,24 +316,24 @@ def create_checkerboard(n):
     """
 
     dimension = (n, n)
-    checkerboard = np.zeros(dimension, dtype = int) #initialisation of the checkerboard matrix
+    checkerboard = np.zeros(dimension, dtype = int)  # initialisation of the checkerboard matrix
 
-    vector1 = np.ones(5) #creating a unit vector composed of ones and having a dimension of 5
+    vector1 = np.ones(5)  # creating a unit vector composed of ones and having a dimension of 5
     vector2 = []
-    for i in range (10): #initialising a list containing all the sequences necessary to constitute the first line of the checkerboard
+    for i in range (10):  # initialising a list containing all the sequences necessary to constitute the first line of the checkerboard
         if i%2==0 : 
             vector2.append(vector1)
         else:
             vector2.append(-vector1)
     
-    vector3 = np.array(vector2).reshape(50) #conversion of the list into an array
+    vector3 = np.array(vector2).reshape(50)  # conversion of the list into an array
     for i in range (5):
-        checkerboard[i] = vector3 #initialising the first five lines of the checkerboard (they are all equal)
+        checkerboard[i] = vector3  # initialising the first five lines of the checkerboard (they are all equal)
 
     for i in range(5, 50):
-        checkerboard[i] = -checkerboard[i - 5] #initialising all the other lines of the checkerboard according to an iterative process
+        checkerboard[i] = -checkerboard[i - 5]  # initialising all the other lines of the checkerboard according to an iterative process
 
-    return checkerboard #return the checkerboard
+    return checkerboard  # return the checkerboard
 
 
 def save_video(state_list, out_path):
