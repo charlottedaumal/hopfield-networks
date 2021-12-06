@@ -265,17 +265,17 @@ def storkey_weights(patterns):
            [-0.5  ,  0.25 , -0.25 ,  1.125]])
     """
 
-    w = np.zeros([patterns.shape[1], patterns.shape[1]])
-    for mu in range(patterns.shape[0]):
-        w_calculation_h = w.copy()
-        np.fill_diagonal(w_calculation_h, 0)
-        pattern_calculation_h = np.dot(patterns[mu].copy().reshape(patterns.shape[1],1), np.ones((1, patterns.shape[1])))
-        np.fill_diagonal(pattern_calculation_h, 0)
-        h = np.dot(w_calculation_h, pattern_calculation_h)
-        w += np.outer(patterns[mu].copy(), patterns[mu].copy()) / patterns.shape[1]   
-        product_1 = patterns[mu].copy() * h.copy()
-        product_2 = product_1.T
-        w -= np.add(product_2, product_1) / patterns.shape[1]
+    w = np.zeros([patterns.shape[1], patterns.shape[1]])  # initialization of the weights matrix with zeros
+    for mu in range(patterns.shape[0]):  # iterating on the number of patterns of the random patterns' matrix
+        w_calculation_h = w.copy()  # definition of a matrix equal to w
+        np.fill_diagonal(w_calculation_h, 0)  # fill the diagonal of the matrix with zeros
+        pattern_calculation_h = np.dot(patterns[mu].copy().reshape(patterns.shape[1],1), np.ones((1, patterns.shape[1])))  # definition of a matrix in which all columns are a given pattern 
+        np.fill_diagonal(pattern_calculation_h, 0)  # fill the diagonal of the matrix with zeros
+        h = np.dot(w_calculation_h, pattern_calculation_h)  # computation of the matrix h for a given pattern with a matrices' product
+        w += np.outer(patterns[mu].copy(), patterns[mu].copy()) / patterns.shape[1]  # computation of the term with the product of the given pattern with itself
+        product_1 = patterns[mu].copy() * h.copy()  # computation of the term with the product of the given pattern with the h matrix
+        product_2 = product_1.T  # computation of the second product of the given pattern with the h matrix (which is the transpose of the first one)
+        w -= np.add(product_2, product_1) / patterns.shape[1]  # substracting the sum of the two products computed above
     return w
 
 
