@@ -257,10 +257,10 @@ def storkey_weights(patterns):
     Examples:
     --------------
     >>> storkey_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))
-    array([[1.125, 0.25, -0.25, -0.5],
-           [0.25, 0.625, -1, 0.25],
-           [-0.25, -1, 0.625, -0.25],
-           [-0.5, 0.25, -0.25, 1.125]])
+    array([[ 0.25,  0.25, -0.25, -0.25],
+           [ 0.25,  0.25, -0.25, -0.25],
+           [-0.25, -0.25,  0.25,  0.25],
+           [-0.25, -0.25,  0.25,  0.25]])
     """
 
     w = np.zeros([patterns.shape[1], patterns.shape[1]])
@@ -293,8 +293,8 @@ def energy(state, weights):
     
     Example:
     --------------
-    >>> energy(np.array([[2, 5, 6, 7], [4, 5, 6, 9]]), np.array([[1, 1], [1, 1]]))
-    [(np.array([[-18.,  -50.,  -72., -128.]]), np.array([[-18.,  -50.,  -72., -128.]]), np.array([[-18.,  -50.,  -72., -128.]]), np.array([[-18.,  -50.,  -72., -128.]])]
+    >>> energy(np.array([[2, 5]]), np.array([[1, 1], [1, 1]]))
+    array([[-24.5]])
     """
     
     return -1/2 * np.dot(state, np.dot(weights, state.T)) #return the energy value associated to the state pattern
