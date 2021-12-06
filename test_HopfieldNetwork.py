@@ -35,7 +35,6 @@ def test_update():
     w = np.array([[1, 1], [1, 1]])
     list_update = [-1, 1]
 
-
     assert ((functions.update(p, w)).all() in list_update)  # testing the values of the updated pattern
 
     assert((functions.update(q, w) != q).any())  # testing if the updated pattern is different
