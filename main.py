@@ -24,7 +24,7 @@ else:
     print("ERROR : You didn't enter a proper character")
 
 # Computation of the state history using the dynamics and the asynchronous dynamics function
-state_history_sync = dynamics(perturbed_pattern, weights, 30000)
+state_history_sync = dynamics(perturbed_pattern, weights, 20)
 state_history_async = dynamics_async(perturbed_pattern, weights, 30000, 10000)
 
 # Store the energy values associated to the different states into a list
