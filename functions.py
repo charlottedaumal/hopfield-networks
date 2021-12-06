@@ -177,11 +177,10 @@ def dynamics(state, weights, max_iter):
 
     Examples:
     --------------
-   >>> dynamics(np.array([[1, 4, 6, 7], [5,8,9,0]]), np.array([[1,1], [1,1]]), 10)
-    [np.array([[1, 4, 6, 7]]),
-    np.array([[5, 8, 9, 0]]),
-    np.array([[1, 1, 1, 1]]),
-    np.array([[1, 1, 1, 1]])]
+    >>> dynamics(np.array([[1, 4, 6, 7], [5,8,9,0]]), np.array([[1,1], [1,1]]), 10)
+    [array([[1, 4, 6, 7],
+           [5, 8, 9, 0]]), array([[1, 1, 1, 1],
+           [1, 1, 1, 1]])]
     """
     
     state_history = [state]
@@ -219,20 +218,14 @@ def dynamics_async(state, weights, max_iter, convergence_num_iter):
     Examples:
     --------------
     >>> dynamics_async(np.array([[1,0,9,7], [3,7,8,9]]), np.array([[1,5], [4,9]]), 10, 6)
-    [np.array([[1, 0, 9, 7]]),
-    np.array([[3, 7, 8, 9]]),
-    np.array([[1, 1, 1, 1]]),
-    np.array([[1, 1, 1, 1]]),
-    np.array([[1, 1, 1, 1]]),
-    np.array([[1, 1, 1, 1]]),
-    np.array([[1, 1, 1, 1]]),
-    np.array([[1, 1, 1, 1]]),
-    np.array([[1, 1, 1, 1]]),
-    np.array([[1, 1, 1, 1]]),
-    np.array([[1, 1, 1, 1]]),
-    np.array([[1, 1, 1, 1]]),
-    np.array([[1, 1, 1, 1]]),
-    np.array([[1, 1, 1, 1]])]
+    [array([[1, 0, 9, 7],
+           [3, 7, 8, 9]]), array([[1, 1, 1, 1],
+           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
+           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
+           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
+           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
+           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
+           [1, 1, 1, 1]])]
     """
     
     state_history = [state]
