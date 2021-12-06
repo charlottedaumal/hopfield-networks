@@ -7,7 +7,7 @@ import matplotlib.animation as anim
 def generate_patterns(num_patterns, pattern_size):
     """Generates random binary patterns that will be memorized
     
-    Parameters:
+    Parameter:
     --------------
     num_patterns : int
     -> number of patterns we want to generate.
