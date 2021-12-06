@@ -4,7 +4,7 @@ from pathlib import Path
 import numpy as np
 
 
-def test_HopfieldNetwork():
+def test_hopfield_network():
     """integrating the doctests in the pytest framework"""
     assert doctest.testmod(functions, raise_on_error=True)
 
