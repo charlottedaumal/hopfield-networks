@@ -299,7 +299,7 @@ def energy(state, weights):
     array([[-24.5]])
     """
     
-    return -1/2 * np.dot(state, np.dot(weights, state.T)) #return the energy value associated to the state pattern
+    return -1/2 * np.dot(state, np.dot(weights, state.T))  # return the energy value associated to the state pattern
 
 
 def create_checkerboard(n):
@@ -320,14 +320,14 @@ def create_checkerboard(n):
 
     vector1 = np.ones(5)  # creating a unit vector composed of ones and having a dimension of 5
     vector2 = []
-    for i in range (10):  # initialising a list containing all the sequences necessary to constitute the first line of the checkerboard
-        if i%2==0 : 
+    for i in range(10):  # initialising a list containing all the sequences necessary to constitute the first line of the checkerboard
+        if i%2 == 0: 
             vector2.append(vector1)
         else:
             vector2.append(-vector1)
     
     vector3 = np.array(vector2).reshape(50)  # conversion of the list into an array
-    for i in range (5):
+    for i in range(5):
         checkerboard[i] = vector3  # initialising the first five lines of the checkerboard (they are all equal)
 
     for i in range(5, 50):
