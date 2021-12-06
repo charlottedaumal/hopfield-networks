@@ -124,9 +124,9 @@ def update(state, weights):
  
     Examples:
     --------------
-    >>>update(np.array([[2,5,6,7],[4,5,6,9]]), np.array([[1,1],[1,1]]))
+    >>> update(np.array([[2,5,6,7],[4,5,6,9]]), np.array([[1,1],[1,1]]))
     array([[1, 1, 1, 1],
-          [1, 1, 1, 1]])
+           [1, 1, 1, 1]])
     """
     
     return np.where(np.dot(weights, state) >= 0, 1, -1) #applying the update rule to a state pattern 
@@ -146,7 +146,7 @@ def update_async(state, weights):
     --------------
     returns the new state updated from the previous one (list of numpy arrays)
     
-    Examples:
+   Examples:
     --------------
     >>> update_async(np.array([[8,9], [0,0]]), np.array([[1,1],[2,2]]))
     array([[1, 1]])
