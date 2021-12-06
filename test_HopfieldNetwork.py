@@ -10,7 +10,7 @@ def test_hopfield_network():
 
 
 def test_generate_patterns():
-    """ testing the function generate_patterns"""
+    """testing the function generate_patterns"""
     list_generate_patterns = [-1, 1]
 
     # testing the values of the generated patterns
