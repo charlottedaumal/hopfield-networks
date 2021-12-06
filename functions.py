@@ -7,7 +7,7 @@ import matplotlib.animation as anim
 def generate_patterns(num_patterns, pattern_size):
     """Generates random binary patterns that will be memorized
     
-    Parameter:
+    Parameters:
     --------------
     num_patterns : int
     -> number of patterns we want to generate.
@@ -65,8 +65,8 @@ def pattern_match(memorized_patterns, pattern):
     
     Examples:
     --------------
-    >>> pattern_match(np.array([[0,5,3,4], [0,0,0,0]]), np.array([[1,1,2,1], [1,2,3,4]]))
-    None
+    >>> pattern_match(np.array([[0,5,3,4], [0,0,0,0]]), np.array([[0,5,3,4]]))
+    0
     """
     
     for index in range(0, memorized_patterns.shape[0]):
