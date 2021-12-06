@@ -238,7 +238,7 @@ def dynamics_async(state, weights, max_iter, convergence_num_iter):
         state_history.append(new_state)  # adding the updated state to the state history list
         if np.allclose(previous_state, new_state):  # verifies if the state before the update is equal to the updated state
             nb_iter_convergence += 1
-        previous_state = new_state.copy()  # iterative perspective of the dynamical evolution of the pattern 
+        previous_state = new_state.copy()  # affecting the updated pattern to the previous one to perform the next updating step
         nb_iter += 1
     return state_history
 
@@ -268,9 +268,9 @@ def storkey_weights(patterns):
     w = np.zeros([patterns.shape[1], patterns.shape[1]])  # initialization of the weights matrix with zeros
     for mu in range(patterns.shape[0]):  # iterating on the number of patterns of the random patterns' matrix
         w_calculation_h = w.copy()  # definition of a matrix equal to w
-        np.fill_diagonal(w_calculation_h, 0)  # fill the diagonal of the matrix with zeros
+        np.fill_diagonal(w_calculation_h, 0)  # fill the diagonal of the previous matrix with zeros
         pattern_calculation_h = np.dot(patterns[mu].copy().reshape(patterns.shape[1],1), np.ones((1, patterns.shape[1])))  # definition of a matrix in which all columns are a given pattern 
-        np.fill_diagonal(pattern_calculation_h, 0)  # fill the diagonal of the matrix with zeros
+        np.fill_diagonal(pattern_calculation_h, 0)  # fill the diagonal of the previous matrix with zeros
         h = np.dot(w_calculation_h, pattern_calculation_h)  # computation of the matrix h for a given pattern with a matrices' product
         w += np.outer(patterns[mu].copy(), patterns[mu].copy()) / patterns.shape[1]  # computation of the term with the product of the given pattern with itself
         product_1 = patterns[mu].copy() * h.copy()  # computation of the term with the product of the given pattern with the h matrix
