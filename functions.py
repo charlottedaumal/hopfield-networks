@@ -370,7 +370,7 @@ def save_video(state_list, out_path):
     
     
 if __name__ == "__main__":
-import doctest
-print("Starting doctests")
-doctest.testmod()
+    import doctest
+    print("Starting doctests")
+    doctest.testmod()
     
