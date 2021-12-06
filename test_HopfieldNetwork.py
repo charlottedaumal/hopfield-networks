@@ -1,5 +1,5 @@
 import functions
-import doctests
+import doctest
 import os
 
 
