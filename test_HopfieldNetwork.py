@@ -121,4 +121,9 @@ def test_pattern_match():
 
     assert(pattern_match(a, b) == 0)
     assert(pattern_match(a, c) == None)
+    
+       
+def test_save_video():
+    assert(os.path.exists("./video_synchronous_experiment.mp4"))
+    assert(os.path.exists("./video_asynchronous_experiment.mp4"))
 
