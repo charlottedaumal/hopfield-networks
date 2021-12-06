@@ -20,6 +20,8 @@ Here, we will implement the iterative process which allows to retrieve one of th
 1) main.py -> file containing the first version of the code and the unit tests
 2) functions.py -> file containing all the functions of the project
 3) test_HopfieldNetwork.py -> file containing pytests to test some functions of the file functions.py
+4) .gitignore -> file containing all the files that Git was told to ignore
+5) Graphs -> directory containing the pictures of the energy curves for the hebbian and the storkey weights matrices
 
 
 ### How to use our project
