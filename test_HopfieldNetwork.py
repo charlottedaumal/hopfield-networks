@@ -3,10 +3,10 @@ import os
 
 
 def test_generate_patterns():
-    list = [-1, 1]
+    list_generate_patterns = [-1, 1]
 
     '''testing the values of the  generated patterns '''
-    assert ((generate_patterns(5, 10)).all() in list)
+    assert ((generate_patterns(5, 10)).all() in list_generate_patterns)
 
     '''testing the size of the generated patterns'''
     assert ((generate_patterns(5, 10)).shape[0] == 5)
@@ -14,10 +14,10 @@ def test_generate_patterns():
 
 
 def test_perturb_pattern():
-    list = [-1, 1]
+    list_perturb_pattern = [-1, 1]
 
     '''testing the values of the perturbed pattern'''
-    assert ((perturb_pattern(np.array([[1, 1, 2, 3]]), 7)).all() in list)
+    assert ((perturb_pattern(np.array([[1, 1, 2, 3]]), 7)).all() in list_perturbed_pattern)
 
     '''testing if the perturbed pattern is different from the original one'''
     assert ((perturb_pattern(np.array([[1, 1, 2, 3]]), 7) != np.array([[1, 1, 2, 3]])).any())
@@ -28,12 +28,12 @@ def test_update():
     q = np.array([[1, 1, 1, 1], [4, 5, 6, 9]])
     w = np.array([[1, 1], [1, 1]])
     u = np.array([[1, 1, 1, 1], [1, 1, 1, 1]])
-    list = [-1, 1]
+    list_update = [-1, 1]
 
     assert(np.allclose(update(p, w), u))
 
     '''testing the values of the updated pattern'''
-    assert ((update(p, w)).all() in list)
+    assert ((update(p, w)).all() in list_update)
 
     '''testing if the updated pattern is different'''
     assert((update(q, w) != q).any())
@@ -48,8 +48,8 @@ def test_update_async():
     assert(np.allclose(update_async(p, w), np.array([[1, 1]])))
 
     '''testing the values of the updated pattern'''
-    list = [-1, 1]
-    assert((update_async(q, w_)).all() in list)
+    list_update_async = [-1, 1]
+    assert((update_async(q, w_)).all() in list_update_async)
 
     '''testing if the updated pattern is different'''
     assert((update_async(q, w_) != q).any())
@@ -106,10 +106,10 @@ def test_energy():
 
 
 def test_create_checkerboard():
-    list = [-1, 1]
+    list_checkerboard = [-1, 1]
 
     '''testing the values of the checkerboard'''
-    assert(create_checkerboard(50).all() in list)
+    assert(create_checkerboard(50).all() in list_checkerboard)
 
 
 def test_pattern_match():
