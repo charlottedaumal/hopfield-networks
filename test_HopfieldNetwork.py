@@ -82,9 +82,9 @@ def test_dynamics():
     s = np.array([[1, 4, 6, 7], [5, 8, 9, 0]])
     w = np.array([[1, 1], [1, 1]])
     a = dynamics(s, w, 10)
-    b = [np.array([[1, 4, 6, 7], [5, 8, 9, 0]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]])]
+    b = [np.array([[1, 4, 6, 7], [5, 8, 9, 0]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]])]
 
-    assert (np.allclose(np.array([a]), np.array([b])))
+    assert(np.allclose(np.array([a]), np.array([b])))
 
 
 def test_dynamics_async():
