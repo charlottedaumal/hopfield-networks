@@ -13,8 +13,8 @@ perturbed_pattern = perturb_pattern(random_patterns[-1], 1000)
 # Computation of the two weights matrices using the Hebbian and the Storkey learning rules
 # depending on what the user chooses through a keyboard interaction
 weights = np.zeros(random_patterns.shape[1])
-value = input("Please enter 'h' if you want to dot all the computations with the hebbian weights matrix "
-              "or 's' if you want to do it with the storkey weights, "
+value = input("Please enter 'h' if you want to do all the computations with the hebbian weights matrix "
+              "or 's' if you want to do it with the storkey weights matrix, "
               "then press 'Enter' :\n")
 if value == 'h':
     weights = hebbian_weights(random_patterns)
