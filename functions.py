@@ -321,7 +321,7 @@ def create_checkerboard(n):
     vector1 = np.ones(5)  # creating a unit vector composed of ones and having a dimension of 5
     vector2 = []
     for i in range(10):  # initialising a list containing all the sequences necessary to constitute the first line of the checkerboard
-        if i%2 == 0: 
+        if i % 2 == 0: 
             vector2.append(vector1)
         else:
             vector2.append(-vector1)
@@ -361,4 +361,3 @@ def save_video(state_list, out_path):
     video = anim.ArtistAnimation(fig, frames)  # definition of the animation
     video.save(out_path, writer=writer_video)  # saving the video
     
-
