@@ -320,22 +320,22 @@ def create_checkerboard(n):
     returns the checkerboard (multi-dimensional numpy array)
     """
 
-    # definition of the checkerboard
+    #definition 
     dimension = (n, n)
-    checkerboard = np.zeros(dimension, dtype=int)
+    checkerboard = np.zeros(dimension, dtype = int)
 
-    # arranges rows and columns
-    list_numbers = []
-    for k in range(5):
-        for m in range(5):
-            list_numbers.append(m + k * 10)
-
-    for i in range(5):
-        for j in range(n):
-            if (i in list_numbers) and (j in list_numbers):
-                checkerboard[i][j] = 1
-            else:
-                checkerboard[i][j] = -1
+    #arranges rows
+    vector1 = np.ones(5)
+    vector2 = []
+    for i in range (10):
+        if i%2==0 : 
+            vector2.append(vector1)
+        else:
+            vector2.append(-vector1)
+    
+    vector3 = np.array(vector2).reshape(50)
+    for i in range (5):
+        checkerboard[i] = vector3
 
     for i in range(5, 50):
         checkerboard[i] = -checkerboard[i - 5]
