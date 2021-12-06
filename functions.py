@@ -362,7 +362,7 @@ def save_video(state_list, out_path):
     video.save(out_path, writer=writer_video)  # saving the video
     
     
-if __name__ == "__main__":
+if __name__ == "__main__":  # implementation of the doctests to be able to run it
     import doctest
     print("Starting doctests")
     doctest.testmod()
