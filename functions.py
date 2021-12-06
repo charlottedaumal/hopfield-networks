@@ -350,16 +350,16 @@ def save_video(state_list, out_path):
     saves the video
     """
     
-    frames = []
-    fig = plt.figure()
-    writer = anim.writers['ffmpeg']
-    writer_video = writer(fps=15, metadata=dict(artist='Me'), bitrate=1800)
+    frames = []  # initialising an empty list of frames 
+    fig = plt.figure()  # definition of a figure (needed for the visualization)
+    writer = anim.writers['ffmpeg']  # initialization of pipe-based ffmpeg writer
+    writer_video = writer(fps=15, metadata=dict(artist='Me'), bitrate=1800)  # initialization of the writer parameter for saving the video
 
-    for state in state_list:
+    for state in state_list:  # adding all the state's configurations in the list of frames 
         frames.append([plt.imshow(state, cmap='Greys')])
 
-    video = anim.ArtistAnimation(fig, frames)
-    video.save(out_path, writer=writer_video)
+    video = anim.ArtistAnimation(fig, frames)  # definition of the animation
+    video.save(out_path, writer=writer_video)  # saving the video
     
     
 if __name__ == "__main__":
