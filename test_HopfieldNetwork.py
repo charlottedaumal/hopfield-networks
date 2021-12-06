@@ -15,11 +15,9 @@ def test_generate_patterns():
 def test_perturb_pattern():
     list_perturb_pattern = [-1, 1]
 
-    '''testing the values of the perturbed pattern'''
-    assert ((perturb_pattern(np.array([[1, 1, 2, 3]]), 7)).all() in list_perturbed_pattern)
+    assert ((perturb_pattern(np.array([[1, 1, 2, 3]]), 7)).all() in list_perturbed_pattern)  # testing the values of the perturbed pattern
 
-    '''testing if the perturbed pattern is different from the original one'''
-    assert ((perturb_pattern(np.array([[1, 1, 2, 3]]), 7) != np.array([[1, 1, 2, 3]])).any())
+    assert ((perturb_pattern(np.array([[1, 1, 2, 3]]), 7) != np.array([[1, 1, 2, 3]])).any())  # testing if the perturbed pattern is different from the original one
 
 
 def test_update():
@@ -31,11 +29,9 @@ def test_update():
 
     assert(np.allclose(update(p, w), u))
 
-    '''testing the values of the updated pattern'''
-    assert ((update(p, w)).all() in list_update)
+    assert ((update(p, w)).all() in list_update)  # testing the values of the updated pattern
 
-    '''testing if the updated pattern is different'''
-    assert((update(q, w) != q).any())
+    assert((update(q, w) != q).any())  # testing if the updated pattern is different
 
 
 def test_update_async():
@@ -46,36 +42,31 @@ def test_update_async():
 
     assert(np.allclose(update_async(p, w), np.array([[1, 1]])))
 
-    '''testing the values of the updated pattern'''
+    # testing the values of the updated pattern
     list_update_async = [-1, 1]
     assert((update_async(q, w_)).all() in list_update_async)
 
-    '''testing if the updated pattern is different'''
-    assert((update_async(q, w_) != q).any())
+    assert((update_async(q, w_) != q).any())  # testing if the updated pattern is different
 
 
 def test_hebbian_weights():
     weight_matrix = hebbian_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))
 
-    '''testing the symmetry of the matrix'''
-    assert (np.allclose(weight_matrix, np.transpose(weight_matrix)))
+    assert (np.allclose(weight_matrix, np.transpose(weight_matrix)))  # testing the symmetry of the matrix
 
-    '''testing the size of the matrix'''
+    # testing the size of the matrix
     weight_matrix = hebbian_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))
     assert (weight_matrix.shape[0] == weight_matrix.shape[1])
 
-    '''testing if the diagonal elements are equal to 0'''
-    assert ((np.diagonal(hebbian_weights(np.array(([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))))).all() == 0)
+    assert ((np.diagonal(hebbian_weights(np.array(([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))))).all() == 0)  # testing if the diagonal elements are equal to 0
 
 
 def test_storkey_weights():
     weight_matrix = storkey_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))
 
-    '''testing the symmetry of the matrix'''
-    assert(np.allclose(weight_matrix, np.transpose(weight_matrix)))
+    assert(np.allclose(weight_matrix, np.transpose(weight_matrix)))  # testing the symmetry of the matrix
 
-    '''testing the size of the matrix'''
-    assert(weight_matrix.shape[0] == weight_matrix.shape[1])
+    assert(weight_matrix.shape[0] == weight_matrix.shape[1])  # testing the size of the matrix
 
 
 def test_dynamics():
@@ -107,8 +98,7 @@ def test_energy():
 def test_create_checkerboard():
     list_checkerboard = [-1, 1]
 
-    '''testing the values of the checkerboard'''
-    assert(create_checkerboard(50).all() in list_checkerboard)
+    assert(create_checkerboard(50).all() in list_checkerboard)  # testing the values of the checkerboard
 
 
 def test_pattern_match():
