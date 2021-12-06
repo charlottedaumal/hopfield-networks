@@ -10,6 +10,7 @@ def test_hopfield_network():
 
 
 def test_generate_patterns():
+    """ testing the function generate_patterns"""
     list_generate_patterns = [-1, 1]
 
     # testing the values of the generated patterns
@@ -21,6 +22,7 @@ def test_generate_patterns():
 
 
 def test_perturb_pattern():
+    """testing the function perturb_pattern"""
     list_perturb_pattern = [-1, 1]
 
     # testing the values of the perturbed pattern
@@ -31,6 +33,7 @@ def test_perturb_pattern():
 
 
 def test_update():
+    """testing the function update"""
     p = np.array([[2, 5, 6, 7], [4, 5, 6, 9]])
     q = np.array([[1, 1, 1, 1], [4, 5, 6, 9]])
     w = np.array([[1, 1], [1, 1]])
@@ -42,6 +45,7 @@ def test_update():
 
 
 def test_update_async():
+    """testing the function update_async"""
     q = np.array([[2, 5, 6, 7], [4, 5, 6, 9]])
     w_ = np.array([[1, 1], [1, 1]])
 
@@ -53,6 +57,7 @@ def test_update_async():
 
 
 def test_hebbian_weights():
+    """testing the function hebbian_weights"""
     weight_matrix = functions.hebbian_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))
     assert (np.allclose(weight_matrix, np.transpose(weight_matrix)))  # testing the symmetry of the matrix
 
@@ -64,6 +69,7 @@ def test_hebbian_weights():
 
 
 def test_storkey_weights():
+    """testing the function storkey_weights"""
     weight_matrix = functions.storkey_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]])) 
 
     assert(np.allclose(weight_matrix, np.transpose(weight_matrix)))  # testing the symmetry of the matrix
@@ -72,6 +78,7 @@ def test_storkey_weights():
 
 
 def test_dynamics():
+    """testing the function dynamics"""
     s = np.array([[1, 4, 6, 7], [5, 8, 9, 0]])
     w = np.array([[1, 1], [1, 1]])
     a = functions.dynamics(s, w, 10)
@@ -83,6 +90,7 @@ def test_dynamics():
 
 
 def test_dynamics_async():
+    """testing the function dynamics_async"""
     s = np.array([[1, 0, 9, 7], [3, 7, 8, 9]])
     w = np.array([[1, 5], [4, 9]])
     a = functions.dynamics_async(s, w, 10, 6)
@@ -97,6 +105,7 @@ def test_dynamics_async():
 
     
 def test_energy():
+    """testing the function energy"""
     s = np.array([[2, 5]])
     w = np.array([[1, 1], [1, 1]])
     e = functions.energy(s, w)
@@ -106,12 +115,14 @@ def test_energy():
 
 
 def test_create_checkerboard():
+    """testing the function create_checkerboard"""
     list_checkerboard = [-1, 1]
 
     assert(functions.create_checkerboard(50).all() in list_checkerboard)  # testing the values of the checkerboard
 
 
 def test_pattern_match():
+    """testing the function pattern_match"""
     a = np.array([[0, 5, 3, 4], [0, 0, 0, 0]])
     b = np.array([[0, 5, 3, 4]])
     c = np.array([[0, 3, 3, 4]])
@@ -122,6 +133,8 @@ def test_pattern_match():
     
        
 def test_save_video():
+    """testing the function save_video"""
+    
     # testing if the video file exists and is saved where it should be
     random_patterns = functions.generate_patterns(5, 2500)
     checkerboard = functions.create_checkerboard(50)
