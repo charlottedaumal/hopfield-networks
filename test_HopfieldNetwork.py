@@ -147,5 +147,3 @@ def test_save_video():
     path_test = Path("./video_saved_test.mp4")
     functions.save_video(state_list_test, path_test)
     assert(path_test.is_file())
-
-    
