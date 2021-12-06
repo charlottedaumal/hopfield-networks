@@ -57,7 +57,8 @@ def test_hebbian_weights():
 
     assert (weight_matrix.shape[0] == weight_matrix.shape[1])  # testing the size of the matrix
 
-    assert ((np.diagonal(functions.hebbian_weights(np.array(([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))))).all()==0)  # testing if the diagonal elements are equal to 0
+    # testing if the diagonal elements are equal to 0
+    assert ((np.diagonal(functions.hebbian_weights(np.array(([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))))).all() == 0)
 
 
 def test_storkey_weights():
