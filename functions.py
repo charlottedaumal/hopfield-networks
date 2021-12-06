@@ -192,7 +192,7 @@ def dynamics(state, weights, max_iter):
         if np.allclose(previous_state, new_state):  # verifies if the state before the update is equal to the updated state
             break  # goes out of the for-loop because convergence is reached
         previous_state = new_state.copy()  # iterative perspective of the dynamical evolution of the pattern 
-    return state_history  # return the list with the whole state history
+    return state_history
 
 
 def dynamics_async(state, weights, max_iter, convergence_num_iter):
@@ -240,7 +240,7 @@ def dynamics_async(state, weights, max_iter, convergence_num_iter):
             nb_iter_convergence += 1
         previous_state = new_state.copy()  # iterative perspective of the dynamical evolution of the pattern 
         nb_iter += 1
-    return state_history  # return the list with the whole state history
+    return state_history
 
 
 def storkey_weights(patterns):
@@ -299,7 +299,7 @@ def energy(state, weights):
     array([[-24.5]])
     """
     
-    return -1/2 * np.dot(state, np.dot(weights, state.T))  # return the energy value associated to the state pattern
+    return -1/2 * np.dot(state, np.dot(weights, state.T))  # computes the energy value associated to the state pattern
 
 
 def create_checkerboard(n):
@@ -333,7 +333,7 @@ def create_checkerboard(n):
     for i in range(5, 50):
         checkerboard[i] = -checkerboard[i - 5]  # initialising all the other lines of the checkerboard according to an iterative process
 
-    return checkerboard  # return the checkerboard
+    return checkerboard
 
 
 def save_video(state_list, out_path):
