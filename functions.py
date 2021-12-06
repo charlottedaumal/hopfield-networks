@@ -180,6 +180,7 @@ def dynamics(state, weights, max_iter):
     >>> dynamics(np.array([[1, 4, 6, 7], [5,8,9,0]]), np.array([[1,1], [1,1]]), 10)
     [array([[1, 4, 6, 7],
            [5, 8, 9, 0]]), array([[1, 1, 1, 1],
+           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
            [1, 1, 1, 1]])]
     """
     
