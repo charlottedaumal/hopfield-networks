@@ -136,10 +136,10 @@ def test_save_video():
     """testing the function save_video"""
     
     # testing if the video file exists and is saved where it should be
-    random_patterns = functions.generate_patterns(5, 2500)
+    random_patterns = functions.generate_patterns(2, 2500)
     checkerboard = functions.create_checkerboard(50)
     random_patterns[-1] = checkerboard.flatten()
-    perturbed_pattern = functions.perturb_pattern(random_patterns[-1], 200)
+    perturbed_pattern = functions.perturb_pattern(random_patterns[-1], 100)
     weights = functions.hebbian_weights(random_patterns)
 
     state_history_test = functions.dynamics(perturbed_pattern, weights, 20)
