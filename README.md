@@ -3,8 +3,11 @@
 ## Hopfield Network 
 
 
-### Credits
-ClemenceKiehl & charlottedaumal
+### Table of contents
+* Description of the project
+* Files
+* Instructions to use our project
+* Credits
 
 
 ### Description
@@ -13,7 +16,7 @@ The aim of this project is to simulate the evolution of biologically-inspired dy
 Here, we will implement the iterative process which allows to retrieve one of the stored (memorized) patterns starting from the representation of a new (unseen) pattern.
 
 
-### Table of contents 
+### Files 
 1) main.py -> file containing the first version of the code and the unit tests
 2) functions.py -> file containing all the functions of the project
 3) test_HopfieldNetwork.py -> file containing pytests to test some functions of the file functions.py
@@ -32,3 +35,6 @@ When it has finished to run, the code provides you the two curves of energy rela
 #### Instructions to run the tests
 You need to run the test_HopfieldNetwork.py file to run all the pytests.
 
+
+### Credits
+ClemenceKiehl & charlottedaumal
