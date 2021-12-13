@@ -53,10 +53,10 @@ def pattern_match(memorized_patterns, pattern):
     
     Parameters:
     --------------
-    memorized_pattern: array
-    -> initially memorized pattern that was generated previously
+    memorized_patterns: array
+    -> memorized patterns that was generated previously
     pattern: array
-    -> another pattern to which we will compare the initially memorized pattern
+    -> another pattern to which we will compare the memorized pattern
     
     Output:
     --------------
@@ -80,7 +80,7 @@ def hebbian_weights(patterns):
     Parameters:
     --------------
     patterns: array
-    -> pattern to which the hebbian learning rule will be applied
+    -> patterns randomly generated previously to which the hebbian learning rule will be applied
     
     Output:
     --------------
@@ -116,11 +116,11 @@ def update(state, weights):
     state : array
     -> the network state to which we will apply the update rule
     weights : array
-    -> weight matrix returned by the function hebbian_weights(patterns)
+    -> weights matrix
     
     Output:
     --------------
-    returns the new state updated from the previous one (list of numpy arrays)
+    returns the new state updated from the previous one (a numpy array)
  
     Examples:
     --------------
@@ -140,13 +140,13 @@ def update_async(state, weights):
     state : array
     -> the network state to which we will apply the asynchronous update rule
     weights : array
-    -> weights matrix returned by the function hebbian_weights(patterns)
+    -> weights matrix
     
     Output:
     --------------
-    returns the new state updated from the previous one (list of numpy arrays)
+    returns the new state updated from the previous one (a numpy array)
     
-   Examples:
+    Examples:
     --------------
     >>> update_async(np.array([[8,9], [0,0]]), np.array([[1,1],[2,2]]))
     array([[1, 1]])
@@ -165,9 +165,9 @@ def dynamics(state, weights, max_iter):
     state : array
     -> initial network state
     weights : array
-    -> weights matrix returned by the function hebbian_weights(patterns)
+    -> weights matrix
     max_iter : int
-    -> maximum number of steps reached
+    -> maximum number of steps that can be reached
     
     Output:
     --------------
@@ -204,9 +204,9 @@ def dynamics_async(state, weights, max_iter, convergence_num_iter):
     state : array
     -> initial network state
     weights : array
-    -> matrix returned by the function hebbian_weights(patterns)
+    -> weights matrix
     max_iter : int
-    -> maximum number of steps reached
+    -> maximum number of steps that can be reached
     convergence_num_iter : int
     -> maximum number of iterations in which the algorithm can reach convergence
     
@@ -244,17 +244,16 @@ def dynamics_async(state, weights, max_iter, convergence_num_iter):
 
 
 def storkey_weights(patterns):
-    """Creates the weight matrix by using the storkey learning rule on given patterns
+    """Creates the weights matrix by using the storkey learning rule on given patterns
     
     Parameters:
     --------------
     patterns : array
-    -> pattern to which the storkey learning rule will be applied
-    
+    -> patterns randomly generated previously to which the storkey learning rule will be applied
     
     Output:
     --------------
-    returns the weight matrix (a multi-dimensional numpy array)
+    returns the weights matrix (a multi-dimensional numpy array)
     
     Examples:
     --------------
@@ -280,14 +279,14 @@ def storkey_weights(patterns):
 
 
 def energy(state, weights):
-    """returns the energy value associated to the network state
+    """Returns the energy value associated to the network state
     
     Parameters:
     --------------
     state : array
-    -> network state composed of patterns to which we will associate energy values
+    -> network state
     weights : array
-    -> weights matrix returned by the function Hebbian_weights(patterns)
+    -> weights matrix
     
     Output:
     --------------
@@ -303,7 +302,7 @@ def energy(state, weights):
 
 
 def create_checkerboard(n):
-    """Function that prints the checkerboard pattern according to a given dimension
+    """Prints the checkerboard pattern according to a given dimension
     
     Parameters:
     --------------
