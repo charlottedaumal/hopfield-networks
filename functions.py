@@ -2,6 +2,8 @@ import numpy as np
 import random as rd
 import matplotlib.pyplot as plt
 import matplotlib.animation as anim
+from update_cython import *
+from dynamic_cython import *
 
 
 def generate_patterns(num_patterns, pattern_size):
