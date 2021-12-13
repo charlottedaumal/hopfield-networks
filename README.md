@@ -42,11 +42,11 @@ When it has finished to run, the code provides you the two curves of energy rela
 
 
 #### Instructions to run the tests
-You need to run the test_HopfieldNetwork.py file to run all the pytests.
+You need to run the test_HopfieldNetwork.py file to run all the pytests and the doctests.
 
 -> In the terminal, type the command "pytest test_HopfieldNetwork.py", then, to see the coverage, type the command "coverage run -m pytest test_HopfieldNetwork.py" and then "coverage report -m".
 
--> To run the doctests, click on "Run Doctests in functions" on PyCharm 
+-> To only run the doctests, click on "Run Doctests in functions" on PyCharm 
 
 
 
