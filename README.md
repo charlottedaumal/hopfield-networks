@@ -22,6 +22,9 @@ Here, we will implement the iterative process which allows to retrieve one of th
 3) test_HopfieldNetwork.py -> file containing pytests to test some functions of the file functions.py
 4) .gitignore -> file containing all the files that Git was told to ignore
 5) Graphs -> directory containing the pictures of the energy curves for the hebbian and the storkey weights matrices
+6) update.cython.py -> cython optimization of the update and update_async functions
+7) dynamics_cython.py -> cython optimization of the dynamics and dynamics_async functions
+8) setup.py -> file used to build the modules update_cython.py and dynamics_cython.py
 
 
 ### How to use our project
