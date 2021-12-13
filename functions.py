@@ -337,13 +337,14 @@ def create_checkerboard(n):
 
 
 def save_video(state_list, out_path):
-    """ generates a video of the evolution of the system
+    """Generates a video of the evolution of the system
     
     Parameters:
     --------------
     state_list : list of arrays
     -> list of network state
-    out_path : 
+    out_path : string
+    -> path where the video will be saved
     
     Output:
     --------------
