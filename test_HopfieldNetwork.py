@@ -14,11 +14,11 @@ def test_generate_patterns():
     list_generate_patterns = [-1, 1]
 
     # testing the values of the generated patterns
-    assert ((functions.generate_patterns(5, 10)).all() in list_generate_patterns)
+    assert (functions.generate_patterns(5, 10)).all() in list_generate_patterns
 
     # testing the size of the generated patterns
-    assert ((functions.generate_patterns(5, 10)).shape[0] == 5)
-    assert ((functions.generate_patterns(5, 10)).shape[1] == 10)
+    assert (functions.generate_patterns(5, 10)).shape[0] == 5
+    assert (functions.generate_patterns(5, 10)).shape[1] == 10
 
 
 def test_perturb_pattern():
@@ -26,10 +26,10 @@ def test_perturb_pattern():
     list_perturb_pattern = [-1, 1]
 
     # testing the values of the perturbed pattern
-    assert ((functions.perturb_pattern(np.array([[1, 1, 2, 3]]), 7)).all() in list_perturb_pattern)
+    assert (functions.perturb_pattern(np.array([[1, 1, 2, 3]]), 7)).all() in list_perturb_pattern
 
     # testing if the perturbed pattern is different from the original one
-    assert ((functions.perturb_pattern(np.array([[1, 1, 2, 3]]), 7) != np.array([[1, 1, 2, 3]])).any())
+    assert (functions.perturb_pattern(np.array([[1, 1, 2, 3]]), 7) != np.array([[1, 1, 2, 3]])).any()
 
 
     def test_update(benchmark):
@@ -63,8 +63,8 @@ def test_hebbian_weights(benchmark):
     assert (np.allclose(weights, np.transpose(weights)))  # testing the symmetry of the matrix
 
     # testing if the diagonal elements are equal to 0
-    assert (np.diagonal(weights).all() == 0)
-    assert(weights.shape[0] == weights.shape[1])
+    assert np.diagonal(weights).all() == 0
+    assert weights.shape[0] == weights.shape[1]
 
 
 def test_storkey_weights(benchmark):
@@ -85,7 +85,7 @@ def test_dynamics():
                                                                                                    [1, 1, 1, 1]])]
 
     # testing the return value of the function dynamics for a specific input
-    assert(np.allclose(np.array([a]), np.array([b])))
+    assert np.allclose(np.array([a]), np.array([b]))
 
 
 def test_dynamics_async():
@@ -100,7 +100,7 @@ def test_dynamics_async():
          np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]])]
 
     # testing the return value of the functions dynamics_async for a specific input 
-    assert(np.allclose(np.array([a]), np.array([b])))
+    assert np.allclose(np.array([a]), np.array([b]))
 
     
 def test_energy(benchmark):
@@ -110,14 +110,14 @@ def test_energy(benchmark):
     e = benchmark.pedantic(functions.energy, args=(s, w), iterations=5)
 
     # testing the return value of the functions energy for a specific input
-    assert (np.allclose(np.array([e]), np.array([[-24.5]])))
+    assert np.allclose(np.array([e]), np.array([[-24.5]]))
 
 
 def test_create_checkerboard():
     """testing the function create_checkerboard"""
     list_checkerboard = [-1, 1]
 
-    assert(functions.create_checkerboard(50).all() in list_checkerboard)  # testing the values of the checkerboard
+    assert functions.create_checkerboard(50).all() in list_checkerboard  # testing the values of the checkerboard
 
 
 def test_pattern_match():
@@ -127,8 +127,8 @@ def test_pattern_match():
     c = np.array([[0, 3, 3, 4]])
 
     # testing the return value of the pattern_match function for a specific input
-    assert(functions.pattern_match(a, b) == 0) 
-    assert(functions.pattern_match(a, c) is None)
+    assert functions.pattern_match(a, b) == 0
+    assert functions.pattern_match(a, c) is None
     
        
 def test_save_video():
@@ -145,4 +145,4 @@ def test_save_video():
     state_list_test = [np.reshape(test_state, (50, 50)) for test_state in state_history_test]
     path_test = Path("./video_saved_test.mp4")
     functions.save_video(state_list_test, path_test)
-    assert(path_test.is_file())
+    assert path_test.is_file()
