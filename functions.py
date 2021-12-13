@@ -153,7 +153,10 @@ def hebbian_weights(patterns):
 #    """
     
 #    index = rd.choices(np.linspace(0, weights.shape[0] - 1, weights.shape[0], dtype=int))  # chooses randomly an index
-#    return np.where(np.dot(weights[index], state) >= 0, 1, -1)  # applying the asynchronous update rule (updates the i-th component of the state pattern)
+#    pattern = state.copy()
+#    pattern[index] = np.where(np.dot(weights[index], state) >= 0, 1, -1) # applying the asynchronous update rule
+    # (updates the i-th component of the state pattern)
+#    return pattern 
 
 
 #def dynamics(state, weights, max_iter):
@@ -234,7 +237,7 @@ def hebbian_weights(patterns):
 #    previous_state = state.copy()
 #    nb_iter = nb_iter_convergence = 0
 #    while (nb_iter < max_iter) and (nb_iter_convergence < convergence_num_iter):  # two conditions to run the dynamical system : a maximum number of iterations and a minimum number of convergence iterations
-#        new_state = update(previous_state, weights)  # updating the state
+#        new_state = update_async(previous_state, weights)  # updating the state
 #        state_history.append(new_state)  # adding the updated state to the state history list
 #        if np.allclose(previous_state, new_state):  # verifies if the state before the update is equal to the updated state
 #            nb_iter_convergence += 1
