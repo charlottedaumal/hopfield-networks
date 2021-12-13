@@ -126,7 +126,7 @@ def hebbian_weights(patterns):
 #    Examples:
 #    --------------
 #    >>> update(np.array([1, 1, -1, 1]), np.array([[1, 1, 1, -1], [1, 1, 1, -1]]))
-     array([1, 1])
+#    [array([1, 1])]
 #    """
     
 #    return np.where(np.dot(weights, state) >= 0, 1, -1)  # applying the update rule to a state pattern 
@@ -149,7 +149,7 @@ def hebbian_weights(patterns):
 #    Examples:
 #    --------------
 #    >>> update_async(np.array([-1, -1, -1, 1]), np.array([[1, 1, -1, -1], [1, 1, 1, 1]]))
-    array([-1, -1, -1, 1])
+#    [array([-1, -1, -1, 1])]
 #    """
     
 #    index = rd.choices(np.linspace(0, weights.shape[0] - 1, weights.shape[0], dtype=int))  # chooses randomly an index
@@ -180,11 +180,8 @@ def hebbian_weights(patterns):
 
 #    Examples:
 #    --------------
-#    >>> dynamics(np.array([[1, 4, 6, 7], [5,8,9,0]]), np.array([[1,1], [1,1]]), 10)
-#    [array([[1, 4, 6, 7],
-#           [5, 8, 9, 0]]), array([[1, 1, 1, 1],
-#           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
-#           [1, 1, 1, 1]])]
+#    >>> dynamics(np.array([1, 8, 0, 9]), np.array([[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]]), 10)
+#   [array([1, 8, 0, 9]), array([1, 1, 1, 1]), array([1, 1, 1, 1])]
 #    """
     
 #    state_history = [state]
