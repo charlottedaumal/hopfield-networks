@@ -2,6 +2,8 @@ import functions
 import doctest
 from pathlib import Path
 import numpy as np
+import update_cython
+import dynamics_cython
 
 
 def test_hopfield_network():
