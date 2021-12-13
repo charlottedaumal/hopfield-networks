@@ -315,24 +315,19 @@ def create_checkerboard(n):
     returns the checkerboard (multi-dimensional numpy array)
     """
 
-    dimension = (n, n)
-    checkerboard = np.zeros(dimension, dtype = int)  # initialisation of the checkerboard matrix
+    checkerboard = np.zeros((n, n), dtype = int)
 
-    vector1 = np.ones(5)  # creating a unit vector composed of ones and having a dimension of 5
-    vector2 = []
-    for i in range(10):  # initialising a list containing all the sequences necessary to constitute the first line of the checkerboard
-        if i % 2 == 0: 
-            vector2.append(vector1)
-        else:
-            vector2.append(-vector1)
+    vector1 = np.ones(5)
+    vector2 = -vector1
+    vector3 = np.concatenate((vector1, vector2))
+    vector4 = np.tile(vector3, 5)
+    vector5 = np.tile(vector4, 5)
+    vector6 = np.concatenate((vector2, vector1))
+    vector7 = np.tile(vector6, 5)
+    vector8 = np.tile(vector7, 5)
+    vector9 = np.concatenate((vector5, vector8))
+    checkerboard = np.tile(vector9, 5).reshape(50,50)
     
-    vector3 = np.array(vector2).reshape(50)  # conversion of the list into an array
-    for i in range(5):
-        checkerboard[i] = vector3  # initialising the first five lines of the checkerboard (they are all equal)
-
-    for i in range(5, 50):
-        checkerboard[i] = -checkerboard[i - 5]  # initialising all the other lines of the checkerboard according to an iterative process
-
     return checkerboard
 
 
