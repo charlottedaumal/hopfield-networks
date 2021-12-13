@@ -35,9 +35,9 @@ def test_perturb_pattern():
     def test_update(benchmark):
     """testing the function update"""
 
-    p = np.array([[2, 5, 6, 7], [4, 5, 6, 9]])
-    q = np.array([[1, 1, 1, 1], [4, 5, 6, 9]])
-    w = np.array([[1, 1], [1, 1]])
+    p = np.array([1, 1, -1, 1])
+    q = np.array([1, 1, -1, -1])
+    w = np.array([[1, 1, 1, -1], [1, 1, 1, -1]])
     list_update = [-1, 1]
     p_updated = benchmark.pedantic(update_cython.update, args=(p, w), iterations=100)
 
