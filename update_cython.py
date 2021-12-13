@@ -3,6 +3,24 @@ import random as rd
 
 
 def update(state, weights):
+    """Applies the update rule to a state pattern
+    
+    Parameters:
+    --------------
+    state : array
+    -> the network state to which we will apply the update rule
+    weights : array
+    -> weights matrix
+    
+    Output:
+    --------------
+    returns the new state updated from the previous one (a numpy array)
+ 
+    Examples:
+    --------------
+    >>> update(np.array([1, 1, -1, 1]), np.array([[1, 1, 1, -1], [1, 1, 1, -1]]))
+    [array([1, 1])]
+    """
     return np.where(np.dot(weights, state) >= 0, 1, -1)
 
 
