@@ -32,16 +32,17 @@ def test_perturb_pattern():
     assert ((functions.perturb_pattern(np.array([[1, 1, 2, 3]]), 7) != np.array([[1, 1, 2, 3]])).any())
 
 
-def test_update():
+    def test_update(benchmark):
     """testing the function update"""
+
     p = np.array([[2, 5, 6, 7], [4, 5, 6, 9]])
     q = np.array([[1, 1, 1, 1], [4, 5, 6, 9]])
     w = np.array([[1, 1], [1, 1]])
     list_update = [-1, 1]
+    p_updated = benchmark.pedantic(update_cython.update, args=(p, w), iterations=100)
 
-    assert ((update_cython.update(p, w)).all() in list_update)  # testing the values of the updated pattern
-
-    assert((update_cython.update(q, w) != q).any())  # testing if the updated pattern is different
+    assert p_updated.all() in list_update  # testing the values of the updated pattern
+    assert (update_cython.update(q, w) != q).any()  # testing if the updated pattern is different
 
 
 def test_update_async():
@@ -56,17 +57,15 @@ def test_update_async():
     assert((update_cython.update_async(q, w_) != q).any())  # testing if the updated pattern is different
 
 
-def test_hebbian_weights():
+def test_hebbian_weights(benchmark):
     """testing the function hebbian_weights"""
-    weight_matrix = functions.hebbian_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))
-    
-    assert (np.allclose(weight_matrix, np.transpose(weight_matrix)))  # testing the symmetry of the matrix
+    weights = benchmark.pedantic(functions.hebbian_weights, args=(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]),), iterations=5)
 
-    assert (weight_matrix.shape[0] == weight_matrix.shape[1])  # testing the size of the matrix
+    assert (np.allclose(weights, np.transpose(weights)))  # testing the symmetry of the matrix
 
     # testing if the diagonal elements are equal to 0
-    assert ((np.diagonal(functions.hebbian_weights(np.array(([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))))).all() 
-            == 0)
+    assert (np.diagonal(weights).all() == 0)
+    assert(weights.shape[0] == weights.shape[1])
 
 
 def test_storkey_weights():
