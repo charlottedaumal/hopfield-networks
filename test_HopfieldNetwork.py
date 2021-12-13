@@ -76,11 +76,10 @@ def test_storkey_weights(benchmark):
 
 def test_dynamics():
     """testing the function dynamics"""
-    s = np.array([[1, 4, 6, 7], [5, 8, 9, 0]])
-    w = np.array([[1, 1], [1, 1]])
+    s = np.array([1, 8, 0, 9])
+    w = np.array([[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]])
     a = dynamics_cython.dynamics(s, w, 10)
-    b = [np.array([[1, 4, 6, 7], [5, 8, 9, 0]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], 
-                                                                                                   [1, 1, 1, 1]])]
+    b = [np.array([np.array([1, 8, 0, 9]), np.array([1, 1, 1, 1]), np.array([1, 1, 1, 1])])]
 
     # testing the return value of the function dynamics for a specific input
     assert np.allclose(np.array([a]), np.array([b]))
