@@ -103,14 +103,14 @@ def test_dynamics_async():
     assert(np.allclose(np.array([a]), np.array([b])))
 
     
-def test_energy():
+def test_energy(benchmark):
     """testing the function energy"""
     s = np.array([[2, 5]])
     w = np.array([[1, 1], [1, 1]])
-    e = functions.energy(s, w)
+    e = benchmark.pedantic(functions.energy, args=(s, w), iterations=5)
 
     # testing the return value of the functions energy for a specific input
-    assert(np.allclose(np.array([e]), np.array([[-24.5]])))
+    assert (np.allclose(np.array([e]), np.array([[-24.5]])))
 
 
 def test_create_checkerboard():
