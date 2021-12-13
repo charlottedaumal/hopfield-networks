@@ -67,13 +67,13 @@ def test_hebbian_weights(benchmark):
     assert(weights.shape[0] == weights.shape[1])
 
 
-def test_storkey_weights():
+def test_storkey_weights(benchmark):
     """testing the function storkey_weights"""
-    weight_matrix = functions.storkey_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]])) 
+    weights = benchmark.pedantic(functions.storkey_weights, args=(np.array([[1, 1, -1, -1], [1, 1, -1, 1],
+                                                                            [-1, 1, -1, 1]]),), iterations=5)
 
-    assert(np.allclose(weight_matrix, np.transpose(weight_matrix)))  # testing the symmetry of the matrix
-
-    assert(weight_matrix.shape[0] == weight_matrix.shape[1])  # testing the size of the matrix
+    assert np.allclose(weights, np.transpose(weights))  # testing the symmetry of the matrix
+    assert weights.shape[0] == weights.shape[1]  # testing the size of the matrix
 
 
 def test_dynamics():
