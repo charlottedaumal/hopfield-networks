@@ -31,8 +31,8 @@ def test_perturb_pattern():
     # testing if the perturbed pattern is different from the original one
     assert (functions.perturb_pattern(np.array([[1, 1, 2, 3]]), 7) != np.array([[1, 1, 2, 3]])).any()
 
-
-    def test_update(benchmark):
+    
+def test_update(benchmark):
     """testing the function update"""
 
     p = np.array([1, 1, -1, 1])
