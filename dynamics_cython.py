@@ -2,6 +2,30 @@ from update_cython import*
 
 
 def dynamics(state, weights, max_iter):
+    """Runs the dynamical system from an initial state until convergence
+    or until a maximum number of steps is reached
+    
+    Parameters:
+    --------------
+    state : array
+    -> initial network state
+    weights : array
+    -> weights matrix
+    max_iter : int
+    -> maximum number of steps that can be reached
+    
+    Output:
+    --------------
+    returns the list of the state history
+    
+    CU : max_iter >= 0
+
+    Examples:
+    --------------
+    >>> dynamics(np.array([1, 8, 0, 9]), np.array([[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]]), 10)
+    [array([1, 8, 0, 9]), array([1, 1, 1, 1]), array([1, 1, 1, 1])]
+    """
+    
     state_history = [state]
     previous_state = state.copy()
     for i in range(max_iter):
