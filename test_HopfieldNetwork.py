@@ -46,8 +46,8 @@ def test_perturb_pattern():
     
 def test_update_async(benchmark):
     """testing the function update_async"""
-    q = np.array([[2, 5, 6, 7], [4, 5, 6, 9]])
-    w = np.array([[1, 1], [1, 1]])
+    q = np.array([-1, -1, -1, 1])
+    w = np.array([[1, 1, -1, -1], [1, 1, 1, 1]])
     q_updated = benchmark.pedantic(update_cython.update_async, args=(q,w), iterations=100)
     list_update_async = [-1, 1]
     
