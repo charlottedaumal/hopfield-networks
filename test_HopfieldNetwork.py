@@ -87,14 +87,11 @@ def test_dynamics():
 
 def test_dynamics_async():
     """testing the function dynamics_async"""
-    s = np.array([[1, 0, 9, 7], [3, 7, 8, 9]])
-    w = np.array([[1, 1], [1, 1]])
+    s = np.array([-1, -1, -1, 1])
+    w = np.array([[1, 1, -1, -1], [1, 1, 1, 1]])
     a = dynamics_cython.dynamics_async(s, w, 10, 6)
-    b = [np.array([[1, 0, 9, 7], [3, 7, 8, 9]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], 
-                                                                                                   [1, 1, 1, 1]]), 
-         np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], 
-                                                                                                   [1, 1, 1, 1]]), 
-         np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]])]
+    b = [np.array([-1, -1, -1,  1]), np.array([-1, -1, -1,  1]), np.array([-1, -1, -1,  1]), np.array([-1, -1, -1,  1]),
+         np.array([-1, -1, -1,  1]), np.array([-1, -1, -1,  1]), np.array([-1, -1, -1,  1])]
 
     # testing the return value of the functions dynamics_async for a specific input 
     assert np.allclose(np.array([a]), np.array([b]))
