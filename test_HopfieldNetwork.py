@@ -59,6 +59,7 @@ def test_update_async():
 def test_hebbian_weights():
     """testing the function hebbian_weights"""
     weight_matrix = functions.hebbian_weights(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]))
+    
     assert (np.allclose(weight_matrix, np.transpose(weight_matrix)))  # testing the symmetry of the matrix
 
     assert (weight_matrix.shape[0] == weight_matrix.shape[1])  # testing the size of the matrix
@@ -92,7 +93,7 @@ def test_dynamics():
 def test_dynamics_async():
     """testing the function dynamics_async"""
     s = np.array([[1, 0, 9, 7], [3, 7, 8, 9]])
-    w = np.array([[1, 5], [4, 9]])
+    w = np.array([[1, 1], [1, 1]])
     a = functions.dynamics_async(s, w, 10, 6)
     b = [np.array([[1, 0, 9, 7], [3, 7, 8, 9]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], 
                                                                                                    [1, 1, 1, 1]]), 
