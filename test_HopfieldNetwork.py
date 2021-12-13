@@ -44,17 +44,16 @@ def test_perturb_pattern():
     assert p_updated.all() in list_update  # testing the values of the updated pattern
     assert (update_cython.update(q, w) != q).any()  # testing if the updated pattern is different
 
-
-def test_update_async():
+    
+def test_update_async(benchmark):
     """testing the function update_async"""
     q = np.array([[2, 5, 6, 7], [4, 5, 6, 9]])
-    w_ = np.array([[1, 1], [1, 1]])
-
-    # testing the values of the updated pattern
+    w = np.array([[1, 1], [1, 1]])
+    q_updated = benchmark.pedantic(update_cython.update_async, args=(q,w), iterations=100)
     list_update_async = [-1, 1]
-    assert((update_cython.update_async(q, w_)).all() in list_update_async)
-
-    assert((update_cython.update_async(q, w_) != q).any())  # testing if the updated pattern is different
+    
+    assert q_updated.all() in list_update_async  # testing the values of the updated pattern
+    assert (update_cython.update_async(q, w) != q).any()  # testing if the updated pattern is different
 
 
 def test_hebbian_weights(benchmark):
