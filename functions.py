@@ -42,9 +42,8 @@ def perturb_pattern(pattern, num_perturb):
     """
     
     pattern_perturbed = pattern.copy()
-    for i in range(num_perturb):
-        index = rd.choices(np.linspace(0, len(pattern) - 1, len(pattern), dtype=int))  # chooses randomly an index to perturb a random element of one given pattern
-        pattern_perturbed[index] = -pattern_perturbed[index]  # inverse the sign of a single element of a given pattern
+    indices = rd.choices(np.linspace(0, len(pattern) - 1, len(pattern), dtype=int), k=num_perturb)  # chooses randomly an index to perturb a random element of one given pattern
+    pattern_perturbed[indices] = -pattern_perturbed[indices]  # inverse the sign of a single element of a given pattern
     return pattern_perturbed
 
 
