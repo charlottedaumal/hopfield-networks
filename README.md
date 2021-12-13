@@ -16,6 +16,16 @@ The aim of this project is to simulate the evolution of biologically-inspired dy
 Here, we will implement the iterative process which allows to retrieve one of the stored (memorized) patterns starting from the representation of a new (unseen) pattern.
 
 
+### Requirements
+* Python >= 3.5
+* numpy
+* matplotlib
+* random
+* pathlib
+* cython
+* disultils.core
+
+
 ### Files 
 1) main.py -> file containing the first version of the code and the unit tests
 2) functions.py -> file containing all the functions of the project
