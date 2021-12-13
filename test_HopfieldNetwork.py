@@ -58,7 +58,7 @@ def test_update_async(benchmark):
 
 def test_hebbian_weights(benchmark):
     """testing the function hebbian_weights"""
-    weights = benchmark.pedantic(functions.hebbian_weights, args=(np.array([[1, 1, -1, -1], [1, 1, -1, 1], [-1, 1, -1, 1]]),), iterations=5)
+    weights = benchmark.pedantic(functions.hebbian_weights, args=(functions.generate_patterns(50, 2500),), iterations=5)
 
     assert (np.allclose(weights, np.transpose(weights)))  # testing the symmetry of the matrix
 
@@ -69,8 +69,7 @@ def test_hebbian_weights(benchmark):
 
 def test_storkey_weights(benchmark):
     """testing the function storkey_weights"""
-    weights = benchmark.pedantic(functions.storkey_weights, args=(np.array([[1, 1, -1, -1], [1, 1, -1, 1],
-                                                                            [-1, 1, -1, 1]]),), iterations=5)
+    weights = benchmark.pedantic(functions.storkey_weights, args=(functions.generate_patterns(50, 2500),), iterations=5)
 
     assert np.allclose(weights, np.transpose(weights))  # testing the symmetry of the matrix
     assert weights.shape[0] == weights.shape[1]  # testing the size of the matrix
