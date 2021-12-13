@@ -148,8 +148,8 @@ def hebbian_weights(patterns):
     
 #    Examples:
 #    --------------
-#    >>> update_async(np.array([[8,9], [0,0]]), np.array([[1,1],[2,2]]))
-#    array([[1, 1]])
+#    >>> update_async(np.array([-1, -1, -1, 1]), np.array([[1, 1, -1, -1], [1, 1, 1, 1]]))
+    array([-1, -1, -1, 1])
 #    """
     
 #    index = rd.choices(np.linspace(0, weights.shape[0] - 1, weights.shape[0], dtype=int))  # chooses randomly an index
