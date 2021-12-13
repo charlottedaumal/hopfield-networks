@@ -121,9 +121,9 @@ def test_create_checkerboard():
 
 def test_pattern_match():
     """testing the function pattern_match"""
-    a = np.array([[0, 5, 3, 4], [0, 0, 0, 0]])
-    b = np.array([[0, 5, 3, 4]])
-    c = np.array([[0, 3, 3, 4]])
+    a = np.array([[1, 1, -1, -1], [1, 1, -1, 1]])
+    b = np.array([[1, 1, -1, -1]])
+    c = np.array([[1, 1, 1, 1]])
 
     # testing the return value of the pattern_match function for a specific input
     assert functions.pattern_match(a, b) == 0
