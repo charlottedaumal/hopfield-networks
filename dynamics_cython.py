@@ -39,6 +39,32 @@ def dynamics(state, weights, max_iter):
 
 
 def dynamics_async(state, weights, max_iter, convergence_num_iter):
+    """Runs the dynamical system from an initial state until a maximum number
+    of steps is reached or a convergence for a given number of steps is reached
+    
+    Parameters:
+    --------------
+    state : array
+    -> initial network state
+    weights : array
+    -> weights matrix
+    max_iter : int
+    -> maximum number of steps that can be reached
+    convergence_num_iter : int
+    -> maximum number of iterations in which the algorithm can reach convergence
+    
+    Output:
+    --------------
+    returns the list of the state history
+    
+    CU: max_iter >= 0 and convergence_num_iter >= 0
+
+    Examples:
+    --------------
+    >>> dynamics_async(np.array([-1, -1, -1, 1]), np.array([[1, 1, -1, -1], [1, 1, 1, 1]]), 10, 6)
+   [array([-1, -1, -1,  1]), array([-1, -1, -1,  1])]
+    """
+    
     state_history = [state]
     previous_state = state.copy()
     nb_iter = nb_iter_convergence = 0
