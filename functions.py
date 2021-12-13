@@ -155,7 +155,7 @@ def hebbian_weights(patterns):
 #    index = rd.choices(np.linspace(0, weights.shape[0] - 1, weights.shape[0], dtype=int))  # chooses randomly an index
 #    pattern = state.copy()
 #    pattern[index] = np.where(np.dot(weights[index], state) >= 0, 1, -1) # applying the asynchronous update rule
-    # (updates the i-th component of the state pattern)
+# (updates the i-th component of the state pattern)
 #    return pattern 
 
 
@@ -219,7 +219,7 @@ def hebbian_weights(patterns):
 #    Examples:
 #    --------------
 #    >>> dynamics_async(np.array([-1, -1, -1, 1]), np.array([[1, 1, -1, -1], [1, 1, 1, 1]]), 10, 6)
-    [array([-1, -1, -1,  1]), array([-1, -1, -1,  1])]
+#    [array([-1, -1, -1,  1]), array([-1, -1, -1,  1])]
 #    """
     
 #    state_history = [state]
