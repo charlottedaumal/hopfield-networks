@@ -36,13 +36,12 @@ def test_perturb_pattern():
     """testing the function update"""
 
     p = np.array([1, 1, -1, 1])
-    q = np.array([1, 1, -1, -1])
     w = np.array([[1, 1, 1, -1], [1, 1, 1, -1]])
     list_update = [-1, 1]
     p_updated = benchmark.pedantic(update_cython.update, args=(p, w), iterations=100)
 
     assert p_updated.all() in list_update  # testing the values of the updated pattern
-    assert (update_cython.update(q, w) != q).any()  # testing if the updated pattern is different
+    assert (update_cython.update(p, w) != p).any()  # testing if the updated pattern is different
 
     
 def test_update_async(benchmark):
