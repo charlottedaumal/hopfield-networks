@@ -39,9 +39,9 @@ def test_update():
     w = np.array([[1, 1], [1, 1]])
     list_update = [-1, 1]
 
-    assert ((functions.update(p, w)).all() in list_update)  # testing the values of the updated pattern
+    assert ((update_cython.update(p, w)).all() in list_update)  # testing the values of the updated pattern
 
-    assert((functions.update(q, w) != q).any())  # testing if the updated pattern is different
+    assert((update_cython.update(q, w) != q).any())  # testing if the updated pattern is different
 
 
 def test_update_async():
@@ -51,9 +51,9 @@ def test_update_async():
 
     # testing the values of the updated pattern
     list_update_async = [-1, 1]
-    assert((functions.update_async(q, w_)).all() in list_update_async)
+    assert((update_cython.update_async(q, w_)).all() in list_update_async)
 
-    assert((functions.update_async(q, w_) != q).any())  # testing if the updated pattern is different
+    assert((update_cython.update_async(q, w_) != q).any())  # testing if the updated pattern is different
 
 
 def test_hebbian_weights():
@@ -82,7 +82,7 @@ def test_dynamics():
     """testing the function dynamics"""
     s = np.array([[1, 4, 6, 7], [5, 8, 9, 0]])
     w = np.array([[1, 1], [1, 1]])
-    a = functions.dynamics(s, w, 10)
+    a = dynamics_cython.dynamics(s, w, 10)
     b = [np.array([[1, 4, 6, 7], [5, 8, 9, 0]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], 
                                                                                                    [1, 1, 1, 1]])]
 
@@ -94,7 +94,7 @@ def test_dynamics_async():
     """testing the function dynamics_async"""
     s = np.array([[1, 0, 9, 7], [3, 7, 8, 9]])
     w = np.array([[1, 1], [1, 1]])
-    a = functions.dynamics_async(s, w, 10, 6)
+    a = dynamics_cython.dynamics_async(s, w, 10, 6)
     b = [np.array([[1, 0, 9, 7], [3, 7, 8, 9]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], 
                                                                                                    [1, 1, 1, 1]]), 
          np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], [1, 1, 1, 1]]), np.array([[1, 1, 1, 1], 
@@ -143,7 +143,7 @@ def test_save_video():
     perturbed_pattern = functions.perturb_pattern(random_patterns[-1], 100)
     weights = functions.hebbian_weights(random_patterns)
 
-    state_history_test = functions.dynamics(perturbed_pattern, weights, 20)
+    state_history_test = dynamics_cython.dynamics(perturbed_pattern, weights, 20)
     state_list_test = [np.reshape(test_state, (50, 50)) for test_state in state_history_test]
     path_test = Path("./video_saved_test.mp4")
     functions.save_video(state_list_test, path_test)
