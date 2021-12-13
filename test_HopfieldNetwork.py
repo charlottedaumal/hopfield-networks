@@ -48,7 +48,7 @@ def test_update(benchmark):
     
 def test_update_async(benchmark):
     """testing the function update_async"""
-    q = np.array([-1, -1, -1, 1])
+    q = np.array([-1, 1, -1, 1])
     w = np.array([[1, 1, -1, -1], [1, 1, 1, 1]])
     q_updated = benchmark.pedantic(update_cython.update_async, args=(q,w), iterations=100)
     list_update_async = [-1, 1]
