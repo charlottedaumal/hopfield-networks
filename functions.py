@@ -107,139 +107,139 @@ def hebbian_weights(patterns):
     return w
 
 
-def update(state, weights):
-    """Applies the update rule to a state pattern
+#def update(state, weights):
+#    """Applies the update rule to a state pattern
     
-    Parameters:
-    --------------
-    state : array
-    -> the network state to which we will apply the update rule
-    weights : array
-    -> weights matrix
+#    Parameters:
+#    --------------
+#    state : array
+#    -> the network state to which we will apply the update rule
+#    weights : array
+#    -> weights matrix
     
-    Output:
-    --------------
-    returns the new state updated from the previous one (a numpy array)
+#    Output:
+#    --------------
+#    returns the new state updated from the previous one (a numpy array)
  
-    Examples:
-    --------------
-    >>> update(np.array([[2,5,6,7],[4,5,6,9]]), np.array([[1,1],[1,1]]))
-    array([[1, 1, 1, 1],
-           [1, 1, 1, 1]])
-    """
+#    Examples:
+#    --------------
+#    >>> update(np.array([[2,5,6,7],[4,5,6,9]]), np.array([[1,1],[1,1]]))
+#    array([[1, 1, 1, 1],
+#           [1, 1, 1, 1]])
+#    """
     
-    return np.where(np.dot(weights, state) >= 0, 1, -1)  # applying the update rule to a state pattern 
+#    return np.where(np.dot(weights, state) >= 0, 1, -1)  # applying the update rule to a state pattern 
 
 
-def update_async(state, weights):
-    """Applies the asynchronous update rule to a state pattern
+#def update_async(state, weights):
+#    """Applies the asynchronous update rule to a state pattern
     
-    Parameters:
-    --------------
-    state : array
-    -> the network state to which we will apply the asynchronous update rule
-    weights : array
-    -> weights matrix
+#    Parameters:
+#    --------------
+#    state : array
+#    -> the network state to which we will apply the asynchronous update rule
+#    weights : array
+#    -> weights matrix
     
-    Output:
-    --------------
-    returns the new state updated from the previous one (a numpy array)
+#    Output:
+#    --------------
+#    returns the new state updated from the previous one (a numpy array)
     
-    Examples:
-    --------------
-    >>> update_async(np.array([[8,9], [0,0]]), np.array([[1,1],[2,2]]))
-    array([[1, 1]])
-    """
+#    Examples:
+#    --------------
+#    >>> update_async(np.array([[8,9], [0,0]]), np.array([[1,1],[2,2]]))
+#    array([[1, 1]])
+#    """
     
-    index = rd.choices(np.linspace(0, weights.shape[0] - 1, weights.shape[0], dtype=int))  # chooses randomly an index
-    return np.where(np.dot(weights[index], state) >= 0, 1, -1)  # applying the asynchronous update rule (updates the i-th component of the state pattern)
+#    index = rd.choices(np.linspace(0, weights.shape[0] - 1, weights.shape[0], dtype=int))  # chooses randomly an index
+#    return np.where(np.dot(weights[index], state) >= 0, 1, -1)  # applying the asynchronous update rule (updates the i-th component of the state pattern)
 
 
-def dynamics(state, weights, max_iter):
-    """Runs the dynamical system from an initial state until convergence
-    or until a maximum number of steps is reached
+#def dynamics(state, weights, max_iter):
+#    """Runs the dynamical system from an initial state until convergence
+#    or until a maximum number of steps is reached
     
-    Parameters:
-    --------------
-    state : array
-    -> initial network state
-    weights : array
-    -> weights matrix
-    max_iter : int
-    -> maximum number of steps that can be reached
+#    Parameters:
+#    --------------
+#    state : array
+#    -> initial network state
+#    weights : array
+#    -> weights matrix
+#    max_iter : int
+#    -> maximum number of steps that can be reached
     
-    Output:
-    --------------
-    returns the list of the state history
+#    Output:
+#    --------------
+#    returns the list of the state history
     
-    CU : max_iter >= 0
+#    CU : max_iter >= 0
 
-    Examples:
-    --------------
-    >>> dynamics(np.array([[1, 4, 6, 7], [5,8,9,0]]), np.array([[1,1], [1,1]]), 10)
-    [array([[1, 4, 6, 7],
-           [5, 8, 9, 0]]), array([[1, 1, 1, 1],
-           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
-           [1, 1, 1, 1]])]
-    """
+#    Examples:
+#    --------------
+#    >>> dynamics(np.array([[1, 4, 6, 7], [5,8,9,0]]), np.array([[1,1], [1,1]]), 10)
+#    [array([[1, 4, 6, 7],
+#           [5, 8, 9, 0]]), array([[1, 1, 1, 1],
+#           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
+#           [1, 1, 1, 1]])]
+#    """
     
-    state_history = [state]
-    previous_state = state.copy()
-    for i in range(max_iter):
-        new_state = update(previous_state, weights)  # updating the state
-        state_history.append(new_state)  # adding the updated state to the state history list
-        if np.allclose(previous_state, new_state):  # verifies if the state before the update is equal to the updated state
-            break  # goes out of the for-loop because convergence is reached
-        previous_state = new_state.copy()  # iterative perspective of the dynamical evolution of the pattern 
-    return state_history
+#    state_history = [state]
+#    previous_state = state.copy()
+#    for i in range(max_iter):
+#        new_state = update(previous_state, weights)  # updating the state
+#        state_history.append(new_state)  # adding the updated state to the state history list
+#        if np.allclose(previous_state, new_state):  # verifies if the state before the update is equal to the updated state
+#            break  # goes out of the for-loop because convergence is reached
+#        previous_state = new_state.copy()  # iterative perspective of the dynamical evolution of the pattern 
+#    return state_history
 
 
-def dynamics_async(state, weights, max_iter, convergence_num_iter):
-    """Runs the dynamical system from an initial state until a maximum number
-    of steps is reached or a convergence for a given number of steps is reached
+#def dynamics_async(state, weights, max_iter, convergence_num_iter):
+#    """Runs the dynamical system from an initial state until a maximum number
+#    of steps is reached or a convergence for a given number of steps is reached
     
-    Parameters:
-    --------------
-    state : array
-    -> initial network state
-    weights : array
-    -> weights matrix
-    max_iter : int
-    -> maximum number of steps that can be reached
-    convergence_num_iter : int
-    -> maximum number of iterations in which the algorithm can reach convergence
+#    Parameters:
+#    --------------
+#    state : array
+#    -> initial network state
+#    weights : array
+#    -> weights matrix
+#    max_iter : int
+#    -> maximum number of steps that can be reached
+#    convergence_num_iter : int
+#    -> maximum number of iterations in which the algorithm can reach convergence
     
-    Output:
-    --------------
-    returns the list of the state history
+#    Output:
+#    --------------
+#    returns the list of the state history
     
-    CU: max_iter >= 0 and convergence_num_iter >= 0
+#    CU: max_iter >= 0 and convergence_num_iter >= 0
 
-    Examples:
-    --------------
-    >>> dynamics_async(np.array([[1,0,9,7], [3,7,8,9]]), np.array([[1,5], [4,9]]), 10, 6)
-    [array([[1, 0, 9, 7],
-           [3, 7, 8, 9]]), array([[1, 1, 1, 1],
-           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
-           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
-           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
-           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
-           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
-           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
-           [1, 1, 1, 1]])]
-    """
+#    Examples:
+#    --------------
+#    >>> dynamics_async(np.array([[1,0,9,7], [3,7,8,9]]), np.array([[1,5], [4,9]]), 10, 6)
+#    [array([[1, 0, 9, 7],
+#           [3, 7, 8, 9]]), array([[1, 1, 1, 1],
+#           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
+#           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
+#           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
+#           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
+#           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
+#           [1, 1, 1, 1]]), array([[1, 1, 1, 1],
+#           [1, 1, 1, 1]])]
+#    """
     
-    state_history = [state]
-    previous_state = state.copy()
-    nb_iter = nb_iter_convergence = 0
-    while (nb_iter < max_iter) and (nb_iter_convergence < convergence_num_iter):  # two conditions to run the dynamical system : a maximum number of iterations and a minimum number of convergence iterations
-        new_state = update(previous_state, weights)  # updating the state
-        state_history.append(new_state)  # adding the updated state to the state history list
-        if np.allclose(previous_state, new_state):  # verifies if the state before the update is equal to the updated state
-            nb_iter_convergence += 1
-        previous_state = new_state.copy()  # affecting the updated pattern to the previous one to perform the next updating step
-        nb_iter += 1
-    return state_history
+#    state_history = [state]
+#    previous_state = state.copy()
+#    nb_iter = nb_iter_convergence = 0
+#    while (nb_iter < max_iter) and (nb_iter_convergence < convergence_num_iter):  # two conditions to run the dynamical system : a maximum number of iterations and a minimum number of convergence iterations
+#        new_state = update(previous_state, weights)  # updating the state
+#        state_history.append(new_state)  # adding the updated state to the state history list
+#        if np.allclose(previous_state, new_state):  # verifies if the state before the update is equal to the updated state
+#            nb_iter_convergence += 1
+#        previous_state = new_state.copy()  # affecting the updated pattern to the previous one to perform the next updating step
+#        nb_iter += 1
+#    return state_history
 
 
 def storkey_weights(patterns):
