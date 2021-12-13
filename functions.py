@@ -181,7 +181,7 @@ def hebbian_weights(patterns):
 #    Examples:
 #    --------------
 #    >>> dynamics(np.array([1, 8, 0, 9]), np.array([[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]]), 10)
-#   [array([1, 8, 0, 9]), array([1, 1, 1, 1]), array([1, 1, 1, 1])]
+#    [array([1, 8, 0, 9]), array([1, 1, 1, 1]), array([1, 1, 1, 1])]
 #    """
     
 #    state_history = [state]
