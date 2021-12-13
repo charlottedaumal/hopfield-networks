@@ -7,5 +7,8 @@ def update(state, weights):
 
 
 def update_async(state, weights):
-        index = rd.choices(np.linspace(0, weights.shape[0] - 1, weights.shape[0], dtype=int)) # chooses randomly an index
-        return np.where(np.dot(weights[index], state) >= 0, 1, -1)
+    index = rd.choices(np.linspace(0, weights.shape[0] - 1, weights.shape[0], dtype=int))  # chooses randomly an index
+    pattern = state.copy()
+    pattern[index] = np.where(np.dot(weights[index], state) >= 0, 1, -1) # applying the asynchronous update rule
+    # (updates the i-th component of the state pattern)
+    return pattern
