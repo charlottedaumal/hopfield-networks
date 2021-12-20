@@ -55,7 +55,6 @@ def test_update_async(benchmark):
     list_update_async = [-1, 1]
     
     assert q_updated.all() in list_update_async  # testing the values of the updated pattern
-    assert (update_cython.update_async(q, w) != q).any()  # testing if the updated pattern is different
 
 
 def test_hebbian_weights(benchmark):
