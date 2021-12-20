@@ -149,7 +149,7 @@ def test_save_video():
     assert path_test.is_file()  # testing if the video file exists and is saved where it should be
     
     
-    def test_arguments_class_HopfieldNetwork():
+def test_arguments_class_HopfieldNetwork():
     """testing if all the arguments of the class HopfieldNetWork are well initialized"""
     network_h = HopfieldNetwork(functions.generate_patterns(2, 50))
     network_s = HopfieldNetwork(functions.generate_patterns(2, 50), "storkey")
@@ -162,7 +162,7 @@ def test_save_video():
     # the storkey learning rule
     
     
-    def test_reset_method_class_DataSaver():
+def test_reset_method_class_DataSaver():
     """testing if the reset method of the class DataSaver resets all the arguments"""
     saver_test = DataSaver()
     network_test = HopfieldNetwork(functions.generate_patterns(50, 10))
