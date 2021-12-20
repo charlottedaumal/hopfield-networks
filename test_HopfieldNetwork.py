@@ -49,13 +49,14 @@ def test_update(benchmark):
     
 def test_update_async(benchmark):
     """testing the function update_async"""
-   
+
     q = np.array([-1, 1, -1, 1])
-    w = np.array([[1, 1, -1, -1], [1, 1, 1, 1], [1, 1, -1, 1], [1, -1, -1, 1]])
-    q_updated = benchmark.pedantic(update_cython.update_async, args=(q, w), iterations=100)
+    network = HopfieldNetwork(functions.generate_patterns(50, 4))
+    q_updated = benchmark.pedantic(HopfieldNetwork.update_async, args=(network, q), iterations=100)
     list_update_async = [-1, 1]
     
     assert q_updated.all() in list_update_async  # testing the values of the updated pattern
+    assert q_updated is not None  # testing whether the function update_async has a return type
 
 
 def test_hebbian_weights(benchmark):
@@ -146,3 +147,17 @@ def test_save_video():
     saver_test.save_video(path_test, (50, 50))
 
     assert path_test.is_file()  # testing if the video file exists and is saved where it should be
+    
+    
+    def test_arguments_class_HopfieldNetwork():
+    """testing if all the arguments of the class HopfieldNetWork are well initialized"""
+    network_h = HopfieldNetwork(functions.generate_patterns(2, 50))
+    network_s = HopfieldNetwork(functions.generate_patterns(2, 50), "storkey")
+
+    assert network_h.w is not None  # testing if the network has a weights matrix
+    assert network_s.w is not None  # testing whether the network has a weights matrix
+    assert network_h.rule == "hebbian"  # testing whether the weights matrix of the network is computed using
+    # the hebbian learning rule
+    assert network_s.rule == "storkey"  # testing whether the weights matrix of the network is computed using
+    # the storkey learning rule
+    
