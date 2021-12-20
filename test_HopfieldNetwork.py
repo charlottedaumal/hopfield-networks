@@ -161,3 +161,17 @@ def test_save_video():
     assert network_s.rule == "storkey"  # testing whether the weights matrix of the network is computed using
     # the storkey learning rule
     
+    
+    def test_reset_method_class_DataSaver():
+    """testing if the reset method of the class DataSaver resets all the arguments"""
+    saver_test = DataSaver()
+    network_test = HopfieldNetwork(functions.generate_patterns(50, 10))
+    state_test = np.array([-1, 1, -1, 1, 1, -1, 1, 1, 1, -1])
+    network_test.dynamics(state_test, saver_test)
+    saver_test.reset()
+
+    assert saver_test.get_data()["state"] == []  # testing that the argument relative to the key "state" does not 
+    # contain any value
+    assert saver_test.get_data()["energy"] == [] # testing that the argument relative to the key "energy" does not 
+    # contain any value
+
