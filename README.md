@@ -45,16 +45,8 @@ To enjoy the cython optimizations of the update and dynamics functions, you will
 To build these, you need to type on the terminal : "python setup.py build_ext --inplace"
 
 You need to run the main.py file. 
-First, you will need to choose the weights matrix you want to use to do all the further computations. 
-
--> To use the Hebbian weights matrix, you can push the 'h' keyboard key and then press 'Enter'. 
-
--> To use the Storkey weights matrix, push the 's' keyboard key and then press 'Enter'. 
-
--> If you didn't push any of those two keyboards keys, the code will not run further.
-
--> If you pushed another keyboard key, the code will raise an error. 
-
+By default, you will use the Hebbian learning rule for all the calculations.
+If you want to use the Storkey learning rule, you just have to put as a second argument in line 17 : "  "storkey"  ".
 When it has finished to run, the code provides you the two curves of energy related to the weights matrix you have chosen and the two videos of the convergence of the checkerboard saved in the directory where the main.py file lies.
 
 
