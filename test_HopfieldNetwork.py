@@ -1,3 +1,4 @@
+rom classes import *
 import functions
 import doctest
 from pathlib import Path
@@ -59,7 +60,7 @@ def test_update_async(benchmark):
 
 def test_hebbian_weights(benchmark):
     """testing the function hebbian_weights"""
-    weights = benchmark.pedantic(functions.hebbian_weights, args=(functions.generate_patterns(50, 2500),), iterations=5)
+    weights = benchmark.pedantic(HopfieldNetwork.hebbian_weights, args=(HopfieldNetwork, functions.generate_patterns(5, 25)), iterations=5)
 
     assert (np.allclose(weights, np.transpose(weights)))  # testing the symmetry of the matrix
 
@@ -70,7 +71,8 @@ def test_hebbian_weights(benchmark):
 
 def test_storkey_weights(benchmark):
     """testing the function storkey_weights"""
-    weights = benchmark.pedantic(functions.storkey_weights, args=(functions.generate_patterns(50, 2500),), iterations=5)
+
+    weights = benchmark.pedantic(HopfieldNetwork.storkey_weights, args=(HopfieldNetwork, functions.generate_patterns(5, 25)), iterations=5)
 
     assert np.allclose(weights, np.transpose(weights))  # testing the symmetry of the matrix
     assert weights.shape[0] == weights.shape[1]  # testing the size of the matrix
@@ -103,7 +105,8 @@ def test_energy(benchmark):
     """testing the function energy"""
     s = np.array([[2, 5]])
     w = np.array([[1, 1], [1, 1]])
-    e = benchmark.pedantic(functions.energy, args=(s, w), iterations=5)
+    saver_test = DataSaver()
+    e = benchmark.pedantic(DataSaver.compute_energy, args=(saver_test, s, w), iterations=5)
 
     # testing the return value of the functions energy for a specific input
     assert np.allclose(np.array([e]), np.array([[-24.5]]))
@@ -112,8 +115,10 @@ def test_energy(benchmark):
 def test_create_checkerboard():
     """testing the function create_checkerboard"""
     list_checkerboard = [-1, 1]
+    checkerboard = functions.create_checkerboard()
 
-    assert functions.create_checkerboard(50).all() in list_checkerboard  # testing the values of the checkerboard
+    assert checkerboard.all() in list_checkerboard  # testing the values of the checkerboard
+    assert checkerboard.shape == (50, 50)
 
 
 def test_pattern_match():
@@ -129,16 +134,15 @@ def test_pattern_match():
        
 def test_save_video():
     """testing the function save_video"""
-    
-    # testing if the video file exists and is saved where it should be
+
     random_patterns = functions.generate_patterns(2, 2500)
-    checkerboard = functions.create_checkerboard(50)
+    checkerboard = functions.create_checkerboard()
     random_patterns[-1] = checkerboard.flatten()
     perturbed_pattern = functions.perturb_pattern(random_patterns[-1], 100)
-    weights = functions.hebbian_weights(random_patterns)
-
-    state_history_test = dynamics_cython.dynamics(perturbed_pattern, weights, 20)
-    state_list_test = [np.reshape(test_state, (50, 50)) for test_state in state_history_test]
+    network_test = HopfieldNetwork(random_patterns)
+    saver_test = DataSaver()
+    network_test.dynamics(perturbed_pattern, saver_test)
     path_test = Path("./video_saved_test.mp4")
-    functions.save_video(state_list_test, path_test)
-    assert path_test.is_file()
+    saver_test.save_video(path_test, (50, 50))
+
+    assert path_test.is_file()  # testing if the video file exists and is saved where it should be
