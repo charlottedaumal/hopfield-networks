@@ -51,7 +51,6 @@ def test_update(benchmark):
     assert p_updated_in_class is not None  # testing whether the function update_async has a return type
 
 
-    
 def test_update_async(benchmark):
     """testing the function update_async"""
     p = np.array([-1, 1, -1, 1])
@@ -102,6 +101,7 @@ def test_dynamics():
     # for a specific input
     assert saver_test.data != ([], [])  # testing that the method dynamics_async saves the states in the saver
 
+    
 def test_dynamics_async():
     """testing the function dynamics_async"""
     s = np.array([1, 8, 0, 9])
