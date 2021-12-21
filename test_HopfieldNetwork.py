@@ -37,7 +37,6 @@ def test_perturb_pattern():
     
 def test_update(benchmark):
     """testing the function update"""
-
     p = np.array([-1, 1, -1, 1])
     w = np.array([[1, 1, -1, -1], [1, 1, 1, 1], [1, 1, -1, 1], [1, -1, -1, 1]])
     list_update = [-1, 1]
@@ -49,7 +48,6 @@ def test_update(benchmark):
     
 def test_update_async(benchmark):
     """testing the function update_async"""
-
     q = np.array([-1, 1, -1, 1])
     network = HopfieldNetwork(functions.generate_patterns(50, 4))
     q_updated = benchmark.pedantic(HopfieldNetwork.update_async, args=(network, q), iterations=100)
@@ -72,7 +70,6 @@ def test_hebbian_weights(benchmark):
 
 def test_storkey_weights(benchmark):
     """testing the function storkey_weights"""
-
     weights = benchmark.pedantic(HopfieldNetwork.storkey_weights, args=(HopfieldNetwork, functions.generate_patterns(5, 25)), iterations=5)
 
     assert np.allclose(weights, np.transpose(weights))  # testing the symmetry of the matrix
@@ -141,7 +138,6 @@ def test_pattern_match():
        
 def test_save_video():
     """testing the function save_video"""
-
     random_patterns = functions.generate_patterns(2, 2500)
     checkerboard = functions.create_checkerboard()
     random_patterns[-1] = checkerboard.flatten()
@@ -184,7 +180,6 @@ def test_reset_method_class_DataSaver():
     
 def test_plot_energy():
     """testing if the plot of energy is done"""
-
     saver_test = DataSaver()
     s1 = np.array([1, 8, 0, 9])
     s2 = np.array([1, -3, 6, -5])
