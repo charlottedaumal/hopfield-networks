@@ -297,7 +297,7 @@ class DataSaver:
         """
 
         frames = []  # initialising an empty list of frames
-        fig = plt.figure()  # definition of a figure (needed for the visualization)
+        fig_video = plt.figure()  # definition of a figure (needed for the visualization)
         writer = anim.writers['ffmpeg']  # initialization of pipe-based ffmpeg writer
         writer_video = writer(fps=15, metadata=dict(artist='Me'),
                               bitrate=1800)  # initialization of the writer parameter for saving the video
@@ -305,10 +305,11 @@ class DataSaver:
         state_history = self.get_data()["state"]
         for element in state_history:
             img = element.reshape(img_shape)
-            frames.append([plt.imshow(img, cmap='Greys')])
+            frames.append([plt.imshow(img, cmap='Greys')])  # creation of a list of images
 
-        video = anim.ArtistAnimation(fig, frames)  # definition of the animation
+        video = anim.ArtistAnimation(fig_video, frames)  # definition of the animation
         video.save(out_path, writer=writer_video)  # saving the video
+        plt.close(fig_video)  # closes the figure instance after saving the video
 
     def plot_energy(self):
         """Generates a plot of the evolution of the energy function
@@ -319,8 +320,9 @@ class DataSaver:
         """
 
         plt.figure(figsize=(5, 7))
-        plt.plot(np.arange(0, len(self.get_data()["state"]), step=1), self.get_data()["energy"], color='red')
+        plt.plot(np.arange(0, len(self.get_data()["state"]), step=1), self.get_data()["energy"], color='red')  # creates a plot of the energy versus time
         plt.xlabel("Time [s]")
         plt.ylabel("Energy")
         plt.title("Plot of the energy versus the time")
-        plt.show()
+        plt.show()  # show the plot of the energy versus time
+        plt.close()  # closes the figure instance after plotting the energy function
