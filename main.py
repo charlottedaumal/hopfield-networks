@@ -13,9 +13,12 @@ random_patterns[-1] = checkerboard.flatten()
 # Perturbing the checkerboard (last pattern of the random patterns' matrix)
 perturbed_pattern = perturb_pattern(random_patterns[-1], 1000)
 
-# Initialization of a HopfieldNetwork object using the hebbian learning rule for all the calculations
-# If you want to do the calculations with the Storkey learning rule, please put ", "storkey"" after "random_patterns"
+# Initialization of a HopfieldNetwork object
 network = HopfieldNetwork(random_patterns)
+value = input("Please enter 's' if you want to do all the computations with the storkey weights matrix "
+              "then press 'Enter', otherwise just press directly 'Enter' :\n")
+if value == 's':
+    network = HopfieldNetwork(random_patterns, "storkey")
 
 # Initialization of two DataSaver objects
 saver_synchronous = DataSaver()
