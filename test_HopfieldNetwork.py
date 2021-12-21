@@ -83,9 +83,13 @@ def test_dynamics():
     a = dynamics_cython.dynamics(s, w, 10)
     b = [np.array([np.array([1, 8, 0, 9]), np.array([1, 1, 1, 1]), np.array([1, 1, 1, 1])])]
 
-    # testing the return value of the function dynamics for a specific input
-    assert np.allclose(np.array([a]), np.array([b]))
+    network_test = HopfieldNetwork(functions.generate_patterns(50, 4))
+    saver_test = DataSaver()
+    network_test.dynamics_async(s, saver_test)
 
+    assert np.allclose(np.array([a]), np.array([b]))  # testing the return value of the function dynamics
+    # for a specific input
+    assert saver_test.data != ([], [])  # testing that the method dynamics_async saves the states in the saver
 
 def test_dynamics_async():
     """testing the function dynamics_async"""
