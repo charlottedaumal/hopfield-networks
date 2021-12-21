@@ -182,7 +182,7 @@ def test_reset_method_class_DataSaver():
     # contain any value
     
     
-    def test_plot_energy():
+def test_plot_energy():
     """testing if the plot of energy is done"""
 
     saver_test = DataSaver()
