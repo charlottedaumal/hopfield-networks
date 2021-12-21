@@ -142,7 +142,7 @@ def test_create_checkerboard():
 
 def test_pattern_match():
     """testing the function pattern_match"""
-    a = np.array([[1, 1, -1, -1], [1, 1, -1, 1]])
+    a = np.array([[1, 1, -1, -1]])
     b = np.array([[1, 1, -1, -1]])
     c = np.array([[1, 1, 1, 1]])
 
