@@ -180,4 +180,16 @@ def test_reset_method_class_DataSaver():
     # contain any value
     assert saver_test.get_data()["energy"] == [] # testing that the argument relative to the key "energy" does not 
     # contain any value
+    
+    
+    def test_plot_energy():
+    """testing if the plot of energy is done"""
+
+    saver_test = DataSaver()
+    s1 = np.array([1, 8, 0, 9])
+    s2 = np.array([1, -3, 6, -5])
+    w = np.array([[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]])
+    saver_test.store_iter(s2, w)
+    saver_test.store_iter(s1, w)
+    saver_test.plot_energy()  # displays a test curve to see if the plotting method works
 
