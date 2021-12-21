@@ -98,8 +98,14 @@ def test_dynamics_async():
     b = [np.array([-1, -1, -1,  1]), np.array([-1, -1, -1,  1]), np.array([-1, -1, -1,  1]), np.array([-1, -1, -1,  1]),
          np.array([-1, -1, -1,  1]), np.array([-1, -1, -1,  1]), np.array([-1, -1, -1,  1])]
 
-    # testing the return value of the functions dynamics_async for a specific input 
-    assert np.allclose(np.array([a]), np.array([b]))
+    network_test = HopfieldNetwork(functions.generate_patterns(50, 4))
+    saver_test = DataSaver()
+    network_test.dynamics_async(s, saver_test)
+
+    assert np.allclose(np.array([a]), np.array([b]))  # testing the return value of the functions dynamics_async
+    # for a specific input
+    assert saver_test.data != ([], [])  # testing that the method dynamics_async saves the states in the saver
+
 
     
 def test_energy(benchmark):
