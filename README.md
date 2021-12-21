@@ -47,13 +47,11 @@ To build these, you need to type on the terminal : "python setup.py build_ext --
 You need to run the main.py file. 
 First, you will need to choose the weights matrix you want to use to do all the further computations. 
 
--> To use the Hebbian weights matrix, you can push the 'h' keyboard key and then press 'Enter'. 
+-> To use the Hebbian weights matrix, just directly press 'Enter'. 
 
 -> To use the Storkey weights matrix, push the 's' keyboard key and then press 'Enter'. 
 
--> If you didn't push any of those two keyboards keys, the code will not run further.
-
--> If you pushed another keyboard key, the code will raise an error. 
+-> If you pushed another keyboard key, the computations will be done witn the Hebbian learning rule by default. 
 
 When it has finished to run, the code provides you the two curves of energy related to the weights matrix you have chosen and the two videos of the convergence of the checkerboard saved in the directory where the main.py file lies.
 
