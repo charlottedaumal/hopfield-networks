@@ -26,7 +26,7 @@ saver_asynchronous = DataSaver()
 
 # Making the network evolve according to the synchronous or the asynchronous rule
 network.dynamics(perturbed_pattern, saver_synchronous)
-network.dynamics_async(perturbed_pattern, saver_asynchronous)
+network.dynamics_async(perturbed_pattern, saver_asynchronous, 30000, 10000, 1000)
 
 # Plotting the energy function first calculated with the synchronous rule and the the asynchronous one
 saver_synchronous.plot_energy()
