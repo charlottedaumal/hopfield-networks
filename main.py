@@ -16,7 +16,7 @@ perturbed_pattern = perturb_pattern(random_patterns[-1], 1000)
 # Initialization of a HopfieldNetwork object
 network = HopfieldNetwork(random_patterns)
 value = input("Please enter 's' if you want to do all the computations with the storkey weights matrix "
-              "then press 'Enter', otherwise just press directly 'Enter' :\n")
+              "and then press 'Enter', otherwise just press directly 'Enter' :\n")
 if value == 's':
     network = HopfieldNetwork(random_patterns, "storkey")
 
