@@ -42,19 +42,30 @@ def test_update(benchmark):
     list_update = [-1, 1]
     p_updated = benchmark.pedantic(update_cython.update, args=(p, w), iterations=100)
 
+    network = HopfieldNetwork(functions.generate_patterns(50, 4))
+    p_updated_in_class = network.update(p)
+
     assert p_updated.all() in list_update  # testing the values of the updated pattern
     assert (update_cython.update(p, w) != p).any()  # testing if the updated pattern is different
+    assert p_updated_in_class.all() in list_update  # testing the values of the updated pattern
+    assert p_updated_in_class is not None  # testing whether the function update_async has a return type
+
 
     
 def test_update_async(benchmark):
     """testing the function update_async"""
-    q = np.array([-1, 1, -1, 1])
-    network = HopfieldNetwork(functions.generate_patterns(50, 4))
-    q_updated = benchmark.pedantic(HopfieldNetwork.update_async, args=(network, q), iterations=100)
+    p = np.array([-1, 1, -1, 1])
+    w = np.array([[1, 1, -1, -1], [1, 1, 1, 1], [1, 1, -1, 1], [1, -1, -1, 1]])
+    p_updated = benchmark.pedantic(update_cython.update_async, args=(p, w), iterations=100)
     list_update_async = [-1, 1]
-    
-    assert q_updated.all() in list_update_async  # testing the values of the updated pattern
-    assert q_updated is not None  # testing whether the function update_async has a return type
+
+    network = HopfieldNetwork(functions.generate_patterns(50, 4))
+    p_updated_in_class = network.update_async(p)
+
+    assert p_updated.all() in list_update_async  # testing the values of the updated pattern
+    assert p_updated is not None  # testing whether the function update_async has a return type
+    assert p_updated_in_class.all() in list_update_async  # testing the values of the updated pattern
+    assert p_updated_in_class is not None  # testing whether the function update_async has a return type
 
 
 def test_hebbian_weights(benchmark):
