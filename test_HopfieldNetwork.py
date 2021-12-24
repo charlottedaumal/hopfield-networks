@@ -185,7 +185,7 @@ def test_reset_method_class_DataSaver():
 
     assert saver_test.get_data()["state"] == []  # testing that the argument relative to the key "state" does not 
     # contain any value
-    assert saver_test.get_data()["energy"] == [] # testing that the argument relative to the key "energy" does not 
+    assert saver_test.get_data()["energy"] == []  # testing that the argument relative to the key "energy" does not 
     # contain any value
     
     
