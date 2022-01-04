@@ -35,6 +35,7 @@ Here, we will implement the iterative process which allows to retrieve one of th
 7) dynamics_cython.py -> cython optimization of the dynamics and dynamics_async functions
 8) setup.py -> file used to build the modules update_cython.py and dynamics_cython.py
 9) classes.py -> file containing all the object programming part of the project
+10) summary.md -> markup file which documents the results(tables/figures) of our experiment
 
 
 ### How to use our project
