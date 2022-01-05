@@ -11,14 +11,14 @@ Here, we implemented the iterative process which allows to retrieve one of the s
 In this report, we will explain the experiment we have performed and the results we obtained.
 
 ### The experiment
-In this final version of the project, we empirically estimated the capacity of the Hopfield network, trained with the Hebbian and Storkey rules, and simulated with the synchronous update rule.
+In this final version of the project, the aim was to empirically estimate the capacity of the Hopfield network, trained with the Hebbian and Storkey rules, and simulated with the synchronous update rule.
 
 For this experiment, we considered 10 networks of size ranging from 10 to 2500. Then, for each network size, we ran 10 trials of a defined experiment with different initial patterns. We could estimate in this way the network capacity as a function of the network size and compare it with the theoretical asymptotic estimate.
 
 The 10 trials were ran on an function called 'experiment'. For each size of network, we did the following steps 10 times: we generated a random number of patterns with the command 'linspace', then we perturbed 20% of each pattern and we checked if the k-ieth element of each perturbed pattern matched with the original one.
 This gives us a fraction of convergence, which is the number of patterns retrieved over the total number of patterns for one single network. If this fraction of convergence is above 0.9, we store the number of patterns.
 
-Finally, we return a dictionary for each network size containing... (for the 10 trials). 
+Finally, we returned a dictionary for each network size containing the following keys: "network_size", "weight_rule", "num_patterns", "num_perturb" and "" (for the 10 trials). 
 
 These dictionaries are saved in a list called 'results' and is converted to a pandas dataframe.
 
@@ -86,4 +86,15 @@ Finally, we saved robustness curves for our experiments for each size of simulat
 ![alt text](lien image)
 ![alt text](lien image)
 ![alt text](lien image)
+
+
+
+
+
+
+
+
+### Credits
+
+ClemenceKiehl & charlottedaumal
 
