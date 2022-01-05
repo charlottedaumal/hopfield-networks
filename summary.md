@@ -21,3 +21,5 @@ This gives us a fraction of convergence, which is the number of patterns retriev
 Finally, we return a dictionary for each network size containing... (for the 10 trials). 
 
 These dictionaries are saved in a list called 'results' and is converted to a pandas dataframe.
+
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Hebbian.png)
