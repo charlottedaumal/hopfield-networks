@@ -22,4 +22,68 @@ Finally, we return a dictionary for each network size containing... (for the 10 
 
 These dictionaries are saved in a list called 'results' and is converted to a pandas dataframe.
 
-![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Hebbian.png)
+Below you can see the capacity curves for each size of simulated network and learning rule, plotting the fraction of retrieved patterns vs. the number of patterns in the network.
+
+
+#### Plots with Hebbian rule
+
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+
+
+#### Plots with Storkey rule
+
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+
+
+We also plotted a summary capacity plot showing the number of patterns that can be retrieved with a propbability higher than 0.9 vs. the number of neurons:
+
+![alt text](lien image)
+
+
+Finally, we saved robustness curves for our experiments for each size of simulated network and learning rule, plotting the fraction of retrieved patterns vs. the number of perturbations.
+
+#### Robustness Plots with Hebbian rule
+
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+
+
+#### Robustness plots with Storkey rule
+
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+![alt text](lien image)
+
