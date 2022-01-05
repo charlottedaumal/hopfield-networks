@@ -15,19 +15,22 @@ In this final version of the project, the aim was to empirically estimate the ca
 
 For this experiment, we considered 10 networks of size ranging from 10 to 2500. Then, for each network size, we ran 10 trials of a defined experiment with different initial patterns. We could estimate in this way the network capacity as a function of the network size and compare it with the theoretical asymptotic estimate.
 
-The 10 trials were ran on an function called 'experiment'. For each size of network, we did the following steps 10 times: we generated a random number of patterns with the command 'linspace', then we perturbed 20% of each pattern and we checked if the k-ieth element of each perturbed pattern matched with the original one.
+The 10 trials were ran on an function called 'experiment'. For each size of network, we did the following steps 10 times: we generated a random number of patterns, then we perturbed 20% of each pattern and we checked if the k-ieth element of each perturbed pattern matched with the original one.
 This gives us a fraction of convergence, which is the number of patterns retrieved over the total number of patterns for one single network. If this fraction of convergence is above 0.9, we store the number of patterns.
 
 Finally, we returned a dictionary for each network size containing the following keys: "network_size", "weight_rule", "num_patterns", "num_perturb" and "" (for the 10 trials). 
 
 These dictionaries are saved in a list called 'results' and is converted to a pandas dataframe.
 
+------- indices paires -> hebbian
+impaires storkey
+
 Below you can see the capacity curves for each size of simulated network and learning rule, plotting the fraction of retrieved patterns vs. the number of patterns in the network.
 
 
 #### Plots with Hebbian rule
 
-![alt text](lien image)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Hebbian.png)
 ![alt text](lien image)
 ![alt text](lien image)
 ![alt text](lien image)
@@ -53,7 +56,7 @@ Below you can see the capacity curves for each size of simulated network and lea
 ![alt text](lien image)
 
 
-We also plotted a summary capacity plot showing the number of patterns that can be retrieved with a propbability higher than 0.9 vs. the number of neurons:
+We also plotted a summary capacity plot showing the number of patterns that can be retrieved with a propbability higher than 0.9 vs. the number of neurons for both learning rules:
 
 ![alt text](lien image)
 
