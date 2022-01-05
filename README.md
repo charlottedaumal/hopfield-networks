@@ -37,7 +37,7 @@ Here, we will implement the iterative process which allows to retrieve one of th
 9) classes.py -> file containing all the object programming part of the project
 10) summary.md -> markup file which documents the results(tables/figures) of our experiment
 11) experiment.py -> file containing the experiment function and all the functions used to plot all the required curves for the v7 release
-
+12) requirements.py -> file which installs the required packages for our project when running it 
 
 ### How to use our project until v7 release
 
