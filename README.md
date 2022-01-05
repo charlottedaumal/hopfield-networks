@@ -44,7 +44,7 @@ Here, we will implement the iterative process which allows to retrieve one of th
 #### Instructions to run the project 
 
 To enjoy the cython optimizations of the update and dynamics functions, you will need to build the two following modules : update_cython.py and dynamics_cython.py
-To build these, you need to type on the terminal : ''python setup.py build_ext --inplace''
+To build these, you need to type on the terminal : `python setup.py build_ext --inplace
 
 You need to run the main.py file. 
 First, you will need to choose the weights matrix you want to use to do all the further computations. 
@@ -61,7 +61,7 @@ When it has finished to run, the code provides you the two curves of energy rela
 
 You need to run the test_HopfieldNetwork.py file to run all the pytests and the doctests.
 
--> In the terminal, type the command "pytest test_HopfieldNetwork.py", then, to see the coverage, type the command "coverage run -m pytest test_HopfieldNetwork.py" and then "coverage report -m".
+-> In the terminal, type the command `pytest test_HopfieldNetwork.py`, then, to see the coverage, type the command "coverage run -m pytest test_HopfieldNetwork.py" and then "coverage report -m".
 
 -> To only run the doctests, click on "Run Doctests in functions" on PyCharm 
 
