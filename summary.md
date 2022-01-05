@@ -30,7 +30,7 @@ Below you can see the capacity curves for each size of simulated network and lea
 
 #### Plots with Hebbian rule
 
-![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Hebbian.png)
+![alt text]()
 ![alt text](lien image)
 ![alt text](lien image)
 ![alt text](lien image)
