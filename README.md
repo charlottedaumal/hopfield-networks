@@ -38,7 +38,7 @@ Here, we will implement the iterative process which allows to retrieve one of th
 10) summary.md -> markup file which documents the results(tables/figures) of our experiment
 
 
-### How to use our project
+### How to use our project until v7 release
 
 #### Instructions to run the project 
 
@@ -54,7 +54,7 @@ First, you will need to choose the weights matrix you want to use to do all the 
 
 -> If you pushed another keyboard key, the computations will be done witn the Hebbian learning rule by default. 
 
-When it has finished to run, the code provides you the two curves of energy related to the weights matrix you have chosen and the two videos of the convergence of the checkerboard saved in the directory where the main.py file lies.
+When it has finished to run, the code provides you the two curves of energy related to the weights matrix you have chosen and the two videos of the convergence of the checkerboard saved in the directory where the main.py file lies 
 
 #### Instructions to run the tests
 
@@ -64,6 +64,12 @@ You need to run the test_HopfieldNetwork.py file to run all the pytests and the 
 
 -> To only run the doctests, click on "Run Doctests in functions" on PyCharm 
 
+
+### How to use our project on v7 release
+
+-> You need to run the "main.py" file to run our project. It will take approximately _______.
+
+All the graphs will be saved under the current directory.
 
 
 ### Credits
