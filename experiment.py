@@ -5,8 +5,8 @@ import math
 
 def experiment(size, num_patterns, weight_rule, num_perturb, successful_t_values, unsuccessful_t_values,
                num_trials=10, max_iter=100):
-  """Runs 10 trials for each network size by running the dynamical system varying the initial pattern and perturbing
-    20% of the values of one of the original patterns
+    """Runs 10 trials for each network size by running the dynamical system varying the initial pattern and perturbing
+    20% of the values of one of the original patterns.
 
     Parameters:
     --------------
@@ -82,7 +82,36 @@ def experiment(size, num_patterns, weight_rule, num_perturb, successful_t_values
 
 def comparison_asymptotic_estimate_and_experimental_capacity(size, weight_rule, experimental_capacity,
                                                              asymptotic_estimate):
+    """Compares the experimental network capacity to the theoretical asymptotic estimate.
 
+    Parameters:
+    --------------
+    size: int
+    -> size of the network (= size of the patterns of the network)
+    weight_rule:
+    -> learning rule that will be used for the calculations ("Hebbian" or "Storkey")
+    experimental_capacity:
+    -> maximum of the list successful_t_values
+    asymptotic_estimate:
+    -> asymptotic bound for the number of patterns that a Hopfield network can store (different depending on the 
+    learning rule we use)
+
+    Output:
+    --------------
+    prints :
+            - "f"The asymptotic bound for the {weight_rule} learning rule is a good estimation of the capacity for "
+              f"a network's size of {size} (tolerance = 10%)."
+                           -> if the experimental network capacity and the theoretical asymptotic estimate are the same,
+                           within a relative tolerance of 0.1
+
+            - "f"The asymptotic bound for the {weight_rule} learning rule is a rough estimation of the capacity for"
+              f" a network's size of {size} (tolerance = 10%)."
+                         -> if the experimental network capacity and the theoretical asymptotic estimate are different,
+                           within a relative tolerance of 0.1
+
+    CU: size >=0, weight_rule = "Hebbian" or weight_rule = "Storkey", experimental_capacity >=0, asymptotic_estimate >=0
+    """
+    
     # comparing the experimental network capacity to the theoretical asymptotic estimate with a chosen tolerance
     if math.isclose(experimental_capacity, asymptotic_estimate, rel_tol=0.1):
         print(f"The asymptotic bound for the {weight_rule} learning rule is a good estimation of the capacity for "
