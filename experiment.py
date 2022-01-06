@@ -88,7 +88,7 @@ def comparison_asymptotic_estimate_and_experimental_capacity(size, weight_rule, 
     --------------
     size: int
     -> size of the network (= size of the patterns of the network)
-    weight_rule:
+    weight_rule: string
     -> learning rule that will be used for the calculations ("Hebbian" or "Storkey")
     experimental_capacity:
     -> maximum of the list successful_t_values
