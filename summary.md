@@ -24,7 +24,7 @@ These dictionaries are saved in a list called 'results' and is converted to a pa
 
 Regarding our implementation, you can see that the even indices of this list correspond to the results calculated with the Hebbian rule, whereas the odd indices correspond to those calculated with the Storkey rule.
 
-Below you can see the capacity curves for each size of simulated network and learning rule, plotting the fraction of retrieved patterns vs. the number of patterns in the network.
+Below you can see the capacity curves for each size of simulated network and a given learning rule, plotting the fraction of retrieved patterns vs. the number of patterns in the network.
 
 
 #### Plots with Hebbian rule
