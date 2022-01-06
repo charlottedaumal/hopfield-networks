@@ -16,36 +16,35 @@ def experiment(size, num_patterns, weight_rule, num_perturb, successful_t_values
     results_dict["weight_rule"].append(weight_rule)
     results_dict["num_perturb"].append(num_perturb)
 
-    for i in range(num_trials):  # for-loop to perform 10 run of the dynamical evolution system
-        patterns = generate_patterns(num_patterns[i], size)  # definition of a matrix of random patterns
+    for num_pattern in num_patterns:
+        patterns = generate_patterns(num_pattern, size)  # definition of a matrix of random patterns
         network = HopfieldNetwork(patterns, weight_rule)  # definition of an HopfieldNetwork instance
         # + computation of the weights matrix according to the learning rule done automatically
         # inside the class instance
         saver = DataSaver()
 
-        nb_rows = np.linspace(0, patterns.shape[0]-1, patterns.shape[0], dtype=int)  # list containing all the indices
-        # for the rows of the random patterns matrix
-        perturbed_patterns = [perturb_pattern(patterns[k], num_perturb) for k in nb_rows]  # perturbing all patterns of
-        # the random pattern matrix and storing them in a list
-        [network.dynamics(perturbed_state, saver, max_iter) for perturbed_state in perturbed_patterns]  # running the
-        # dynamical evolution system on all perturbed patterns
-        network_evolution = saver.get_data()["state"]  # accessing the list containing all the evolutions
-        # of each perturbed pattern
+        convergence_nb = 0
+        for j in range(num_trials):
+            index_perturbed = rd.randint(0, patterns.shape[0]-1)
+            perturbed_pattern = perturb_pattern(patterns[index_perturbed], num_perturb)  # perturbing one random pattern
+            # of the random pattern matrix
+            network.dynamics(perturbed_pattern, saver, max_iter)  # running the dynamical evolution system on all
+            # perturbed patterns
+            network_evolution = saver.get_data()["state"]  # accessing the list containing all the evolutions
+            # of each perturbed pattern
 
-        convergence_list = [pattern_match(patterns[k], network_evolution[k][-1]) for k in nb_rows]  # definition of a
-        # convergence list containing whether the index if the evolved pattern has matched with one initial pattern
-        # or a NoneType value
-        convergence_nb = len(convergence_list) - convergence_list.count(None)  # computation of the total number of
-        # patterns that converged
-        convergence_fraction = convergence_nb / patterns.shape[0]  # computation of the convergence fraction
+            if pattern_match(patterns, network_evolution[-1]) == index_perturbed:
+                convergence_nb += 1
+
+        convergence_fraction = (convergence_nb / num_trials)  # computation of the convergence fraction
         if convergence_fraction >= 0.9:  # determining if the system has successfully converged + storing the
             # number of patterns in the corresponding list
-            successful_t_values.append(num_patterns[i])
+            successful_t_values.append(num_pattern)
         else:
-            unsuccessful_t_values.append(num_patterns[i])
+            unsuccessful_t_values.append(num_pattern)
 
-        # storing the number of patterns and the convergence fraction in the dictionnary
-        results_dict["num_patterns"].append(num_patterns[i])
+        # storing the number of patterns and the convergence fraction in the dictionary
+        results_dict["num_patterns"].append(num_pattern)
         results_dict["match_frac"].append(convergence_fraction)
 
     return results_dict
@@ -67,15 +66,15 @@ def plot_capacity_curve(size, weight_rule, num_patterns, match_frac):
 
     # formatting of the figure
     plt.figure(figsize=(10, 6))
-    plt.ylim(0, 1.1)
+    plt.ylim(-0.1, 1.1)
     plt.xticks(num_patterns, num_patterns)
-    plt.xlim(min(num_patterns)-0.1, max(num_patterns) + 0.1)
+    plt.xlim(min(num_patterns)-0.5, max(num_patterns) + 0.5)
     plt.xlabel("Number of patterns")
     plt.ylabel("Fraction of retrieved patterns")
     plt.title(f"Capacity curve for a network of size {size} with the {weight_rule} rule")
 
     # plot points on the figure
-    plt.scatter(num_patterns, match_frac)  #
+    plt.scatter(num_patterns, match_frac)
 
     # save the figure in the current directory and close it afterwards
     plt.savefig(f"Size{size}_Rule{weight_rule}_CapacityCurve", format="jpg")
@@ -90,7 +89,7 @@ def plot_empirical_capacity(size, num_patterns, match_frac, color):
             max_nb_patterns = num_patterns[j]
 
     # plot points
-    plt.scatter(max_nb_patterns, size, c=color)
+    plt.scatter(size, max_nb_patterns, c=color)
 
     return max_nb_patterns
 
@@ -99,9 +98,9 @@ def save_empirical_capacity(results, rule):
 
     # formatting the figure
     plt.figure(figsize=(10, 7))
-    plt.xlabel("Maximum Empirical Capacity")
-    plt.ylabel("Number of Neurons")
-    plt.title("Empirical Capacity Curve including Number of Neurons vs. Capacity")
+    plt.xlabel("Number of Neurons")
+    plt.ylabel("Maximum Empirical Capacity")
+    plt.title("Empirical Capacity Curve : Maximum Empirical Capacity vs. Number of Neurons")
     color = "black"
 
     # plot points for each size of the network + store the maximum empirical capacity and the networks' sizes in a list
@@ -113,8 +112,9 @@ def save_empirical_capacity(results, rule):
                                results[i]["match_frac"], color))
 
     # plot a curve connecting all the points
-    plt.plot(max_nb_patterns, sizes)
+    plt.plot(sizes, max_nb_patterns)
 
     # save the figure in the current directory and close it afterwards
     plt.savefig(f"Empirical_Capacity_{rule}", format="jpg")
     plt.close()
+
