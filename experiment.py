@@ -122,7 +122,27 @@ def comparison_asymptotic_estimate_and_experimental_capacity(size, weight_rule, 
 
 
 def plot_capacity_curve(size, weight_rule, num_patterns, match_frac):
+    """Plots the capacity curve for a given size of simulated network and learning rule.
 
+    Parameters:
+    --------------
+    size: int
+    -> size of the network (= size of the patterns of the network)
+    weight_rule: string
+    -> learning rule that will be used for the calculations ("Hebbian" or "Storkey")
+    num_patterns: int
+    -> number of patterns within the network used for the experiment
+    match_frac: floating point
+    -> fraction of convergence, which is the number of patterns retrieved over the total number of patterns for
+    the network
+
+    Output:
+    --------------
+    capacity curve with the number of patterns on the x-axis and the fraction of retrieved patterns on the y-axis
+    
+    CU: size >= 0, weight_rule = "Hebbian" or weight_rule = "Storkey", num_patterns >=0, match_frac >= 0
+    """
+    
     # formatting of the figure
     plt.figure(figsize=(10, 6))
     plt.ylim(-0.1, 1.1)
