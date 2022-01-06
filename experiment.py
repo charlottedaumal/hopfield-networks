@@ -5,6 +5,36 @@ import math
 
 def experiment(size, num_patterns, weight_rule, num_perturb, successful_t_values, unsuccessful_t_values,
                num_trials=10, max_iter=100):
+  """Runs 10 trials for each network size by running the dynamical system varying the initial pattern and perturbing
+    20% of the values of one of the original patterns
+
+    Parameters:
+    --------------
+    size : int
+    -> size of the network used for the experiment ( = size of the patterns)
+    num_patterns: int
+    -> number of patterns within the network used for the experiment
+    weight_rule: string
+    -> learning rule that will be used for the calculations during the experiment ("Hebbian" or "Storkey")
+    num_perturb: int
+    -> number of perturbations that will be applied to one pattern of the network
+    successful_t_values: list of ints
+    -> list containing the values of t where we have convergence
+    unsuccessful_t_values: list of ints
+    ->list containing the values of t where we don't have convergence
+    num_trials: int
+    -> number of times we will repeat the experiment (here num_trials = 10)
+    max_iter: int
+    -> maximum of iterations used for the call of function "dynamics" (here max_iter = 100)
+
+    Output:
+    --------------
+    returns a dictionary called "results_dict" which has the following keys : "network_size", "weight_rule",
+    "num_patterns", "num_perturb", "match_frac".
+
+    CU: size >= 0, num_patterns >=0, weight_rule = "Hebbian" or weight_rule = "Storkey",  num_perturb >=0,
+    successful_t_values >=0, unsuccessful_t_values >=0, num_trials >=0 and max_iter >=0
+    """
 
     # definition of the dictionary
     results_dict = {"network_size": [], "weight_rule": [], "num_patterns": [],
