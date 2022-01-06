@@ -161,6 +161,27 @@ def plot_capacity_curve(size, weight_rule, num_patterns, match_frac):
 
 
 def plot_empirical_capacity(size, num_patterns, match_frac, color):
+    """Plots empirical capacity curves including number of neurons vs. capacity (defined as the number of patterns that 
+    can be retrieved with a probability higher than 90%).
+    
+    Parameters:
+    --------------
+    size: int
+    -> size of the network (= size of the patterns of the network)
+    num_patterns: int
+    -> number of patterns within the network 
+    match_frac: floating point 
+    -> fraction of convergence, which is the number of patterns retrieved over the total number of patterns for
+    the network
+    color: string
+    -> color of the curve
+    
+    Output:
+    --------------
+    empirical capacity curve
+    
+    CU: size >=0, num_patterns >=0 and match_frac >=0
+    """
 
     max_nb_patterns = 0
     for j in range(len(match_frac)):  # determine for which higher number of patterns we have a system's convergence
