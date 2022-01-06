@@ -83,7 +83,7 @@ def experiment(size, num_patterns, weight_rule, num_perturb, successful_t_values
 def comparison_asymptotic_estimate_and_experimental_capacity(size, weight_rule, experimental_capacity,
                                                              asymptotic_estimate):
 
-    # comparing the experimental network capacity to the theoretical asymptotic estimate with a chose tolerance
+    # comparing the experimental network capacity to the theoretical asymptotic estimate with a chosen tolerance
     if math.isclose(experimental_capacity, asymptotic_estimate, rel_tol=0.1):
         print(f"The asymptotic bound for the {weight_rule} learning rule is a good estimation of the capacity for "
               f"a network's size of {size} (tolerance = 10%).")
