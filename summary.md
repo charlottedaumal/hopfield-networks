@@ -62,7 +62,7 @@ We also plotted a summary capacity plot showing the number of patterns that can 
 
 Finally, we saved robustness curves for our experiments for each size of simulated network and learning rule, plotting the fraction of retrieved patterns vs. the number of perturbations.
 
-#### Robustness Plots with Hebbian rule
+#### Robustness plots with Hebbian rule
 
 ![alt text](lien image)
 ![alt text](lien image)
