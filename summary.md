@@ -111,6 +111,7 @@ We can see on the plots for size 10 that we can have 2 values for the fraction o
 
 
 
+## Recalling images 
 
 
 
