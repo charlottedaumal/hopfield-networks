@@ -57,37 +57,37 @@ Below you can see the capacity curves for each size of simulated network and a g
 
 We also plotted a summary capacity plot showing the number of patterns that can be retrieved with a propbability higher than 0.9 vs. the number of neurons for both learning rules:
 
-![alt text](lien image)
-
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Empirical_Capacity_hebbian.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Empirical_Capacity_storkey.png)
 
 Finally, we saved robustness curves for our experiments for each size of simulated network and learning rule, plotting the fraction of retrieved patterns vs. the number of perturbations.
 
 #### Robustness plots with Hebbian rule
 
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B10%5D_Rule%5B'hebbian'%5D_RobustnessCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B18%5D_Rule%5B'hebbian'%5D_RobustnessCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B34%5D_Rule%5B'hebbian'%5D_RobustnessCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B63%5D_Rule%5B'hebbian'%5D_RobustnessCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B116%5D_Rule%5B'hebbian'%5D_RobustnessCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B215%5D_Rule%5B'hebbian'%5D_RobustnessCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B397%5D_Rule%5B'hebbian'%5D_RobustnessCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B733%5D_Rule%5B'hebbian'%5D_RobustnessCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B1354%5D_Rule%5B'hebbian'%5D_RobustnessCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B2500%5D_Rule%5B'hebbian'%5D_RobustnessCurve.png)
 
 
 #### Robustness plots with Storkey rule
 
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B10%5D_Rule%5B'storkey'%5D_RobustnessCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B18%5D_Rule%5B'storkey'%5D_RobustnessCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B34%5D_Rule%5B'storkey'%5D_RobustnessCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B63%5D_Rule%5B'storkey'%5D_RobustnessCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B116%5D_Rule%5B'storkey'%5D_RobustnessCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B215%5D_Rule%5B'storkey'%5D_RobustnessCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B397%5D_Rule%5B'storkey'%5D_RobustnessCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B733%5D_Rule%5B'storkey'%5D_RobustnessCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B1354%5D_Rule%5B'storkey'%5D_RobustnessCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B2500%5D_Rule%5B'storkey'%5D_RobustnessCurve.png)
 
 
 
