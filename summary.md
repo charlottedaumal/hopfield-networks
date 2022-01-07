@@ -29,16 +29,16 @@ Below you can see the capacity curves for each size of simulated network and a g
 
 #### Plots with Hebbian rule
 
-![alt text]()
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
-![alt text](lien image)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B10%5D_Rule%5B'hebbian'%5D_CapacityCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B18%5D_Rule%5B'hebbian'%5D_CapacityCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B34%5D_Rule%5B'hebbian'%5D_CapacityCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B63%5D_Rule%5B'hebbian'%5D_CapacityCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B116%5D_Rule%5B'hebbian'%5D_CapacityCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B215%5D_Rule%5B'hebbian'%5D_CapacityCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B397%5D_Rule%5B'hebbian'%5D_CapacityCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B733%5D_Rule%5B'hebbian'%5D_CapacityCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B1354%5D_Rule%5B'hebbian'%5D_CapacityCurve.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B2500%5D_Rule%5B'hebbian'%5D_CapacityCurve.png)
 
 
 #### Plots with Storkey rule
