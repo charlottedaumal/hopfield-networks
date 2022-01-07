@@ -168,9 +168,9 @@ def plot_empirical_capacity(size, num_patterns, match_frac, color):
     --------------
     size: int
     -> size of the network (= size of the patterns of the network)
-    num_patterns: int
+    num_patterns: list of integers
     -> number of patterns within the network 
-    match_frac: floating point 
+    match_frac: list of floating points
     -> fraction of convergence, which is the number of patterns retrieved over the total number of patterns for
     the network
     color: string
