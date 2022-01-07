@@ -63,6 +63,8 @@ We can see on the plots for sizes 10,18 and 34 that we can have 2 values for the
 We also plotted a summary capacity plot showing the number of patterns that can be retrieved with a propbability higher than 0.9 vs. the number of neurons for both learning rules:
 
 
+
+
 ### Plot with Hebbian rule
 ![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Empirical_Capacity_hebbian.png)
 
