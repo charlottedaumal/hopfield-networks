@@ -28,6 +28,21 @@ Below you can see the capacity curves for each size of simulated network and a g
 
 We decided to plot our figures with dots instead of a curve because we assumed it was more clear to read and less ambiguous as we are dealing with discrete data.
 
+We can see on the plots for sizes 10,18 and 34 that we can have 2 values for the fraction of retrieved patterns for one single number of patterns. This is because we sometimes have twice the same number of patterns. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Capacity Curves
 
 ### Plots with Hebbian rule
 
@@ -57,12 +72,12 @@ We decided to plot our figures with dots instead of a curve because we assumed i
 ![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B2500%5D_Rule%5B'storkey'%5D_CapacityCurve.png)
 
 
-We can see on the plots for sizes 10,18 and 34 that we can have 2 values for the fraction of retrieved patterns for one single number of patterns. This is because we sometimes have twice the same number of patterns. 
 
 
 We also plotted a summary capacity plot showing the number of patterns that can be retrieved with a propbability higher than 0.9 vs. the number of neurons for both learning rules:
 
 
+## Summary capacity Curves
 
 ### Plot with Hebbian rule
 ![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Empirical_Capacity_hebbian.png)
@@ -72,8 +87,9 @@ We also plotted a summary capacity plot showing the number of patterns that can 
 
 Finally, we saved robustness curves for our experiments for each size of simulated network and learning rule, plotting the fraction of retrieved patterns vs. the number of perturbations.
 
+## Robustness Curves
 
-### Robustness plots with Hebbian rule
+### Plots with Hebbian rule
 
 ![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B10%5D_Rule%5B'hebbian'%5D_RobustnessCurve.png)
 ![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B18%5D_Rule%5B'hebbian'%5D_RobustnessCurve.png)
@@ -88,7 +104,7 @@ Finally, we saved robustness curves for our experiments for each size of simulat
 
 
 
-### Robustness plots with Storkey rule
+### Plots with Storkey rule
 
 ![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B10%5D_Rule%5B'storkey'%5D_RobustnessCurve.png)
 ![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B18%5D_Rule%5B'storkey'%5D_RobustnessCurve.png)
