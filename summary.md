@@ -29,7 +29,7 @@ Below you can see the capacity curves for each size of simulated network and a g
 We decided to plot our figures with dots instead of a curve because we assumed it was more clear to read and less ambiguous as we are dealing with discrete data.
 
 
-</### Plots with Hebbian rule>
+### Plots with Hebbian rule
 
 ![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B10%5D_Rule%5B'hebbian'%5D_CapacityCurve.png)
 ![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B18%5D_Rule%5B'hebbian'%5D_CapacityCurve.png)
@@ -61,7 +61,6 @@ We can see on the plots for sizes 10,18 and 34 that we can have 2 values for the
 
 
 We also plotted a summary capacity plot showing the number of patterns that can be retrieved with a propbability higher than 0.9 vs. the number of neurons for both learning rules:
-
 
 
 
