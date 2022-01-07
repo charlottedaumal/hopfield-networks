@@ -30,7 +30,9 @@ We decided to plot our figures with dots instead of a curve because we assumed i
 
 We can see on the plots for sizes 10,18 and 34 that we can have 2 values for the fraction of retrieved patterns for one single number of patterns. This is because we sometimes have twice the same number of patterns. 
 
-## Capacity Curves \\
+## Capacity Curves 
+
+\
 
 ### Plots with Hebbian rule
 
