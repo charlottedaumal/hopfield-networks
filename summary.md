@@ -32,7 +32,9 @@ We decided to plot our figures with dots instead of a curve because we assumed i
 
 ## Capacity Curves 
 
-We can see on the plots for sizes 10,18 and 34 that we can have 2 values for the fraction of retrieved patterns for one single number of patterns. This is because we sometimes have twice the same number of patterns, which are defined through the following command : `np.linspace(0.5 * capacity_h, 2 * capacity_h, 10).astype(int)`
+We can see on the plots for sizes 10,18 and 34 that we can have 2 values for the fraction of retrieved patterns for one single number of patterns. This is because we sometimes have twice the same number of patterns, which are defined through the following command : `np.linspace(0.5 * capacity, 2 * capacity, 10).astype(int)`. 
+
+As one can see, if the network size is small, the capacity will also be small, and therefore, as the number of patterns are defined as integers, ______ commande fait que on a repetiton meme chiffre)
 
 ### Plots with Hebbian rule
 
@@ -62,12 +64,9 @@ We can see on the plots for sizes 10,18 and 34 that we can have 2 values for the
 ![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B2500%5D_Rule%5B'storkey'%5D_CapacityCurve.png)
 
 
-
+## Summary capacity Curves
 
 We also plotted a summary capacity plot showing the number of patterns that can be retrieved with a propbability higher than 0.9 vs. the number of neurons for both learning rules:
-
-
-## Summary capacity Curves
 
 ### Plot with Hebbian rule
 ![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Empirical_Capacity_hebbian.png)
@@ -78,6 +77,8 @@ We also plotted a summary capacity plot showing the number of patterns that can 
 Finally, we saved robustness curves for our experiments for each size of simulated network and learning rule, plotting the fraction of retrieved patterns vs. the number of perturbations.
 
 ## Robustness Curves
+
+We can see on the plots for size 10 that we can have 2 values for the fraction of retrieved patterns for one single number of perturbation. This is because we sometimes have twice the same number of perturbation, which are defined through the following command : `num_perturb = (np.linspace(0, 1, 20) * size).astype(int)
 
 ### Plots with Hebbian rule
 
