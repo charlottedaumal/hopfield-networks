@@ -32,7 +32,7 @@ We can see on the plots for sizes 10,18 and 34 that we can have 2 values for the
 
 ## Capacity Curves 
 
-\
+ 
 
 ### Plots with Hebbian rule
 
