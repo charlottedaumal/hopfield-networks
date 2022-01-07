@@ -115,10 +115,10 @@ We can see on the plots for size 10 that we can have 2 values for the fraction o
 
 The aim here was to demonstrate that the model of the Hopfield network that we implemented is able to recall a complete image from an incomplete subsets of an image.
 We chose the GitHub logo for our experiment:
-![alt text]()
-![alt text]()
-![alt text]()
-
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Images/Perturbed_GitHub_Logo.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Images/Perturbed_GitHub_Logo_2.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Images/Perturbed_GitHub_Logo_3.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Images/Perturbed_Logo_Converged.png)
 
 ### Credits
 
