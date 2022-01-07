@@ -63,3 +63,14 @@ sto_results = results.copy()[1::2]
 # saving two plots with our empirical capacity curves including number of neurons vs. capacity for both learning rules
 save_empirical_capacity(heb_results, "hebbian")
 save_empirical_capacity(sto_results, "storkey")
+
+
+
+#creating a panda DataFrame from our results dictionary
+df = pd.DataFrame(results)
+
+#saving the dataframe as an hdf5 file
+df.to_hdf("./results_panda_dataframe", key='df')
+
+#panda prints the table in mardown format
+print(df.tomarkdown())
