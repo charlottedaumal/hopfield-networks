@@ -1,16 +1,16 @@
 
 # BIO-210-team-26
 
-## Report of v7 of the Hopfield Network project
+# Report of v7 of the Hopfield Network project
 
-### Aim of the project
+## Aim of the project
 The aim of the project is to simulate the evolution of a dynamical system for associative memory, the Hopield Network. It models a simple mechanism to explain how a neural network could store representations in the form of weighted connections between neurons.
 
 Here, we implemented the iterative process which allows to retrieve one of the stored/memorized patterns starting from the representation of a new pattern.
 
 In this report, we will explain the experiment we have performed and the results we obtained.
 
-### The experiment
+## The experiment
 In this final version of the project, the aim was to empirically estimate the capacity of the Hopfield network, trained with the Hebbian and Storkey rules, and simulated with the synchronous update rule.
 
 For this experiment, we considered 10 networks of size ranging from 10 to 2500. Then, for each network size, we ran 10 trials of a defined experiment with different initial patterns. We could estimate in this way the network capacity as a function of the network size and compare it with the theoretical asymptotic estimate.
@@ -29,18 +29,6 @@ Below you can see the capacity curves for each size of simulated network and a g
 We decided to plot our figures with dots instead of a curve because we assumed it was more clear to read and less ambiguous as we are dealing with discrete data.
 
 We can see on the plots for sizes 10,18 and 34 that we can have 2 values for the fraction of retrieved patterns for one single number of patterns. This is because we sometimes have twice the same number of patterns. 
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## Capacity Curves
 
