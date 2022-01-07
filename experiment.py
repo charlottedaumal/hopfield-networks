@@ -195,6 +195,19 @@ def plot_empirical_capacity(size, num_patterns, match_frac, color):
 
 
 def save_empirical_capacity(results, rule):
+    """ Plots a curve corresponding to the empirical capacity and saves the figure in the current directory
+    
+    Parameters:
+    --------------
+    results: list 
+    -> list of results returned by the function 'experiment'
+    rule: string
+    -> learning rule that will be used for the calculations ("Hebbian" or "Storkey")
+    
+    Output:
+    --------------
+    empirical capacity curve saved in the current directory
+    """
 
     # formatting the figure
     plt.figure(figsize=(10, 7))
