@@ -33,7 +33,7 @@ We can see on the plots for sizes 10,18 and 34 that we can have 2 values for the
 ## Capacity Curves 
 
 
-### <Plots with Hebbian rule>
+<### Plots with Hebbian rule>
 
 ![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B10%5D_Rule%5B'hebbian'%5D_CapacityCurve.png)
 ![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B18%5D_Rule%5B'hebbian'%5D_CapacityCurve.png)
