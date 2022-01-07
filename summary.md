@@ -78,7 +78,7 @@ Finally, we saved robustness curves for our experiments for each size of simulat
 
 ## Robustness Curves
 
-We can see on the plots for size 10 that we can have 2 values for the fraction of retrieved patterns for one single number of perturbation. This is because we sometimes have twice the same number of perturbation, which are defined through the following command : `num_perturb = (np.linspace(0, 1, 20) * size).astype(int)
+We can see on the plots for size 10 that we can have 2 values for the fraction of retrieved patterns for one single number of perturbation. This is because we sometimes have twice the same number of perturbation, which are defined through the following command : `num_perturb = (np.linspace(0, 1, 20) * size).astype(int)`, where  the variable 'size' represents the size of the network.
 
 ### Plots with Hebbian rule
 
