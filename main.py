@@ -1,5 +1,6 @@
 from experiment import *
 import math
+import pandas as pd 
 
 sizes = np.round(np.logspace(1, math.log(2500, 10), 10)).astype(int)  # definition of the networks' sizes
 results = []
