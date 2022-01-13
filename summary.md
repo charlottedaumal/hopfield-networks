@@ -29,13 +29,6 @@ Below you can see the capacity curves for each size of simulated network and a g
 We decided to plot our figures with dots instead of a curve because we assumed it was more clear to read and less ambiguous as we are dealing with discrete data.
 
 
-## Results Summary table (converted into pandas dataframe), when we run the experiment with 20% of perturbation on all sizes of network
-
-![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Images/Capture%20d’écran%202022-01-13%20à%2015.39.01.png)
-
-## Results Summary table (converted into pandas dataframe), when we run the experiment for the robustness curves.
-
-![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Images/Capture%20d’écran%202022-01-13%20à%2015.31.26.png)
 
 
 ## Capacity Curves 
@@ -84,6 +77,12 @@ We also plotted a summary capacity plot showing the number of patterns that can 
 
 Finally, we saved robustness curves for our experiments for each size of simulated network and learning rule, plotting the fraction of retrieved patterns vs. the number of perturbations.
 
+
+## Results Summary table (converted into pandas dataframe), when we run the experiment with 20% of perturbation on all sizes of network
+
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Images/Capture%20d’écran%202022-01-13%20à%2015.39.01.png)
+
+
 ## Robustness Curves
 
 We can see on the plots for size 10 that we can have 2 values for the fraction of retrieved patterns for one single number of perturbation. This is because the number of perturbations are defined through the following command : `num_perturb = (np.linspace(0, 1, 20) * size).astype(int)`, where  the variable 'size' represents the size of the network.
@@ -117,6 +116,12 @@ We can see on the plots for size 10 that we can have 2 values for the fraction o
 ![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B2500%5D_Rule%5B'storkey'%5D_RobustnessCurve.png)
 
 
+
+## Results Summary table (converted into pandas dataframe), when we run the experiment for the robustness curves.
+
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Images/Capture%20d’écran%202022-01-13%20à%2015.31.26.png)
+
+
 * At which point does the system stop converging to the initial pattern ?*
 
 ##### for the Hebbian rule:
@@ -127,27 +132,27 @@ If we consider that the system is a network with a specific size, here are liste
 - for a network of size 10: perturbation equal to 40% of the values of each base pattern
 - for a network of size 18: perturbation equal to 60% of the values of each base pattern
 - for a network of size 34: perturbation equal to 60% of the values of each base pattern
-for a network of size 63: perturbation equal to 65% of the values of each base pattern
-for a network of size 116: perturbation equal to 65% of the values of each base pattern
-for a network of size 215: perturbation equal to 70% of the values of each base pattern
-for a network of size 397: perturbation equal to 65% of the values of each base pattern
-for a network of size 733: perturbation equal to 70% of the values of each base pattern
-for a network of size 1354: perturbation equal to 70% of the values of each base pattern
-for a network of size 2500: perturbation equal to 70% of the values of each base pattern
+- for a network of size 63: perturbation equal to 65% of the values of each base pattern
+- for a network of size 116: perturbation equal to 65% of the values of each base pattern
+- for a network of size 215: perturbation equal to 70% of the values of each base pattern
+- for a network of size 397: perturbation equal to 65% of the values of each base pattern
+- for a network of size 733: perturbation equal to 70% of the values of each base pattern
+- for a network of size 1354: perturbation equal to 70% of the values of each base pattern
+- for a network of size 2500: perturbation equal to 70% of the values of each base pattern
 
 
 -> For the Storkey learning rule:
 
-for a network of size 10: perturbation equal to 50% of the values of each base pattern
-for a network of size 18: perturbation equal to 65% of the values of each base pattern
-for a network of size 34: perturbation equal to 60% of the values of each base pattern
-for a network of size 63: perturbation equal to 65% of the values of each base pattern
-for a network of size 116: perturbation equal to 70% of the values of each base pattern
-for a network of size 215: perturbation equal to 65% of the values of each base pattern
-for a network of size 397: perturbation equal to 65% of the values of each base pattern
-for a network of size 733: perturbation equal to 70% of the values of each base pattern
-for a network of size 1354: perturbation equal to 70% of the values of each base pattern
-for a network of size 2500: perturbation equal to 65% of the values of each base pattern
+- for a network of size 10: perturbation equal to 50% of the values of each base pattern
+- for a network of size 18: perturbation equal to 65% of the values of each base pattern
+- for a network of size 34: perturbation equal to 60% of the values of each base pattern
+- for a network of size 63: perturbation equal to 65% of the values of each base pattern
+- for a network of size 116: perturbation equal to 70% of the values of each base pattern
+- for a network of size 215: perturbation equal to 65% of the values of each base pattern
+- for a network of size 397: perturbation equal to 65% of the values of each base pattern
+- for a network of size 733: perturbation equal to 70% of the values of each base pattern
+- for a network of size 1354: perturbation equal to 70% of the values of each base pattern
+- for a network of size 2500: perturbation equal to 65% of the values of each base pattern
 
 
 If we consider the system to be all the networks with all sizes, the system stops converging for a perturbation equal to 70% for both learning rules (Hebbian and Storkey).
