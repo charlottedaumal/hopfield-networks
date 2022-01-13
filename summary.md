@@ -80,7 +80,7 @@ Finally, we saved robustness curves for our experiments for each size of simulat
 
 ## Results Summary table (converted into pandas dataframe), when we run the experiment with 20% of perturbation on all sizes of network
 
-![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Images/Capture%20d’écran%202022-01-13%20à%2015.39.01.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Images/table%20of%20results%20when%20running%20the%20experiment%20for%20each%20sizes%20of%20network.png)
 
 
 ## Robustness Curves
