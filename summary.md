@@ -124,9 +124,9 @@ If we consider that the system is a network with a specific size, here are liste
 
 -> For the Hebbian learning rule:
 
-for a network of size 10: perturbation equal to 40% of the values of each base pattern
-for a network of size 18: perturbation equal to 60% of the values of each base pattern
-for a network of size 34: perturbation equal to 60% of the values of each base pattern
+- for a network of size 10: perturbation equal to 40% of the values of each base pattern
+- for a network of size 18: perturbation equal to 60% of the values of each base pattern
+- for a network of size 34: perturbation equal to 60% of the values of each base pattern
 for a network of size 63: perturbation equal to 65% of the values of each base pattern
 for a network of size 116: perturbation equal to 65% of the values of each base pattern
 for a network of size 215: perturbation equal to 70% of the values of each base pattern
