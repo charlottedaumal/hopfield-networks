@@ -31,7 +31,7 @@ We decided to plot our figures with dots instead of a curve because we assumed i
 
 ## Results Summary table (converted into pandas dataframe), when we run the experiment with 20% of perturbation on all sizes of network
 
-![alt text]()
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Images/Capture%20d’écran%202022-01-13%20à%2015.39.01.png)
 
 ## Results Summary table (converted into pandas dataframe), when we run the experiment for the robustness curves.
 
