@@ -29,7 +29,7 @@ Below you can see the capacity curves for each size of simulated network and a g
 We decided to plot our figures with dots instead of a curve because we assumed it was more clear to read and less ambiguous as we are dealing with discrete data.
 
 
-## Results pandas dataframe
+## Results Summary table (converted into pandas dataframe)
 
 
 
