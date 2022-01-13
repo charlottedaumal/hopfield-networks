@@ -121,7 +121,7 @@ We can see on the plots for size 10 that we can have 2 values for the fraction o
 
 
 *Repeat the experiment with the Storkey weights. Are the results the same as before ?*
-
+Yes, the results haven't changed.
 
 ## Recalling images 
 
