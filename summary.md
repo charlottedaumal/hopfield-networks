@@ -124,7 +124,7 @@ We can see on the plots for size 10 that we can have 2 values for the fraction o
 
 * At which point does the system stop converging to the initial pattern ?*
 
-##### for the Hebbian rule:
+
 If we consider that the system is a network with a specific size, here are listed below the points where the system stops converging:
 
 -> For the Hebbian learning rule:
@@ -141,6 +141,13 @@ If we consider that the system is a network with a specific size, here are liste
 - for a network of size 2500: perturbation equal to 70% of the values of each base pattern
 
 
+If we consider the system to be all the networks with all sizes, the system stops converging for a perturbation equal to 70% of the values of each base pattern.
+
+
+*Repeat the experiment with the Storkey weights. Are the results the same as before ?*
+
+If we consider that the system is a network with a specific size, here are listed below the points where the system stops converging:
+
 -> For the Storkey learning rule:
 
 - for a network of size 10: perturbation equal to 50% of the values of each base pattern
@@ -154,11 +161,7 @@ If we consider that the system is a network with a specific size, here are liste
 - for a network of size 1354: perturbation equal to 70% of the values of each base pattern
 - for a network of size 2500: perturbation equal to 65% of the values of each base pattern
 
-
-If we consider the system to be all the networks with all sizes, the system stops converging for a perturbation equal to 70% for both learning rules (Hebbian and Storkey).
-
-*Repeat the experiment with the Storkey weights. Are the results the same as before ?*
-Yes, the results haven't changed.
+If we consider the system to be all the networks with all sizes, the system stops converging for a perturbation equal to 70% of the values of each base pattern.
 
 ## Recalling images 
 
