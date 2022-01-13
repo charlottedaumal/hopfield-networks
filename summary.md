@@ -35,7 +35,7 @@ We decided to plot our figures with dots instead of a curve because we assumed i
 
 We can see on the plots for sizes 10,18 and 34 that we can have 2 values for the fraction of retrieved patterns for one single number of patterns. This is because we sometimes have twice the same number of patterns, which are defined through the following command : `np.linspace(0.5 * capacity, 2 * capacity, 10).astype(int)`. 
 
-As one can see, if the network size is small, the capacity will also be small, and therefore, as the number of patterns are defined as integers, ______ commande fait que on a repetiton meme chiffre)
+As one can see, if the network size is small, the capacity will also be small. Therefore, as the number of patterns are defined as integers, the command specified above leads to a repetition of some numbers.
 
 ### Plots with Hebbian rule
 
