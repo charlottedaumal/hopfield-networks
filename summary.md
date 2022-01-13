@@ -122,7 +122,7 @@ We can see on the plots for size 10 that we can have 2 values for the fraction o
 ![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Images/Capture%20d’écran%202022-01-13%20à%2015.31.26.png)
 
 
-* At which point does the system stop converging to the initial pattern ?*
+**At which point does the system stop converging to the initial pattern ?**
 
 
 If we consider that the system is a network with a specific size, here are listed below the points where the system stops converging:
@@ -144,7 +144,7 @@ If we consider that the system is a network with a specific size, here are liste
 If we consider the system to be all the networks with all sizes, the system stops converging for a perturbation equal to 70% of the values of each base pattern.
 
 
-*Repeat the experiment with the Storkey weights. Are the results the same as before ?*
+**Repeat the experiment with the Storkey weights. Are the results the same as before ?**
 
 If we consider that the system is a network with a specific size, here are listed below the points where the system stops converging:
 
