@@ -119,7 +119,7 @@ We can see on the plots for size 10 that we can have 2 values for the fraction o
 
 ## Results Summary table (converted into pandas dataframe), when we run the experiment for the robustness curves.
 
-![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Images/Capture%20d’écran%202022-01-13%20à%2015.31.26.png)
+![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Images/table%20of%20results%20when%20running%20the%20experiment%20for%20robustness.png)
 
 
 **At which point does the system stop converging to the initial pattern ?**
