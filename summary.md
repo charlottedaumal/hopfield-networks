@@ -163,6 +163,8 @@ If we consider that the system is a network with a specific size, here are liste
 
 If we consider the system to be all the networks with all sizes, the system stops converging for a perturbation equal to 70% of the values of each base pattern.
 
+We can conclude that the results are similar. In fact, we can notice that the convergence stop points are approximately around a number of perturbation of 60-70% fo the values of each base pattern for both learning rules.
+
 ## Recalling images 
 
 The aim here was to demonstrate that the model of the Hopfield network that we implemented is able to recall a complete image from an incomplete subsets of an image.
