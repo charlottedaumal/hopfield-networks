@@ -117,6 +117,10 @@ We can see on the plots for size 10 that we can have 2 values for the fraction o
 ![alt text](https://github.com/EPFL-BIO-210/BIO-210-team-26/blob/main/Graphs/Size%5B2500%5D_Rule%5B'storkey'%5D_RobustnessCurve.png)
 
 
+* At which point does the system stop converging to the initial pattern ?*
+
+
+*Repeat the experiment with the Storkey weights. Are the results the same as before ?*
 
 
 ## Recalling images 
