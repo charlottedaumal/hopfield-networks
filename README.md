@@ -1,4 +1,4 @@
-# Hopfields Networks Implementation
+# Associative Memory Engine with Hopfield Dynamics
 
 **Author:** Charlotte Daumal & Clemence Kiehl  
 **Context:** This project was completed as part of the *Projects in informatics for SV* course taught by Prof. Alexander Mathis  
@@ -7,7 +7,7 @@
 
 ---
 
-## Project Description
+## 📘 Project Overview
 
 The aim of this project is to simulate the evolution of biologically-inspired dynamical system, the Hopfield networks. The Hopfield network is a computational model for associative memory, proposed by John Hopfield in 1982. It models a simple mechanism to explain how a neural network could store representations (i.e., the neural activity corresponding to a certain concept) in the form of weighted connections between neurons. 
 
@@ -15,15 +15,7 @@ Here, we will implement the iterative process which allows to retrieve one of th
 
 ---
 
-## Table of contents
-* Requirements
-* Files
-* Instructions to use/run our project
-* Credits
-
----
-
-## Requirements
+## 📝 Requirements
 * Python >= 3.5
 * numpy
 * matplotlib
@@ -34,7 +26,7 @@ Here, we will implement the iterative process which allows to retrieve one of th
 
 ---
 
-## Files 
+## 💻 Repository Structure 
 1) main.py -> file containing the first version of the code and the unit tests
 2) functions.py -> file containing all the functions of the project
 3) test_HopfieldNetwork.py -> file containing pytests to test some functions of the file functions.py
@@ -50,7 +42,7 @@ Here, we will implement the iterative process which allows to retrieve one of th
 
 ---
 
-## How to use our project until v7 release
+## ⚙️ How to use our project until v7 release
 
 ### Instructions to run the project 
 
@@ -78,7 +70,7 @@ You need to run the test_HopfieldNetwork.py file to run all the pytests and the 
 
 ---
 
-## How to use our project on v7 release
+## ⚙️ How to use our project on v7 release
 
 -> You need to run the "main.py" file to run our project.
 
