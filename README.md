@@ -1,7 +1,7 @@
 # Associative Memory Engine with Hopfield Dynamics
 
 **Author:** Charlotte Daumal & Clemence Kiehl  
-**Context:** This project was completed as part of the *Projects in informatics for SV* course taught by Prof. Alexander Mathis    
+**Context:** This project was completed as part of the *Projects in informatics for SV* course taught by Prof. Alexander Mathis at EPFL  
 **Language:** Python   
 **Date:** December 2021  
 
