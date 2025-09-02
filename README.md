@@ -1,9 +1,9 @@
 # Associative Memory Engine with Hopfield Dynamics
 
 **Author:** Charlotte Daumal & Clemence Kiehl  
-**Context:** This project was completed as part of the *Projects in informatics for SV* course taught by Prof. Alexander Mathis  
+**Context:** This project was completed as part of the *Projects in informatics for SV* course taught by Prof. Alexander Mathis    
 **Language:** Python   
-**Date:** December 2021
+**Date:** December 2021  
 
 ---
 
@@ -44,7 +44,7 @@ Here, we will implement the iterative process which allows to retrieve one of th
 
 ## ⚙️ How to use our project until v7 release
 
-### Instructions to run the project 
+### 1) Instructions to run the project 
 
 To enjoy the cython optimizations of the update and dynamics functions, you will need to build the two following modules : update_cython.py and dynamics_cython.py
 To build these, you need to type on the terminal : `python setup.py build_ext --inplace`.
@@ -60,7 +60,7 @@ First, you will need to choose the weights matrix you want to use to do all the 
 
 When it has finished to run, the code provides you the two curves of energy related to the weights matrix you have chosen and the two videos of the convergence of the checkerboard saved in the directory where the main.py file lies.
 
-### Instructions to run the tests
+### 2) Instructions to run the tests
 
 You need to run the test_HopfieldNetwork.py file to run all the pytests and the doctests.
 
@@ -70,7 +70,7 @@ You need to run the test_HopfieldNetwork.py file to run all the pytests and the 
 
 ---
 
-## ⚙️ How to use our project on v7 release
+## 🔧 How to use our project on v7 release
 
 -> You need to run the "main.py" file to run our project.
 
