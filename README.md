@@ -60,35 +60,33 @@ This project requires Python ≥ 3.5 and the following packages:
 
 ### 1) Instructions to run the project 
 
-To enjoy the cython optimizations of the update and dynamics functions, you will need to build the two following modules : update_cython.py and dynamics_cython.py
-To build these, you need to type on the terminal : `python setup.py build_ext --inplace`.
+To enjoy the cython optimizations of the update and dynamics functions, you will need to build the two following modules : `update_cython.py` and `dynamics_cython.py`. To build these, you need to type in the terminal : `python setup.py build_ext --inplace`.
 
-You need to run the main.py file. 
+Then, run the `main.py` file. 
 First, you will need to choose the weights matrix you want to use to do all the further computations. 
 
--> To use the Hebbian weights matrix, just directly press 'Enter'. 
+* To use the Hebbian weights matrix, just directly press `Enter`.
+* To use the Storkey weights matrix, push the `s` keyboard key and then press `Enter`.
+* If you pushed another keyboard key, the computations will be done witn the Hebbian learning rule by default. 
 
--> To use the Storkey weights matrix, push the 's' keyboard key and then press 'Enter'. 
-
--> If you pushed another keyboard key, the computations will be done witn the Hebbian learning rule by default. 
-
-When it has finished to run, the code provides you the two curves of energy related to the weights matrix you have chosen and the two videos of the convergence of the checkerboard saved in the directory where the main.py file lies.
+When it has finished to run, the code provides you the two curves of energy related to the weights matrix you have chosen and the two videos of the convergence of the checkerboard saved in the directory where the `main.py` file lies.
 
 ### 2) Instructions to run the tests
 
-You need to run the test_HopfieldNetwork.py file to run all the pytests and the doctests.
+Run the `test_HopfieldNetwork.py` file to perform all the pytests and doctests.
 
--> In the terminal, type the command `pytest test_HopfieldNetwork.py`, then, to see the coverage, type the command `coverage run -m pytest test_HopfieldNetwork.py` and then coverage report -m`.
+* In the terminal, type the command `pytest test_HopfieldNetwork.py`.
+* To see the coverage, type the command `coverage run -m pytest test_HopfieldNetwork.py` and then `coverage report -m`.
 
--> To only run the doctests, click on "Run Doctests in functions" on PyCharm
+> **Note:** When using PyCharm, click on `Run Doctests in functions` to only run the doctests.
 
 ---
 
 ## 🔧 How to use our project on v7 release
 
--> You need to run the "main.py" file to run our project.
+You just need to run the `main.py` file to run the entire project.
 
-All the graphs will be saved under the current directory.
+> **Note:** All the graphs will be saved under the current directory.
 
 ---
 
