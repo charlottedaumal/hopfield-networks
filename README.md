@@ -9,36 +9,50 @@
 
 ## 📘 Project Overview
 
-The aim of this project is to simulate the evolution of biologically-inspired dynamical system, the Hopfield networks. The Hopfield network is a computational model for associative memory, proposed by John Hopfield in 1982. It models a simple mechanism to explain how a neural network could store representations (i.e., the neural activity corresponding to a certain concept) in the form of weighted connections between neurons. 
+The goal of this project is to simulate the dynamics of a biologically inspired system known as the **Hopfield network** — a model of associative memory introduced by John Hopfield in 1982.
 
-Here, we will implement the iterative process which allows to retrieve one of the stored (memorized) patterns starting from the representation of a new (unseen) pattern.
+This recurrent neural network models how memory patterns can be stored as stable states in a network of interconnected neurons. Each memory is encoded through weighted connections, allowing the network to recall a stored pattern from a noisy or partial input.
+
+In this project, we implement and analyze the iterative update mechanism that enables the network to converge toward the closest stored pattern — effectively retrieving a memory from an initial, possibly unseen, input.
 
 ---
 
 ## 📝 Requirements
-* Python >= 3.5
-* numpy
-* matplotlib
-* random
-* pathlib
-* cython
-* disultils.core
+
+This project requires Python ≥ 3.5 and the following packages:
+
+- `numpy` — Numerical computing  
+- `matplotlib` — Data visualization  
+- `random` — Built-in Python module for random number generation  
+- `pathlib` — Built-in Python module for filesystem paths  
+- `cython` — For compiling optimized Python extensions  
+- `distutils.core` — Used in setup scripts for building Cython modules
 
 ---
 
 ## 💻 Repository Structure 
-1) main.py -> file containing the first version of the code and the unit tests
-2) functions.py -> file containing all the functions of the project
-3) test_HopfieldNetwork.py -> file containing pytests to test some functions of the file functions.py
-4) .gitignore -> file containing all the files that Git was told to ignore
-5) Graphs -> directory containing the pictures of the energy curves for the hebbian and the storkey weights matrices
-6) update.cython.py -> cython optimization of the update and update_async functions
-7) dynamics_cython.py -> cython optimization of the dynamics and dynamics_async functions
-8) setup.py -> file used to build the modules update_cython.py and dynamics_cython.py
-9) classes.py -> file containing all the object programming part of the project
-10) summary.md -> markup file which documents the results(tables/figures) of our experiment
-11) experiment.py -> file containing the experiment function and all the functions used to plot all the required curves for the v7 release
-12) requirements.py -> file which installs the required packages for our project when running it
+
+### 1) Core Logic and Implementation
+- `main.py` — Initial implementation of the Hopfield network + basic unit tests  
+- `functions.py` — All core functions used in the project  
+- `classes.py` — Object-oriented implementation of Hopfield network components  
+- `experiment.py` — Final experimental pipeline and plotting functions (v7 release)
+
+### 2) Optimizations with Cython
+- `update_cython.py` — Optimized `update` and `update_async` functions  
+- `dynamics_cython.py` — Optimized `dynamics` and `dynamics_async` functions  
+- `setup.py` — Build script for compiling Cython modules
+
+### 3) Testing
+- `test_HopfieldNetwork.py` — Pytest-based unit tests for `functions.py`
+
+### 4) Results and Outputs
+- `Graphs/` — Contains energy curve plots (Hebbian and Storkey weight matrices)  
+- `summary.md` — Results summary with tables and figures
+
+### 5) Environment and Dependencies
+- `requirements.py` — Script to install all necessary Python packages  
+- `.gitignore` — Specifies files and folders ignored by Git
 
 ---
 
