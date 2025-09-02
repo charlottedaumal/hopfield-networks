@@ -1,21 +1,29 @@
-# BIO-210-team-26
+# Hopfields Networks Implementation
 
-## Hopfield Network 
+**Author:** Charlotte Daumal & Clemence Kiehl  
+**Context:** This project was completed as part of the *Projects in informatics for SV* course taught by Prof. Alexander Mathis  
+**Language:** Python   
+**Date:** December 2021
 
+---
+
+## Project Description
 
 The aim of this project is to simulate the evolution of biologically-inspired dynamical system, the Hopfield networks. The Hopfield network is a computational model for associative memory, proposed by John Hopfield in 1982. It models a simple mechanism to explain how a neural network could store representations (i.e., the neural activity corresponding to a certain concept) in the form of weighted connections between neurons. 
 
 Here, we will implement the iterative process which allows to retrieve one of the stored (memorized) patterns starting from the representation of a new (unseen) pattern.
 
+---
 
-### Table of contents
+## Table of contents
 * Requirements
 * Files
 * Instructions to use/run our project
 * Credits
 
+---
 
-### Requirements
+## Requirements
 * Python >= 3.5
 * numpy
 * matplotlib
@@ -24,8 +32,9 @@ Here, we will implement the iterative process which allows to retrieve one of th
 * cython
 * disultils.core
 
+---
 
-### Files 
+## Files 
 1) main.py -> file containing the first version of the code and the unit tests
 2) functions.py -> file containing all the functions of the project
 3) test_HopfieldNetwork.py -> file containing pytests to test some functions of the file functions.py
@@ -37,11 +46,13 @@ Here, we will implement the iterative process which allows to retrieve one of th
 9) classes.py -> file containing all the object programming part of the project
 10) summary.md -> markup file which documents the results(tables/figures) of our experiment
 11) experiment.py -> file containing the experiment function and all the functions used to plot all the required curves for the v7 release
-12) requirements.py -> file which installs the required packages for our project when running it 
+12) requirements.py -> file which installs the required packages for our project when running it
 
-### How to use our project until v7 release
+---
 
-#### Instructions to run the project 
+## How to use our project until v7 release
+
+### Instructions to run the project 
 
 To enjoy the cython optimizations of the update and dynamics functions, you will need to build the two following modules : update_cython.py and dynamics_cython.py
 To build these, you need to type on the terminal : `python setup.py build_ext --inplace`.
@@ -57,22 +68,25 @@ First, you will need to choose the weights matrix you want to use to do all the 
 
 When it has finished to run, the code provides you the two curves of energy related to the weights matrix you have chosen and the two videos of the convergence of the checkerboard saved in the directory where the main.py file lies.
 
-#### Instructions to run the tests
+### Instructions to run the tests
 
 You need to run the test_HopfieldNetwork.py file to run all the pytests and the doctests.
 
 -> In the terminal, type the command `pytest test_HopfieldNetwork.py`, then, to see the coverage, type the command `coverage run -m pytest test_HopfieldNetwork.py` and then coverage report -m`.
 
--> To only run the doctests, click on "Run Doctests in functions" on PyCharm 
+-> To only run the doctests, click on "Run Doctests in functions" on PyCharm
 
+---
 
-### How to use our project on v7 release
+## How to use our project on v7 release
 
 -> You need to run the "main.py" file to run our project.
 
 All the graphs will be saved under the current directory.
 
+---
 
-### Credits
+## License
 
-ClemenceKiehl & charlottedaumal
+This project is for educational purposes.  
+Content © Charlotte Daumal & Clemence Kiehl. Academic use only.
